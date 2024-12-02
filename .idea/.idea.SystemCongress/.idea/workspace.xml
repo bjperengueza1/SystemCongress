@@ -10,7 +10,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/Commands/ICommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Congress/Commands/CreateCongressCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Congress/Interfaces/ICongressService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Congress/Services/CongressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Congress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Congress.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,9 +29,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bjperengueza1&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/bjperengueza1/SystemCongress.git&quot;,
+    &quot;accountId&quot;: &quot;c7706f33-bae4-4ab9-a640-4f19d640d0f0&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://WeatherForecastController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -35,6 +58,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -181,14 +205,38 @@
       <option name="presentableId" value="Default" />
       <updated>1733151822733</updated>
       <workItem from="1733151827174" duration="4702000" />
+      <workItem from="1733158350356" duration="5140000" />
     </task>
+    <task id="LOCAL-00001" summary="init respository">
+      <option name="closed" value="true" />
+      <created>1733166049326</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733166049326</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="init respository" />
+    <option name="LAST_COMMIT_MESSAGE" value="init respository" />
   </component>
 </project>

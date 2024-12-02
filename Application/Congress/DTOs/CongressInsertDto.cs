@@ -1,9 +1,7 @@
-namespace Domain.Entities;
+namespace Application.Congress.DTOs;
 
-public class Congress
+public class CongressInsertDto
 {
-    public int CongressID { get; set; }
-    
     public string Name { get; set; }
     
     public DateTime StartDate { get; set; }
@@ -11,5 +9,4 @@ public class Congress
     public DateTime EndDate { get; set; }
     
     public string Location { get; set; }
-    
 }

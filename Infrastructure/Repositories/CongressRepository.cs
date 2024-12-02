@@ -14,34 +14,34 @@ public class CongressRepository : ICongressRepository
         _context = context;
     }
     
-    public Task<IEnumerable<Congress>> GetAllAsync()
+    public Task<IEnumerable<Congresso>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Congress> GetByIdAsync(int id)
+    public Task<Congresso> GetByIdAsync(int id)
     {
         throw new NotImplementedException();
     }
 
-    public async Task AddAsync(Congress entity)
+    public async Task AddAsync(Congresso entity)
     {
         await _context.Congresses.AddAsync(entity);
         //throw new NotImplementedException();
     }
 
-    public void UpdateAsync(Congress entity)
+    public void UpdateAsync(Congresso entity)
     {
         throw new NotImplementedException();
     }
 
-    public void DeleteAsync(Congress entity)
+    public void DeleteAsync(Congresso entity)
     {
         throw new NotImplementedException();
     }
 
-    public Task SaveAsync()
+    public async Task SaveAsync()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 }

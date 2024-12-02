@@ -2,7 +2,7 @@ using Domain.Entities;
 
 namespace Domain.Interfaces;
 
-public interface ICongressRepository : IRepository<Congress>
+public interface ICongressRepository : IRepository<Congresso>
 {
     
 }

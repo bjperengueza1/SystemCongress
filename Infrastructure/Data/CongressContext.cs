@@ -8,6 +8,6 @@ public class CongressContext : DbContext
     public CongressContext(DbContextOptions<CongressContext> options) : base(options)
     { }
     
-    public DbSet<Congress> Congresses { get; set; }
+    public DbSet<Congresso> Congresses { get; set; }
     
 }
