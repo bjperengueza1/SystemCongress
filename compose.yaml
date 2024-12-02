@@ -1,0 +1,12 @@
+﻿services:
+  systemcongress:
+    image: systemcongress
+    build:
+      context: .
+      dockerfile: SystemCongress/Dockerfile
+
+  web.api:
+    image: web.api
+    build:
+      context: .
+      dockerfile: Web.Api/Dockerfile

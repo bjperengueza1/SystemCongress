@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14AFE769-4C5E-4681-8EB8-6BA4EE002771}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{22634297-B993-4ED1-931E-A26F523CE708}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api", "Web.Api\Web.Api.csproj", "{B80B73F4-0C54-4617-9D3E-EFB394A9D920}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B80B73F4-0C54-4617-9D3E-EFB394A9D920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80B73F4-0C54-4617-9D3E-EFB394A9D920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80B73F4-0C54-4617-9D3E-EFB394A9D920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80B73F4-0C54-4617-9D3E-EFB394A9D920}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B80B73F4-0C54-4617-9D3E-EFB394A9D920} = {22634297-B993-4ED1-931E-A26F523CE708}
+	EndGlobalSection
+EndGlobal
