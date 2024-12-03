@@ -1,6 +1,4 @@
 using Application.Automappers;
-using Application.Common;
-using Application.Congress.DTOs;
 using Application.Congress.Interfaces;
 using Application.Congress.Services;
 using Domain.Interfaces;

@@ -4,7 +4,7 @@ using Application.Congress.DTOs;
 namespace Application.Congress.Interfaces;
 
 
-public interface ICongressService : ICommonService<CongressDto, CongressInsertDto>
+public interface ICongressService : ICommonService<CongressDto, CongressInsertDto, CongressUpdateDto>
 {
     
 }

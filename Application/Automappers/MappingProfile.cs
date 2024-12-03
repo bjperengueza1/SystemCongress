@@ -10,5 +10,6 @@ public class MappingProfile : Profile
     {
         CreateMap<CongressInsertDto,Congresso>();
         CreateMap<Congresso,CongressDto>();
+        CreateMap<CongressUpdateDto,Congresso>();
     }
 }

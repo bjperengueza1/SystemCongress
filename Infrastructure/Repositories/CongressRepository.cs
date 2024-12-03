@@ -1,6 +1,7 @@
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Repositories;
 
@@ -14,25 +15,25 @@ public class CongressRepository : ICongressRepository
         _context = context;
     }
     
-    public Task<IEnumerable<Congresso>> GetAllAsync()
+    public async Task<IEnumerable<Congresso>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Congresses.ToListAsync();
     }
 
-    public Task<Congresso> GetByIdAsync(int id)
+    public async Task<Congresso> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Congresses.FindAsync(id);
     }
 
     public async Task AddAsync(Congresso entity)
     {
         await _context.Congresses.AddAsync(entity);
-        //throw new NotImplementedException();
     }
 
     public void UpdateAsync(Congresso entity)
     {
-        throw new NotImplementedException();
+        _context.Congresses.Attach(entity);
+        _context.Entry(entity).State = EntityState.Modified;
     }
 
     public void DeleteAsync(Congresso entity)

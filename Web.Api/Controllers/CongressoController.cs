@@ -17,12 +17,34 @@ namespace Web.Api.Controllers
             _congressService = congressService;
         }
         
+        [HttpGet]
+        public async Task<IEnumerable<CongressDto>> GetCongressos()
+        {
+            return await _congressService.GetAllAsync();
+        }
+        
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CongressDto>> GetCongresso(int id)
+        {
+            var congressDto = await _congressService.GetByIdAsync(id);
+            
+            return congressDto == null ? NotFound() : Ok(congressDto);
+        }
+        
         [HttpPost]
-        public async Task<ActionResult> AddCongresso([FromBody] CongressInsertDto insertDto)
+        public async Task<IActionResult> AddCongresso([FromBody] CongressInsertDto insertDto)
         {
             var congressDto = await _congressService.CreateAsync(insertDto);
             
-            return CreatedAtAction(nameof(AddCongresso), new { id = congressDto.CongressID}, congressDto);
+            return CreatedAtAction(nameof(AddCongresso), new { id = congressDto.CongressID});
+        }
+        
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCongresso(int id, [FromBody] CongressUpdateDto updateDto)
+        {
+            var congressDto = await _congressService.UpdateAsync(id, updateDto);
+            
+            return congressDto == null ? NotFound() : Ok(congressDto);
         }
     }
 }

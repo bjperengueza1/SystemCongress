@@ -1,6 +1,9 @@
 namespace Application.Common;
 
-public interface ICommonService<T,TI>
+public interface ICommonService<T,TI,TU>
 {
-    Task<T> CreateAsync(TI ti); 
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<T> GetByIdAsync(int id);
+    Task<T> CreateAsync(TI ti);
+    Task<T> UpdateAsync(int id, TU tu);
 }

@@ -17,6 +17,15 @@ public interface IRepository<T> where T : class
     // Delete entity
     void DeleteAsync(T entity);
     
+    //change state of entity
+    //void ChangeState(T entity, EntityState state);
+    
+    //disable entity
+    //void Disable(T entity);
+    
+    //enable entity
+    //void Enable(T entity);
+    
     // Save changes async
     Task SaveAsync();
 }
