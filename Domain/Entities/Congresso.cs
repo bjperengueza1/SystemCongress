@@ -7,7 +7,7 @@ public class Congresso
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int CongressID { get; set; }
+    public int CongressId { get; set; }
     
     public string Name { get; set; }
     
