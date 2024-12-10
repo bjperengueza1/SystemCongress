@@ -16,13 +16,16 @@ public class Congresso
     public DateTime EndDate { get; set; }
     
     public string Location { get; set; }
-
-    public Congresso(string name, DateTime startDate, DateTime endDate, string location)
+    
+    //one Congresso has many Exposures
+    public virtual ICollection<Exposure> Exposures { get; set; }
+    
+    /*public Congresso(string name, DateTime startDate, DateTime endDate, string location)
     {
         Name = name;
         StartDate = startDate;
         EndDate = endDate;
         Location = location;
-    }
+    }*/
 
 }

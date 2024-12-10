@@ -1,13 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Entities.Enums;
 
-namespace Domain.Entities;
+namespace Application.Author.DTOs;
 
-public class Author
+public class AuthorDto
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int AuthorId { get; set; }
     
     //position of the author in the list of authors
@@ -31,7 +27,4 @@ public class Author
     
     // Foreign Key for Exposure
     public int ExposureId { get; set; }
-    //set name of the foreign key is ExposureId
-    [ForeignKey("ExposureId")]
-    public virtual Exposure Exposure { get; set; }
 }

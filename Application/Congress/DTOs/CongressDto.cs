@@ -2,7 +2,7 @@ namespace Application.Congress.DTOs;
 
 public class CongressDto
 {
-    public int CongressID { get; set; }
+    public int CongressId { get; set; }
     
     public string Name { get; set; }
     

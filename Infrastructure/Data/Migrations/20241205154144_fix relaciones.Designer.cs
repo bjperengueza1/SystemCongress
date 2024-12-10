@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CongressContext))]
-    partial class CongressContextModelSnapshot : ModelSnapshot
+    [Migration("20241205154144_fix relaciones")]
+    partial class fixrelaciones
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,9 +44,6 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("ExposureId")
-                        .HasColumnType("int");
-
                     b.Property<string>("IDNumber")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -64,12 +64,7 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Position")
-                        .HasColumnType("int");
-
                     b.HasKey("AuthorId");
-
-                    b.HasIndex("ExposureId");
 
                     b.ToTable("Authors");
                 });
@@ -122,26 +117,11 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("StatusExposure")
                         .HasColumnType("int");
 
-                    b.Property<string>("SummaryFilePath")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.HasKey("ExposureId");
 
                     b.HasIndex("CongressId");
 
                     b.ToTable("Exposures");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Author", b =>
-                {
-                    b.HasOne("Domain.Entities.Exposure", "Exposure")
-                        .WithMany("Authors")
-                        .HasForeignKey("ExposureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Exposure");
                 });
 
             modelBuilder.Entity("Domain.Entities.Exposure", b =>
@@ -158,11 +138,6 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Congresso", b =>
                 {
                     b.Navigation("Exposures");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Exposure", b =>
-                {
-                    b.Navigation("Authors");
                 });
 #pragma warning restore 612, 618
         }

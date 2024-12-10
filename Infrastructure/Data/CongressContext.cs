@@ -10,6 +10,8 @@ public class CongressContext : DbContext
     
     public DbSet<Congresso> Congresses { get; set; }
     
+    public DbSet<Exposure> Exposures { get; set; }
+    
     public DbSet<Author> Authors { get; set; }
     
 }
