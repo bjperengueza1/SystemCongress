@@ -10,44 +10,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Author/DTOs/AuthorDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Author/DTOs/AuthorInsertDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureUpdateDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Files/DTOs/FileUploadDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Files/FileService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Files/FileStorageService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Files/Interfaces/IFileService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Files/Interfaces/IFileStorageService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Helpers/FileValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Entities/Enums/StatusExposure.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Entities/FileUploaded.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20241205153808_relaciones.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20241205153808_relaciones.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20241205154144_fix relaciones.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20241205154144_fix relaciones.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20241205154417_fix relaciones v2.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20241205154417_fix relaciones v2.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposureController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web.Api/DTOs/ExposureInsertFormDto.cs" afterDir="false" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="faltaantes">
+      <change afterPath="$PROJECT_DIR$/Domain/Entities/Attendance.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Entities/Enums/RolerUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Entities/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Automappers/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congress/DTOs/CongressDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congress/DTOs/CongressDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Author.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Author.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Congresso.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Congresso.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Enums/AcademicDegree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Enums/AcademicDegree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Enums/ResearchLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Enums/ResearchLine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +160,7 @@
       <workItem from="1733493025863" duration="5818000" />
       <workItem from="1733505472949" duration="2278000" />
       <workItem from="1733762111028" duration="2479000" />
+      <workItem from="1733838660940" duration="1756000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -217,7 +186,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733296630653</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="expsures">
+      <option name="closed" value="true" />
+      <created>1733838702955</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733838702955</updated>
+    </task>
+    <task id="LOCAL-00005" summary="faltaantes">
+      <option name="closed" value="true" />
+      <created>1733838722590</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733838722590</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +226,8 @@
     <MESSAGE value="init respository" />
     <MESSAGE value="add migration ef" />
     <MESSAGE value="as" />
-    <option name="LAST_COMMIT_MESSAGE" value="as" />
+    <MESSAGE value="expsures" />
+    <MESSAGE value="faltaantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="faltaantes" />
   </component>
 </project>
