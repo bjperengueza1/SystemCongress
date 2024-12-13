@@ -20,14 +20,20 @@ public class ExposureService : IExposureService
         _mapper = mapper;
     }
     
-    public Task<IEnumerable<ExposureDto>> GetAllAsync()
+    public async Task<IEnumerable<ExposureDto>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var exposures = await _exposureRepository.GetAllAsync();
+        
+        return exposures.Select(c => _mapper.Map<ExposureDto>(c));
     }
 
-    public Task<ExposureDto> GetByIdAsync(int id)
+    public async Task<ExposureDto> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var exposure = await _exposureRepository.GetByIdAsync(id);
+        
+        if (exposure == null) return null;
+        
+        return _mapper.Map<ExposureDto>(exposure);
     }
 
     public async Task<ExposureDto> CreateAsync(ExposureInsertDto ti)
@@ -44,5 +50,20 @@ public class ExposureService : IExposureService
     public Task<ExposureDto> UpdateAsync(int id, ExposureUpdateDto tu)
     {
         throw new NotImplementedException();
+    }
+    
+    public async Task<ExposureDto> ChangeStatusAsync(int id, ExposureUpdateStatusDto exposureUpdateStatusDto)
+    {
+        //Traigo el objeto
+        var congress = await _exposureRepository.GetByIdAsync(id);
+        
+        if (congress == null) return null;
+        
+        //Y lo que coincida lo actualizo
+        congress = _mapper.Map(exposureUpdateStatusDto, congress);
+        
+        _exposureRepository.UpdateAsync(congress);
+        
+        return _mapper.Map<ExposureDto>(congress);
     }
 }

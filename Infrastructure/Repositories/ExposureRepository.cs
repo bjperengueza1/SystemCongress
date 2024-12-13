@@ -1,6 +1,8 @@
 using Domain.Entities;
+using Domain.Entities.Enums;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Repositories;
 
@@ -14,12 +16,14 @@ public class ExposureRepository : IExposureRepository
     }
     public async Task<IEnumerable<Exposure>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Exposures.ToListAsync();
     }
 
     public async Task<Exposure> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Exposures
+            .Include(e => e.Authors)
+            .FirstOrDefaultAsync(e => e.ExposureId == id);
     }
 
     public async Task AddAsync(Exposure entity)
@@ -43,7 +47,8 @@ public class ExposureRepository : IExposureRepository
 
     public void UpdateAsync(Exposure entity)
     {
-        throw new NotImplementedException();
+        _context.Exposures.Attach(entity);
+        _context.Entry(entity).State = EntityState.Modified;
     }
 
     public void DeleteAsync(Exposure entity)

@@ -3,6 +3,7 @@ using Application.Author.DTOs;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using Application.Files.Interfaces;
+using AutoMapper;
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,33 +17,43 @@ namespace Web.Api.Controllers
     {
         public readonly IExposureService _exposureService;
         public readonly IFileService _fileService;
+        private readonly IMapper _mapper;
         
         
         public ExposureController(
             IExposureService exposureService,
-            IFileService fileService
+            IFileService fileService,
+            IMapper mapper
             )
         {
             _exposureService = exposureService;
             _fileService = fileService;
+            _mapper = mapper;
         }
         
-        [HttpPost]
-        public async Task<ActionResult> AddExposure(
-            IFormFile pdfFile,
-            [FromForm] ExposureInsertFormDto insertFormDto
-            )
+        //get all
+        [HttpGet]
+        public async Task<IEnumerable<ExposureDto>> GetExposures()
         {
-
-            var insertDto = new ExposureInsertDto()
-            {
-                NameExposure = insertFormDto.NameExposure,
-                ResearchLine = insertFormDto.ResearchLine,
-                CongressId = insertFormDto.CongressId,
-                Authors = JsonSerializer.Deserialize<List<AuthorInsertDto>>(insertFormDto.Authors),
-                SummaryFilePath = ""
-            };
+            return await _exposureService.GetAllAsync();
+        }
+        
+        //get by id
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ExposureDto>> GetExposure(int id)
+        {
+            var exposureDto = await _exposureService.GetByIdAsync(id);
             
+            return exposureDto == null ? NotFound() : Ok(exposureDto);
+        }
+        
+        
+        //create exposure
+        [HttpPost]
+        public async Task<ActionResult> AddExposure(IFormFile pdfFile, [FromForm] ExposureInsertFormDto insertFormDto )
+        {
+            /*Console.WriteLine(insertFormDto.Authors[0].Name);
+            return Ok();*/
             
             if (pdfFile == null || pdfFile.Length == 0)
             {
@@ -66,12 +77,9 @@ namespace Web.Api.Controllers
                 return BadRequest(e.Message);
             }
             
-            var authors = insertDto.Authors;
-            Console.WriteLine(authors.Count);
-            foreach (var author in authors)
-            {
-                //Console.WriteLine(author.Name);
-            }
+            var insertDto = _mapper.Map<ExposureInsertDto>(insertFormDto);
+            
+            insertDto.Authors = JsonSerializer.Deserialize<List<AuthorInsertDto>>(insertFormDto.Authors);
             
             insertDto.SummaryFilePath = fileUploaded.FileName;
             var exposureDto = await _exposureService.CreateAsync(insertDto);
@@ -84,5 +92,32 @@ namespace Web.Api.Controllers
             return CreatedAtAction(nameof(AddExposure), new { id = exposureDto.ExposureId}, exposureDto);
         }
         
+        //update exposure
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateExposure(int id, [FromBody] ExposureUpdateDto updateDto)
+        {
+            var exposureDto = await _exposureService.UpdateAsync(id, updateDto);
+
+            if (exposureDto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(exposureDto);
+        }
+        
+        //aprobe or reject exposure
+        [HttpPut("{id}/status")]
+        public async Task<ActionResult> UpdateStatusExposure(int id, [FromBody] ExposureUpdateStatusDto updateStatusDto)
+        {
+            var exposureDto = await _exposureService.ChangeStatusAsync(id, updateStatusDto);
+
+            if (exposureDto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(exposureDto);
+        }  
     }
 }

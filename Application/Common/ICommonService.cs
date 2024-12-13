@@ -6,4 +6,5 @@ public interface ICommonService<T,TI,TU>
     Task<T> GetByIdAsync(int id);
     Task<T> CreateAsync(TI ti);
     Task<T> UpdateAsync(int id, TU tu);
+    
 }

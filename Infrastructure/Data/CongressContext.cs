@@ -18,4 +18,13 @@ public class CongressContext : DbContext
     
     public DbSet<User> Users { get; set; }
     
+    // Método OnModelCreating para configuraciones avanzadas
+    /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // Configuración para convertir Enum a string
+        modelBuilder.Entity<Exposure>()
+            .Property(e => e.StatusExposure)
+            .HasConversion<string>(); // Convierte el enum a string al guardar/leer
+    }*/
+    
 }

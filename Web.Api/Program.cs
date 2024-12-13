@@ -51,6 +51,28 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.Use(async (context, next) =>
+{
+    
+    /*context.Request.EnableBuffering();
+
+    // Leer el cuerpo de la solicitud
+    using (var reader = new StreamReader(
+               context.Request.Body,
+               encoding: System.Text.Encoding.UTF8,
+               detectEncodingFromByteOrderMarks: false,
+               bufferSize: 1024,
+               leaveOpen: true))
+    {
+        var body = await reader.ReadToEndAsync();
+
+        // Do some processing with body…
+        Console.WriteLine(body);
+    }*/
+    
+    await next.Invoke();
+});
+
 app.MapControllers();
 
 app.Run();
