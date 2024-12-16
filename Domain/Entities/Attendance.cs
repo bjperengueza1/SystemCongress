@@ -11,22 +11,14 @@ public class Attendance
     
     public DateTime Date { get; set; }
     
-    public string Name { get; set; }
-    
-    public string Email { get; set; }
-    
-    public string Phone { get; set; }
-    
-    public string Institution { get; set; }
-    
-    public string IDNumber { get; set; }
+    public int AttendeeId { get; set; }
+    // Foreign Key for Attendee
+    [ForeignKey("AttendeeId")]
+    public virtual Attendee Attendee { get; set; }
     
     // Foreign Key for Exposure
     public int ExposureId { get; set; }
     //set name of the foreign key is ExposureId
     [ForeignKey("ExposureId")]
     public virtual Exposure Exposure { get; set; }
-    
-    
-    
 }

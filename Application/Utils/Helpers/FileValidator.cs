@@ -1,4 +1,4 @@
-namespace Application.Helpers;
+namespace Application.Utils.Helpers;
 
 public static class FileValidator
 {

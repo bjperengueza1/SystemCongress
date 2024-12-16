@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CongressContext))]
-    [Migration("20241210142658_v4")]
-    partial class v4
+    [Migration("20241216053415_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,15 +33,35 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("AttendanceId"));
 
+                    b.Property<int>("AttendeeId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<int>("ExposureId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AttendanceId");
+
+                    b.HasIndex("AttendeeId");
+
+                    b.HasIndex("ExposureId");
+
+                    b.ToTable("Attendances");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Attendee", b =>
+                {
+                    b.Property<int>("AttendeeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("AttendeeId"));
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<int>("ExposureId")
-                        .HasColumnType("int");
 
                     b.Property<string>("IDNumber")
                         .IsRequired()
@@ -59,11 +79,9 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("AttendanceId");
+                    b.HasKey("AttendeeId");
 
-                    b.HasIndex("ExposureId");
-
-                    b.ToTable("Attendances");
+                    b.ToTable("Attendees");
                 });
 
             modelBuilder.Entity("Domain.Entities.Author", b =>
@@ -153,14 +171,14 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ExposureId"));
 
-                    b.Property<int>("CongressId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("ResearchLine")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoomId")
                         .HasColumnType("int");
 
                     b.Property<int>("StatusExposure")
@@ -172,9 +190,38 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("ExposureId");
 
-                    b.HasIndex("CongressId");
+                    b.HasIndex("RoomId");
 
                     b.ToTable("Exposures");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Room", b =>
+                {
+                    b.Property<int>("RoomId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("RoomId"));
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CongressoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("RoomId");
+
+                    b.HasIndex("CongressoId");
+
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("Domain.Entities.User", b =>
@@ -221,11 +268,19 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Attendance", b =>
                 {
+                    b.HasOne("Domain.Entities.Attendee", "Attendee")
+                        .WithMany("Attendances")
+                        .HasForeignKey("AttendeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Entities.Exposure", "Exposure")
-                        .WithMany()
+                        .WithMany("Attendances")
                         .HasForeignKey("ExposureId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Attendee");
 
                     b.Navigation("Exposure");
                 });
@@ -243,23 +298,46 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Exposure", b =>
                 {
-                    b.HasOne("Domain.Entities.Congresso", "Congresso")
+                    b.HasOne("Domain.Entities.Room", "Room")
                         .WithMany("Exposures")
-                        .HasForeignKey("CongressId")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Room", b =>
+                {
+                    b.HasOne("Domain.Entities.Congresso", "Congresso")
+                        .WithMany("Rooms")
+                        .HasForeignKey("CongressoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Congresso");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Attendee", b =>
+                {
+                    b.Navigation("Attendances");
+                });
+
             modelBuilder.Entity("Domain.Entities.Congresso", b =>
                 {
-                    b.Navigation("Exposures");
+                    b.Navigation("Rooms");
                 });
 
             modelBuilder.Entity("Domain.Entities.Exposure", b =>
                 {
+                    b.Navigation("Attendances");
+
                     b.Navigation("Authors");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Room", b =>
+                {
+                    b.Navigation("Exposures");
                 });
 #pragma warning restore 612, 618
         }

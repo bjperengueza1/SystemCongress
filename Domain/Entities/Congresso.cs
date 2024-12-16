@@ -18,14 +18,6 @@ public class Congresso
     public string Location { get; set; }
     
     //one Congresso has many Exposures
-    public virtual ICollection<Exposure> Exposures { get; set; }
-    
-    /*public Congresso(string name, DateTime startDate, DateTime endDate, string location)
-    {
-        Name = name;
-        StartDate = startDate;
-        EndDate = endDate;
-        Location = location;
-    }*/
+    public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
 
 }

@@ -1,5 +1,5 @@
 using Application.Files.Interfaces;
-using Application.Helpers;
+using Application.Utils.Helpers;
 using Domain.Entities;
 
 namespace Application.Files;

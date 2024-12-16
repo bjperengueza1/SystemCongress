@@ -16,15 +16,17 @@ public class Exposure
     
     public ResearchLine ResearchLine { get; set; }
     
-    // Foreign Key for Congresoo
-    public int CongressId { get; set; }
-    //set name of the foreign key is CongressId
-    [ForeignKey("CongressId")]
-    public virtual Congresso Congresso { get; set; }
+    // Foreign Key for Room
+    public int RoomId { get; set; }
+    //set name of the foreign key is RoomId
+    [ForeignKey("RoomId")]
+    public virtual Room? Room { get; set; }
     
     //exposure can have max 3 authors
     public virtual ICollection<Author> Authors { get; set; }
     
     public string SummaryFilePath { get; set; }
+    
+    public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
     
 }

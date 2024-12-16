@@ -5,7 +5,7 @@ using Application.Exposures.DTOs;
 using AutoMapper;
 using Domain.Entities;
 
-namespace Application.Automappers;
+namespace Application.Utils.Automappers;
 
 public class MappingProfile : Profile
 {

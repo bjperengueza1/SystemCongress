@@ -1,4 +1,4 @@
-using Application.Automappers;
+using Application.Utils.Automappers;
 using Application.Congress.Interfaces;
 using Application.Congress.Services;
 using Application.Exposures.Interfaces;
