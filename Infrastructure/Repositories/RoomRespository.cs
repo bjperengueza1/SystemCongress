@@ -1,6 +1,7 @@
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Repositories;
 
@@ -13,24 +14,25 @@ public class RoomRespository : IRoomRepository
         _context = context;
     }
     
-    public Task<IEnumerable<Room>> GetAllAsync()
+    public async Task<IEnumerable<Room>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Rooms.ToListAsync();
     }
 
-    public Task<Room> GetByIdAsync(int id)
+    public async Task<Room> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Rooms.FindAsync(id);
     }
 
-    public Task AddAsync(Room entity)
+    public async Task AddAsync(Room entity)
     {
-        throw new NotImplementedException();
+        await _context.Rooms.AddAsync(entity);
     }
 
     public void UpdateAsync(Room entity)
     {
-        throw new NotImplementedException();
+        _context.Rooms.Attach(entity);
+        _context.Entry(entity).State = EntityState.Modified;
     }
 
     public void DeleteAsync(Room entity)
@@ -38,8 +40,8 @@ public class RoomRespository : IRoomRepository
         throw new NotImplementedException();
     }
 
-    public Task SaveAsync()
+    public async Task SaveAsync()
     {
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
     }
 }

@@ -2,6 +2,7 @@ using System.Text.Json;
 using Application.Author.DTOs;
 using Application.Congress.DTOs;
 using Application.Exposures.DTOs;
+using Application.Rooms.DTOs;
 using AutoMapper;
 using Domain.Entities;
 
@@ -15,6 +16,11 @@ public class MappingProfile : Profile
         CreateMap<CongressInsertDto,Congresso>();
         CreateMap<Congresso,CongressDto>();
         CreateMap<CongressUpdateDto,Congresso>();
+        
+        //Rooms
+        CreateMap<RoomInsertDto, Room>();
+        CreateMap<Room, RoomDto>();
+        CreateMap<RoomUpdateDto, Room>();
         
         //Exposiciones
         CreateMap<ExposureInsertFormDto, ExposureInsertDto>()

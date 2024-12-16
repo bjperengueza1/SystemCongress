@@ -24,10 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Areas\RoomController\Controllers\" />
-      <Folder Include="Areas\RoomController\Data\" />
-      <Folder Include="Areas\RoomController\Models\" />
-      <Folder Include="Areas\RoomController\Views\" />
       <Folder Include="Controllers\" />
     </ItemGroup>
 

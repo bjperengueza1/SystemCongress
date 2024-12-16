@@ -5,6 +5,8 @@ using Application.Exposures.Interfaces;
 using Application.Exposures.Services;
 using Application.Files;
 using Application.Files.Interfaces;
+using Application.Rooms.Interfaces;
+using Application.Rooms.Services;
 using Domain.Interfaces;
 using Domain.Repositories;
 using Infrastructure.Data;
@@ -25,6 +27,9 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddScoped<ICongressRepository, CongressRepository>(); // Asegúrate de que CongresoRepository implemente ICongresoRepository
 builder.Services.AddScoped<ICongressService, CongressService>();
+
+builder.Services.AddScoped<IRoomRepository, RoomRespository>(); // Asegúrate de que CongresoRepository implemente ICongresoRepository
+builder.Services.AddScoped<IRoomService, RoomService>();
 
 builder.Services.AddScoped<IExposureRepository, ExposureRepository>(); // Asegúrate de que ExposureRepository implemente IExposureRepository
 builder.Services.AddScoped<IExposureService, ExposureService>();

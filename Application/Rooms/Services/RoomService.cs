@@ -1,27 +1,63 @@
 using Application.Rooms.DTOs;
 using Application.Rooms.Interfaces;
+using AutoMapper;
+using Domain.Entities;
+using Domain.Interfaces;
 
 namespace Application.Rooms.Services;
 
 public class RoomService : IRoomService
 {
-    public Task<IEnumerable<RoomDto>> GetAllAsync()
+    private readonly IRoomRepository _roomRepository;
+    private readonly IMapper _mapper;
+    
+    public RoomService(
+        IRoomRepository roomRepository,
+        IMapper mapper)
     {
-        throw new NotImplementedException();
+        _roomRepository = roomRepository;
+        _mapper = mapper;
+    }
+    
+    public async Task<IEnumerable<RoomDto>> GetAllAsync()
+    {
+        var rooms = await _roomRepository.GetAllAsync();
+        
+        return rooms.Select(c => _mapper.Map<RoomDto>(c));
     }
 
-    public Task<RoomDto> GetByIdAsync(int id)
+    public async Task<RoomDto> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var room = await _roomRepository.GetByIdAsync(id);
+        
+        if (room == null) return null;
+        
+        return _mapper.Map<RoomDto>(room);
     }
 
-    public Task<RoomDto> CreateAsync(RoomInsertDto ti)
+    public async Task<RoomDto> CreateAsync(RoomInsertDto ti)
     {
-        throw new NotImplementedException();
+        var room = _mapper.Map<Room>(ti);
+        
+        await _roomRepository.AddAsync(room);
+        await _roomRepository.SaveAsync();
+        
+        return _mapper.Map<RoomDto>(room);
     }
 
-    public Task<RoomDto> UpdateAsync(int id, RoomUpdateDto tu)
+    public async Task<RoomDto> UpdateAsync(int id, RoomUpdateDto tu)
     {
-        throw new NotImplementedException();
+        //Traigo el objeto
+        var room = await _roomRepository.GetByIdAsync(id);
+        
+        if (room == null) return null;
+        
+        //Y lo que coincida lo actualizo
+        room = _mapper.Map(tu, room);
+        
+        _roomRepository.UpdateAsync(room);
+        await _roomRepository.SaveAsync();
+        
+        return _mapper.Map<RoomDto>(room);
     }
 }

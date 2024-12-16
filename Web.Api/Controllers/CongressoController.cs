@@ -35,7 +35,7 @@ namespace Web.Api.Controllers
         {
             var congressDto = await _congressService.CreateAsync(insertDto);
             
-            return CreatedAtAction(nameof(AddCongresso), new { id = congressDto.CongressId});
+            return CreatedAtAction(nameof(GetCongressos), new { id = congressDto.CongressId});
         }
         
         [HttpPut("{id}")]
