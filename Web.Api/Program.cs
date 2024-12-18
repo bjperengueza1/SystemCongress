@@ -8,6 +8,7 @@ using Application.Files.Interfaces;
 using Application.Password;
 using Application.Rooms.Interfaces;
 using Application.Rooms.Services;
+using Application.Token;
 using Application.Users.Interfaces;
 using Application.Users.Services;
 using Domain.Interfaces;
@@ -44,6 +45,8 @@ builder.Services.AddDbContext<CongressContext>(options =>
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>(); // Asegúrate de que CongresoRepository implemente ICongresoRepository
 builder.Services.AddScoped<IUserService, UserService>();
