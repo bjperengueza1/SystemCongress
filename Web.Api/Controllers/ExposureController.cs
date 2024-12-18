@@ -1,5 +1,5 @@
 using System.Text.Json;
-using Application.Author.DTOs;
+using Application.Authors.DTOs;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using Application.Files.Interfaces;
@@ -50,7 +50,7 @@ namespace Web.Api.Controllers
         
         //create exposure
         [HttpPost]
-        public async Task<ActionResult> AddExposure(IFormFile pdfFile, [FromForm] ExposureInsertFormDto insertFormDto )
+        public async Task<IActionResult> AddExposure(IFormFile pdfFile, [FromForm] ExposureInsertFormDto insertFormDto )
         {
             /*Console.WriteLine(insertFormDto.Authors[0].Name);
             return Ok();*/
@@ -89,7 +89,7 @@ namespace Web.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
-            return CreatedAtAction(nameof(AddExposure), new { id = exposureDto.ExposureId}, exposureDto);
+            return CreatedAtAction(nameof(AddExposure), new { id = exposureDto.ExposureId}, null);
         }
         
         //update exposure

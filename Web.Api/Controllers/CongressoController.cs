@@ -1,5 +1,5 @@
-using Application.Congress.DTOs;
-using Application.Congress.Interfaces;
+using Application.Congresses.DTOs;
+using Application.Congresses.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,7 +35,7 @@ namespace Web.Api.Controllers
         {
             var congressDto = await _congressService.CreateAsync(insertDto);
             
-            return CreatedAtAction(nameof(GetCongressos), new { id = congressDto.CongressId});
+            return CreatedAtAction(nameof(GetCongressos), new { id = congressDto.CongressId}, null);
         }
         
         [HttpPut("{id}")]

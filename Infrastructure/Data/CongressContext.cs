@@ -8,13 +8,13 @@ public class CongressContext : DbContext
     public CongressContext(DbContextOptions<CongressContext> options) : base(options)
     { }
     
-    public DbSet<Congresso> Congresses { get; set; }
+    public DbSet<Congress> Congresses { get; set; }
     public DbSet<Room> Rooms { get; set; }
     public DbSet<Exposure> Exposures { get; set; }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Attendee> Attendees { get; set; }
     public DbSet<Attendance> Attendances { get; set; }
-    public DbSet<User> Users { get; set; }
+    public DbSet<User?> Users { get; set; }
     
     // Método OnModelCreating para configuraciones avanzadas
     /*protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -11,7 +11,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/97414bbb-5992-43f8-9d27-54411a4cce33.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/97414bbb-5992-43f8-9d27-54411a4cce33/storage_v2/_src_/schema/V1.mwoAAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/97414bbb-5992-43f8-9d27-54411a4cce33/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/97414bbb-5992-43f8-9d27-54411a4cce33/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/97414bbb-5992-43f8-9d27-54411a4cce33/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Password/IPasswordHasher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Password/PasswordHasher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Users/DTOs/UserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Users/DTOs/UserInsertDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Users/DTOs/UserUpdateDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Users/Interfaces/IUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/IUserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web.Api/Controllers/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Author/DTOs/AuthorDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Authors/DTOs/AuthorDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Author/DTOs/AuthorInsertDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Authors/DTOs/AuthorInsertDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congress/DTOs/CongressDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congress/DTOs/CongressInsertDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressInsertDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congress/DTOs/CongressUpdateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressUpdateDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congress/Interfaces/ICongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congress/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertFormDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertFormDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Congresso.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Congress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Room.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20241216053415_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20241216053415_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposureController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposureController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/DTOs/ExposureInsertFormDtoOld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/DTOs/ExposureInsertFormDtoOld.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +81,11 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/001692eebc4943a8bb6b74aede820489c600/f5/da7d935d/02000005.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/92882234073d4247bed32de2e6cbb4154a00/de/d44003f7/02000006pdb2.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/001692eebc4943a8bb6b74aede820489c600/ca/b639f203/IFormFile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8056cd3f452fefb9834f05cdb275b762dd41f27b7766cd71174e78592dc495b/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df5e878c7ba32868868b7feaf47ebab09f84c77eb0b8252b7c467953ffc45/JsonSerializer.Read.Stream.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Web.Api/Controllers/CongressoController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -53,28 +93,35 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2pfKj1y9ESiXOtZxiym7o2DSNIE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Web.Api: http.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.Web.Api: https.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Web.Api: http.executor": "Run",
+    ".NET Launch Settings Profile.Web.Api: https.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pathVariables",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
@@ -173,7 +220,9 @@
       <workItem from="1734329166211" duration="8000" />
       <workItem from="1734359867600" duration="3948000" />
       <workItem from="1734397947118" duration="43000" />
-      <workItem from="1734408105124" duration="2206000" />
+      <workItem from="1734408105124" duration="2551000" />
+      <workItem from="1734455606594" duration="960000" />
+      <workItem from="1734486006988" duration="11193000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -255,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734363760773</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="cors">
+      <option name="closed" value="true" />
+      <created>1734414624171</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734414624171</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +343,7 @@
     <MESSAGE value="todo" />
     <MESSAGE value="rooms" />
     <MESSAGE value="rooms logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="rooms logic" />
+    <MESSAGE value="cors" />
+    <option name="LAST_COMMIT_MESSAGE" value="cors" />
   </component>
 </project>

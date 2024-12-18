@@ -1,9 +1,7 @@
-namespace Application.Congress.DTOs;
+namespace Application.Congresses.DTOs;
 
-public class CongressDto
+public class CongressInsertDto
 {
-    public int CongressId { get; set; }
-    
     public string Name { get; set; }
     
     public DateTime StartDate { get; set; }

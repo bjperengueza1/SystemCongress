@@ -34,7 +34,7 @@ public class ExposureRepository : IExposureRepository
         //recorrer autores e insertarlos en la tabla de autores
         /*foreach (var author in authors)
         {
-            var authorEntity = new Author
+            var authorEntity = new Authors
             {
                 Name = author.Name,
                 LastName = author.LastName

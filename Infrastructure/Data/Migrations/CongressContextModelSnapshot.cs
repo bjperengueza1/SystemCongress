@@ -133,7 +133,7 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Authors");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Congresso", b =>
+            modelBuilder.Entity("Domain.Entities.Congress", b =>
                 {
                     b.Property<int>("CongressId")
                         .ValueGeneratedOnAdd()
@@ -203,6 +203,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
+                    b.Property<int>("CongressId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CongressoId")
                         .HasColumnType("int");
 
@@ -216,7 +219,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("RoomId");
 
-                    b.HasIndex("CongressoId");
+                    b.HasIndex("CongressId");
 
                     b.ToTable("Rooms");
                 });
@@ -233,30 +236,20 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("IsVerified")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Password")
+                    b.Property<byte[]>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("longblob");
 
-                    b.Property<string>("RefreshToken")
+                    b.Property<byte[]>("PasswordSalt")
                         .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("RefreshTokenExpiryTime")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("longblob");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
-
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.HasKey("UserId");
 
@@ -306,13 +299,13 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Room", b =>
                 {
-                    b.HasOne("Domain.Entities.Congresso", "Congresso")
+                    b.HasOne("Domain.Entities.Congress", "Congress")
                         .WithMany("Rooms")
-                        .HasForeignKey("CongressoId")
+                        .HasForeignKey("CongressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Congresso");
+                    b.Navigation("Congress");
                 });
 
             modelBuilder.Entity("Domain.Entities.Attendee", b =>
@@ -320,7 +313,7 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Attendances");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Congresso", b =>
+            modelBuilder.Entity("Domain.Entities.Congress", b =>
                 {
                     b.Navigation("Rooms");
                 });

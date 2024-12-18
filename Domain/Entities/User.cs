@@ -14,16 +14,18 @@ public class User
     
     public string Email { get; set; }
     
-    public string Password { get; set; }
+    public byte[] PasswordHash { get; set; }
+    
+    public byte[] PasswordSalt { get; set; }
     
     public RolerUser Role { get; set; }
     
-    public string Token { get; set; }
+    /*public string Token { get; set; }
     
     public string RefreshToken { get; set; }
     
     public DateTime RefreshTokenExpiryTime { get; set; }
     
-    public bool IsVerified { get; set; }
+    public bool IsVerified { get; set; }*/
     
 }

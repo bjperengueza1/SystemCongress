@@ -1,4 +1,4 @@
-using Application.Author.DTOs;
+using Application.Authors.DTOs;
 using Domain.Entities.Enums;
 
 namespace Web.Api.DTOs;

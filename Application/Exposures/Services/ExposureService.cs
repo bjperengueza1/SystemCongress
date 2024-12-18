@@ -1,4 +1,4 @@
-using Application.Congress.DTOs;
+using Application.Congresses.DTOs;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using AutoMapper;

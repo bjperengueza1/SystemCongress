@@ -1,15 +1,19 @@
 using Application.Utils.Automappers;
-using Application.Congress.Interfaces;
-using Application.Congress.Services;
+using Application.Congresses.Interfaces;
+using Application.Congresses.Services;
 using Application.Exposures.Interfaces;
 using Application.Exposures.Services;
 using Application.Files;
 using Application.Files.Interfaces;
+using Application.Password;
 using Application.Rooms.Interfaces;
 using Application.Rooms.Services;
+using Application.Users.Interfaces;
+using Application.Users.Services;
 using Domain.Interfaces;
 using Domain.Repositories;
 using Infrastructure.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,6 +42,11 @@ builder.Services.AddDbContext<CongressContext>(options =>
 });
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>(); // Asegúrate de que CongresoRepository implemente ICongresoRepository
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddScoped<ICongressRepository, CongressRepository>(); // Asegúrate de que CongresoRepository implemente ICongresoRepository
 builder.Services.AddScoped<ICongressService, CongressService>();

@@ -67,15 +67,9 @@ namespace Infrastructure.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Email = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Password = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Role = table.Column<int>(type: "int", nullable: false),
-                    Token = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    RefreshToken = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    IsVerified = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    PasswordHash = table.Column<byte[]>(type: "longblob", nullable: false),
+                    PasswordSalt = table.Column<byte[]>(type: "longblob", nullable: false),
+                    Role = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,14 +88,15 @@ namespace Infrastructure.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Capacity = table.Column<int>(type: "int", nullable: false),
                     Location = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CongressId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rooms", x => x.RoomId);
                     table.ForeignKey(
-                        name: "FK_Rooms_Congresses_CongressoId",
-                        column: x => x.CongressoId,
+                        name: "FK_Rooms_Congresses_CongressId",
+                        column: x => x.CongressId,
                         principalTable: "Congresses",
                         principalColumn: "CongressId",
                         onDelete: ReferentialAction.Cascade);
@@ -219,9 +214,9 @@ namespace Infrastructure.Data.Migrations
                 column: "RoomId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rooms_CongressoId",
+                name: "IX_Rooms_CongressId",
                 table: "Rooms",
-                column: "CongressoId");
+                column: "CongressId");
         }
 
         /// <inheritdoc />

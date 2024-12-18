@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities;
 
-public class Congresso
+public class Congress
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,7 +17,7 @@ public class Congresso
     
     public string Location { get; set; }
     
-    //one Congresso has many Exposures
+    //one Congress has many Exposures
     public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
 
 }

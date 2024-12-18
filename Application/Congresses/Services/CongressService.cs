@@ -1,10 +1,10 @@
-using Application.Congress.DTOs;
-using Application.Congress.Interfaces;
+using Application.Congresses.DTOs;
+using Application.Congresses.Interfaces;
 using AutoMapper;
 using Domain.Interfaces;
 using Domain.Entities;
 
-namespace Application.Congress.Services;
+namespace Application.Congresses.Services;
 
 public class CongressService : ICongressService
 {
@@ -38,7 +38,7 @@ public class CongressService : ICongressService
 
     public async Task<CongressDto> CreateAsync(CongressInsertDto insertDto)
     {
-        var congress = _mapper.Map<Congresso>(insertDto);
+        var congress = _mapper.Map<Congress>(insertDto);
         
         await _congressRepository.AddAsync(congress);
         await _congressRepository.SaveAsync();

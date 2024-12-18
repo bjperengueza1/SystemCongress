@@ -1,7 +1,7 @@
 using Application.Common;
-using Application.Congress.DTOs;
+using Application.Congresses.DTOs;
 
-namespace Application.Congress.Interfaces;
+namespace Application.Congresses.Interfaces;
 
 
 public interface ICongressService : ICommonService<CongressDto, CongressInsertDto, CongressUpdateDto>

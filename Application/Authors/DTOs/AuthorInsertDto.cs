@@ -1,6 +1,6 @@
 using Domain.Entities.Enums;
 
-namespace Application.Author.DTOs;
+namespace Application.Authors.DTOs;
 
 public class AuthorInsertDto
 {

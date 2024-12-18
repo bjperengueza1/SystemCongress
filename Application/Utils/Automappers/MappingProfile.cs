@@ -1,8 +1,8 @@
-using System.Text.Json;
-using Application.Author.DTOs;
-using Application.Congress.DTOs;
+using Application.Authors.DTOs;
+using Application.Congresses.DTOs;
 using Application.Exposures.DTOs;
 using Application.Rooms.DTOs;
+using Application.Users.DTOs;
 using AutoMapper;
 using Domain.Entities;
 
@@ -12,10 +12,15 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
+        //Users
+        CreateMap<UserInsertDto, User>();
+        CreateMap<User, UserDto>();
+        
+        
         //Congresos
-        CreateMap<CongressInsertDto,Congresso>();
-        CreateMap<Congresso,CongressDto>();
-        CreateMap<CongressUpdateDto,Congresso>();
+        CreateMap<CongressInsertDto,Congress>();
+        CreateMap<Congress,CongressDto>();
+        CreateMap<CongressUpdateDto,Congress>();
         
         //Rooms
         CreateMap<RoomInsertDto, Room>();
@@ -34,7 +39,7 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors)); // Mapea la colección de Authors
         
         //Autores
-        CreateMap<AuthorInsertDto, Domain.Entities.Author>()
+        CreateMap<AuthorInsertDto, Author>()
             .ForMember(dest => dest.Exposure, opt => opt.Ignore()); // Ignorar la propiedad de navegación
         
         CreateMap<Domain.Entities.Author, AuthorDto>();

@@ -1,9 +1,8 @@
-namespace Application.Congress.DTOs;
+namespace Application.Congresses.DTOs;
 
-public class CongressUpdateDto
+public class CongressDto
 {
-    //No se necesita el ID en el DTO de actualización
-    //public int CongressID { get; set; }
+    public int CongressId { get; set; }
     
     public string Name { get; set; }
     
