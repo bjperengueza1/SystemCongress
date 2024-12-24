@@ -41,6 +41,6 @@ public interface IUserService : ICommonService<UserDto, UserInsertDto, UserUpdat
     
     Task<UserDto?> GetByEmail(string email);
     Task<bool> UserExists(string email);
-    Task<UserDto?> Authenticate(UserLoginDto loginDto);
+    Task<UserLoggedDto?> Authenticate(UserLoginDto loginDto);
     
 }

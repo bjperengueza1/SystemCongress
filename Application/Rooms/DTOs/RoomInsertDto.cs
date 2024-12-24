@@ -2,7 +2,7 @@ namespace Application.Rooms.DTOs;
 
 public class RoomInsertDto
 {
-    public int CongressoId { get; set; }
+    public int CongressId { get; set; }
     
     public string Name { get; set; }
     

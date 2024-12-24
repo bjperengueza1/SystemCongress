@@ -1,3 +1,4 @@
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
@@ -44,5 +45,10 @@ public class CongressRepository : ICongressRepository
     public async Task SaveAsync()
     {
         await _context.SaveChangesAsync();
+    }
+
+    public Task<PagedResult<Congress>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
     }
 }

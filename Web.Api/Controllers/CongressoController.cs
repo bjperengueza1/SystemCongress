@@ -19,6 +19,7 @@ namespace Web.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<CongressDto>> GetCongressos()
         {
+            //quisiera aqui responder paginado, en vez de todos los registros
             return await _congressService.GetAllAsync();
         }
         

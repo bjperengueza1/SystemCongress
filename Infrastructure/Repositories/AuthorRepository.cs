@@ -1,3 +1,4 @@
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
@@ -42,5 +43,10 @@ public class AuthorRepository : IAuthorRepository
     public async Task SaveAsync()
     {
         await _context.SaveChangesAsync();
+    }
+
+    public Task<PagedResult<Author>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,6 +1,7 @@
 using Application.Rooms.DTOs;
 using Application.Rooms.Interfaces;
 using AutoMapper;
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 
@@ -59,5 +60,20 @@ public class RoomService : IRoomService
         await _roomRepository.SaveAsync();
         
         return _mapper.Map<RoomDto>(room);
+    }
+
+    public async Task<PagedResult<RoomDto>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        var pagedData = await _roomRepository.GetPagedAsync(pageNumber, pageSize);
+        
+        return new PagedResult<RoomDto>
+        {
+            Items = pagedData.Items.Select(c => _mapper.Map<RoomDto>(c)),
+            TotalItems = pagedData.TotalItems,
+            PageNumber = pageNumber,
+            PageSize = pageSize
+        };
+        
+        //return rooms.Select(c => _mapper.Map<RoomDto>(c));
     }
 }

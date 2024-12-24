@@ -1,3 +1,5 @@
+using Domain.Common.Pagination;
+
 namespace Domain.Interfaces;
 
 public interface IRepository<T> where T : class
@@ -28,4 +30,7 @@ public interface IRepository<T> where T : class
     
     // Save changes async
     Task SaveAsync();
+    
+    // Get paged entities async
+    Task<PagedResult<T>> GetPagedAsync(int pageNumber, int pageSize);
 }

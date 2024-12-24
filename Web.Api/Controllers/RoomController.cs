@@ -1,5 +1,6 @@
 using Application.Rooms.DTOs;
 using Application.Rooms.Interfaces;
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,9 +19,16 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RoomDto>>> GetRooms()
+        public async Task<ActionResult<PagedResult<RoomDto>>> GetRooms([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var rooms = await _roomService.GetAllAsync();
+            if (pageNumber <= 0 || pageSize <= 0)
+            {
+                return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
+            }
+            
+            //var rooms = await _roomService.GetAllAsync();
+            var rooms = await _roomService.GetPagedAsync(pageNumber, pageSize);
+            
             return Ok(rooms);
         }
 

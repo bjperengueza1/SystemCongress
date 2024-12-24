@@ -89,7 +89,7 @@ namespace Web.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
-            return CreatedAtAction(nameof(AddExposure), new { id = exposureDto.ExposureId}, null);
+            return CreatedAtAction(nameof(GetExposure), new { id = exposureDto.ExposureId}, null);
         }
         
         //update exposure

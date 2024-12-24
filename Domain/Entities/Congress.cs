@@ -17,7 +17,6 @@ public class Congress
     
     public string Location { get; set; }
     
-    //one Congress has many Exposures
     public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
 
 }

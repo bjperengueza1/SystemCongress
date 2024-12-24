@@ -9,7 +9,7 @@ public class Room
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int RoomId { get; set; }
     
-    public int CongressoId { get; set; }
+    public int CongressId { get; set; }
     
     public string Name { get; set; }
     
@@ -17,6 +17,8 @@ public class Room
     
     public string Location { get; set; }
     
+    // Foreign Key for Congress 
+    [ForeignKey("CongressId")]
     public Congress Congress { get; set; }
     
     //one Room has many Exposures

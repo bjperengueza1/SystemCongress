@@ -2,6 +2,7 @@ using Application.Congresses.DTOs;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using AutoMapper;
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 
@@ -51,7 +52,12 @@ public class ExposureService : IExposureService
     {
         throw new NotImplementedException();
     }
-    
+
+    public Task<PagedResult<ExposureDto>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<ExposureDto> ChangeStatusAsync(int id, ExposureUpdateStatusDto exposureUpdateStatusDto)
     {
         //Traigo el objeto

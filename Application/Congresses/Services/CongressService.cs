@@ -1,6 +1,7 @@
 using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
 using AutoMapper;
+using Domain.Common.Pagination;
 using Domain.Interfaces;
 using Domain.Entities;
 
@@ -61,5 +62,10 @@ public class CongressService : ICongressService
         await _congressRepository.SaveAsync();
         
         return _mapper.Map<CongressDto>(congress);
+    }
+
+    public Task<PagedResult<CongressDto>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
     }
 }

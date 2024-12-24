@@ -1,5 +1,7 @@
+using Application.Token;
 using Application.Users.DTOs;
 using Application.Users.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,18 +13,20 @@ namespace Web.Api.Controllers
     {
         private readonly IUserService _userService;
         
-        public AccountController(IUserService userService)
+        public AccountController(IUserService userService, ITokenService tokenService)
         {
             _userService = userService;
         }
         
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<UserDto>> GetUsers()
         {
             return await _userService.GetAllAsync();
         }
         
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<UserDto>> GetUser(int id)
         {
             var userDto = await _userService.GetByIdAsync(id);
@@ -31,6 +35,7 @@ namespace Web.Api.Controllers
         }
         
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> AddUser([FromBody] UserInsertDto insertDto)
         {
             var userDto = await _userService.CreateAsync(insertDto);
@@ -47,17 +52,17 @@ namespace Web.Api.Controllers
         }
         
         [HttpPost("login")]
-        public async Task<ActionResult<UserDto>> Login([FromBody] UserLoginDto loginDto)
+        public async Task<ActionResult<UserLoggedDto>> Login([FromBody] UserLoginDto loginDto)
         {
             var user = await _userService.GetByEmail(loginDto.Email);
             
             if (user == null) return Unauthorized();
             
-            var userDto = await _userService.Authenticate(loginDto);
+            var userLoggedDto = await _userService.Authenticate(loginDto);
             
-            if (userDto == null) return Unauthorized();
+            if (userLoggedDto == null) return Unauthorized();
             
-            return Ok(userDto);
+            return Ok(userLoggedDto);
            
         }
         

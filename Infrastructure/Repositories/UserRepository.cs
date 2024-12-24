@@ -1,3 +1,4 @@
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
@@ -42,7 +43,12 @@ public class UserRepository : IUserRepository
     {
         await _context.SaveChangesAsync();
     }
-    
+
+    public Task<PagedResult<User>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<User?> GetByEmail(string email)
     {
         return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);

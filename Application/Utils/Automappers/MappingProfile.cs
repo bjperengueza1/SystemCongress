@@ -15,7 +15,8 @@ public class MappingProfile : Profile
         //Users
         CreateMap<UserInsertDto, User>();
         CreateMap<User, UserDto>();
-        
+        CreateMap<User,UserLoggedDto>()
+            .ForMember(dest => dest.Token, opt => opt.Ignore());
         
         //Congresos
         CreateMap<CongressInsertDto,Congress>();

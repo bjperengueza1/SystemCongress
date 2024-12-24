@@ -1,3 +1,4 @@
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Entities.Enums;
 using Domain.Interfaces;
@@ -59,5 +60,10 @@ public class ExposureRepository : IExposureRepository
     public async Task SaveAsync()
     {
         await _context.SaveChangesAsync();
+    }
+
+    public Task<PagedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
     }
 }

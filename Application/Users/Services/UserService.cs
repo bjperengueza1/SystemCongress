@@ -1,7 +1,9 @@
 using Application.Password;
+using Application.Token;
 using Application.Users.DTOs;
 using Application.Users.Interfaces;
 using AutoMapper;
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 
@@ -12,12 +14,14 @@ public class UserService : IUserService
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
     private readonly IPasswordHasher _passwordHasher;
+    private readonly ITokenService _tokenService;
     
-    public UserService(IUserRepository userRepository, IMapper mapper, IPasswordHasher passwordHasher)
+    public UserService(IUserRepository userRepository, IMapper mapper, IPasswordHasher passwordHasher,ITokenService tokenService)
     {
         _userRepository = userRepository;
         _mapper = mapper;
         _passwordHasher = passwordHasher;
+        _tokenService = tokenService;
     }
     
     public async Task<IEnumerable<UserDto>> GetAllAsync()
@@ -49,7 +53,12 @@ public class UserService : IUserService
     {
         throw new NotImplementedException();
     }
-    
+
+    public Task<PagedResult<UserDto>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<UserDto?> GetByEmail(string email)
     {
         var user = await _userRepository.GetByEmail(email);
@@ -61,7 +70,7 @@ public class UserService : IUserService
         return await _userRepository.UserExists(email);
     }
     
-    public async Task<UserDto?> Authenticate(UserLoginDto loginDto)
+    public async Task<UserLoggedDto?> Authenticate(UserLoginDto loginDto)
     {
         var user = await _userRepository.GetByEmail(loginDto.Email);
         
@@ -72,7 +81,11 @@ public class UserService : IUserService
             return null;
         }
         
-        return _mapper.Map<UserDto>(user);
+        var userLoggedDto = _mapper.Map<UserLoggedDto>(user);
+        
+        userLoggedDto.Token = _tokenService.CreateToken(userLoggedDto);
+
+        return userLoggedDto;
     }
     
 }

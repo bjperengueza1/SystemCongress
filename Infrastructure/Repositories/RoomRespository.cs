@@ -1,3 +1,4 @@
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
@@ -43,5 +44,23 @@ public class RoomRespository : IRoomRepository
     public async Task SaveAsync()
     {
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<PagedResult<Room>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        var rooms = await _context.Rooms
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
+        var totalRooms = await _context.Rooms.CountAsync();
+        
+        return new PagedResult<Room>
+        {
+            Items = rooms,
+            TotalItems = totalRooms,
+            PageNumber = pageNumber,
+            PageSize = pageSize
+        };
     }
 }
