@@ -10,4 +10,19 @@ public class PagedResult<T>
 
     public bool HasPreviousPage => PageNumber > 1;
     public bool HasNextPage => PageNumber < TotalPages;
+    
+    public PagedResult<U> Map<U>(Func<T, U> transform)
+    {
+        if (transform == null) throw new ArgumentNullException(nameof(transform));
+
+        var transformedItems = Items.Select(transform).ToList();
+        return new PagedResult<U>
+        {
+            Items = transformedItems,
+            TotalItems = TotalItems,
+            PageNumber = PageNumber,
+            PageSize = PageSize
+        };
+        //return new PagedResult<U>(transformedItems, TotalItems, PageNumber, PageSize);
+    }
 }

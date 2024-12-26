@@ -1,5 +1,6 @@
 using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
+using Domain.Common.Pagination;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,16 @@ namespace Web.Api.Controllers
         }
         
         [HttpGet]
-        public async Task<IEnumerable<CongressDto>> GetCongressos()
+        public async Task<ActionResult<PagedResult<CongressDto>>> GetCongressos([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            //quisiera aqui responder paginado, en vez de todos los registros
-            return await _congressService.GetAllAsync();
+            if (pageNumber <= 0 || pageSize <= 0)
+            {
+                return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
+            }
+            
+            var congressos = await _congressService.GetPagedAsync(pageNumber, pageSize);
+            
+            return Ok(congressos);
         }
         
         [HttpGet("{id}")]

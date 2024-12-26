@@ -10,37 +10,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Users/DTOs/UserLoggedDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Common/Pagination/PagedResult.cs" afterDir="false" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="pagination">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/ICommonService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/ICommonService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Rooms/Services/RoomService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Rooms/Services/RoomService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Token/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Token/TokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Users/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Interfaces/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Congress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Congress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Enums/ResearchLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Enums/ResearchLine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Room.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Common/Pagination/PagedResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Common/Pagination/PagedResult.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/RoomRespository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/RoomRespository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Settings/TokenSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Settings/TokenSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposureController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposureController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/RoomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/RoomController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Web.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Web.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +189,8 @@
       <workItem from="1734724449402" duration="837000" />
       <workItem from="1734726560678" duration="270000" />
       <workItem from="1734986573608" duration="176000" />
-      <workItem from="1735017080302" duration="3093000" />
+      <workItem from="1735017080302" duration="3486000" />
+      <workItem from="1735197296079" duration="2280000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -319,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734532756295</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="pagination">
+      <option name="closed" value="true" />
+      <created>1735020566142</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1735020566142</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +338,7 @@
     <MESSAGE value="cors" />
     <MESSAGE value="login witchout jwt" />
     <MESSAGE value="antes de agregar referencia" />
-    <option name="LAST_COMMIT_MESSAGE" value="antes de agregar referencia" />
+    <MESSAGE value="pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagination" />
   </component>
 </project>

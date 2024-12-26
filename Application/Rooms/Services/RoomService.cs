@@ -66,14 +66,6 @@ public class RoomService : IRoomService
     {
         var pagedData = await _roomRepository.GetPagedAsync(pageNumber, pageSize);
         
-        return new PagedResult<RoomDto>
-        {
-            Items = pagedData.Items.Select(c => _mapper.Map<RoomDto>(c)),
-            TotalItems = pagedData.TotalItems,
-            PageNumber = pageNumber,
-            PageSize = pageSize
-        };
-        
-        //return rooms.Select(c => _mapper.Map<RoomDto>(c));
+        return pagedData.Map(c => _mapper.Map<RoomDto>(c));
     }
 }

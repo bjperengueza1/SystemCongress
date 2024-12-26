@@ -47,8 +47,21 @@ public class CongressRepository : ICongressRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PagedResult<Congress>> GetPagedAsync(int pageNumber, int pageSize)
+    public async Task<PagedResult<Congress>> GetPagedAsync(int pageNumber, int pageSize)
     {
-        throw new NotImplementedException();
+        var congresses = await _context.Congresses
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
+        var totalCongresses = await _context.Congresses.CountAsync();
+        
+        return new PagedResult<Congress>
+        {
+            Items = congresses,
+            TotalItems = totalCongresses,
+            PageNumber = pageNumber,
+            PageSize = pageSize
+        };
     }
 }
