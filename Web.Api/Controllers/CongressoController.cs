@@ -1,6 +1,7 @@
 using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
 using Domain.Common.Pagination;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,7 @@ namespace Web.Api.Controllers
         }
         
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<PagedResult<CongressDto>>> GetCongressos([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
             if (pageNumber <= 0 || pageSize <= 0)
@@ -31,6 +33,7 @@ namespace Web.Api.Controllers
         }
         
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<CongressDto>> GetCongresso(int id)
         {
             var congressDto = await _congressService.GetByIdAsync(id);
@@ -39,6 +42,7 @@ namespace Web.Api.Controllers
         }
         
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddCongresso([FromBody] CongressInsertDto insertDto)
         {
             var congressDto = await _congressService.CreateAsync(insertDto);
@@ -47,6 +51,7 @@ namespace Web.Api.Controllers
         }
         
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> UpdateCongresso(int id, [FromBody] CongressUpdateDto updateDto)
         {
             var congressDto = await _congressService.UpdateAsync(id, updateDto);
