@@ -1,11 +1,10 @@
 using Domain.Common.Pagination;
 using Domain.Entities;
-using Domain.Entities.Enums;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Repositories;
+namespace Infrastructure.Repositories;
 
 public class ExposureRepository : IExposureRepository
 {
@@ -62,7 +61,17 @@ public class ExposureRepository : IExposureRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PagedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize)
+    public Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<PaginatedResult<Exposure>> GetExposuresByRoomPagedAsync(int roomId, int pageNumber, int pageSize)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<PaginatedResult<Exposure>> GetExposuresByCongressPagedAsync(int congressId, int pageNumber, int pageSize)
     {
         throw new NotImplementedException();
     }

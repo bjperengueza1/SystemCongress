@@ -2,25 +2,24 @@ using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
 using Domain.Common.Pagination;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CongressoController : ControllerBase
+    public class CongressController : ControllerBase
     {
         private readonly ICongressService _congressService;
         
-        public CongressoController(ICongressService congressService)
+        public CongressController(ICongressService congressService)
         {
             _congressService = congressService;
         }
         
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<PagedResult<CongressDto>>> GetCongressos([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongressos([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
             if (pageNumber <= 0 || pageSize <= 0)
             {

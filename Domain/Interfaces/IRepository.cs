@@ -32,5 +32,5 @@ public interface IRepository<T> where T : class
     Task SaveAsync();
     
     // Get paged entities async
-    Task<PagedResult<T>> GetPagedAsync(int pageNumber, int pageSize);
+    Task<PaginatedResult<T>> GetPagedAsync(int pageNumber, int pageSize);
 }

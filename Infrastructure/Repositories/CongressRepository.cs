@@ -4,7 +4,7 @@ using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Repositories;
+namespace Infrastructure.Repositories;
 
 public class CongressRepository : ICongressRepository
 {
@@ -47,7 +47,7 @@ public class CongressRepository : ICongressRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<PagedResult<Congress>> GetPagedAsync(int pageNumber, int pageSize)
+    public async Task<PaginatedResult<Congress>> GetPagedAsync(int pageNumber, int pageSize)
     {
         var congresses = await _context.Congresses
             .Skip((pageNumber - 1) * pageSize)
@@ -56,7 +56,7 @@ public class CongressRepository : ICongressRepository
         
         var totalCongresses = await _context.Congresses.CountAsync();
         
-        return new PagedResult<Congress>
+        return new PaginatedResult<Congress>
         {
             Items = congresses,
             TotalItems = totalCongresses,

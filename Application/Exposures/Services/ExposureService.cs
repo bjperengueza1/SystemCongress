@@ -53,7 +53,7 @@ public class ExposureService : IExposureService
         throw new NotImplementedException();
     }
 
-    public Task<PagedResult<ExposureDto>> GetPagedAsync(int pageNumber, int pageSize)
+    public Task<PaginatedResult<ExposureDto>> GetPagedAsync(int pageNumber, int pageSize)
     {
         throw new NotImplementedException();
     }

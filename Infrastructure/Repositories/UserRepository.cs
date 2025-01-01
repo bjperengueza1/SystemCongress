@@ -4,7 +4,7 @@ using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Repositories;
+namespace Infrastructure.Repositories;
 
 public class UserRepository : IUserRepository
 {
@@ -44,7 +44,7 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PagedResult<User>> GetPagedAsync(int pageNumber, int pageSize)
+    public Task<PaginatedResult<User>> GetPagedAsync(int pageNumber, int pageSize)
     {
         throw new NotImplementedException();
     }

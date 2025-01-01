@@ -13,14 +13,14 @@ namespace Web.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExposureController : ControllerBase
+    public class ExposuresController : ControllerBase
     {
         public readonly IExposureService _exposureService;
         public readonly IFileService _fileService;
         private readonly IMapper _mapper;
         
         
-        public ExposureController(
+        public ExposuresController(
             IExposureService exposureService,
             IFileService fileService,
             IMapper mapper
@@ -118,6 +118,8 @@ namespace Web.Api.Controllers
             }
 
             return Ok(exposureDto);
-        }  
+        }
+        
+        
     }
 }

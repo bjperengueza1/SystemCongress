@@ -27,6 +27,8 @@ public class MappingProfile : Profile
         CreateMap<RoomInsertDto, Room>();
         CreateMap<Room, RoomDto>();
         CreateMap<RoomUpdateDto, Room>();
+        CreateMap<Room, RoomWithCongressDto>()
+            .ForMember(dest => dest.CongressName, opt => opt.MapFrom(src => src.Congress.Name));
         
         //Exposiciones
         CreateMap<ExposureInsertFormDto, ExposureInsertDto>()

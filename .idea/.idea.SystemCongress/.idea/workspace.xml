@@ -10,8 +10,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="update pagination">
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/Rooms/DTOs/RoomWithCongressDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/ICommonService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/ICommonService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Rooms/DTOs/RoomDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Rooms/DTOs/RoomDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Rooms/Interfaces/IRoomService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Rooms/Interfaces/IRoomService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Rooms/Services/RoomService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Rooms/Services/RoomService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Common/Pagination/PagedResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Common/Pagination/PaginatedResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IRoomRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IRoomRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/RoomRespository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/RoomRespository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposureController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/RoomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +64,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/001692eebc4943a8bb6b74aede820489c600/f5/da7d935d/02000005.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/92882234073d4247bed32de2e6cbb4154a00/de/d44003f7/02000006pdb2.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/001692eebc4943a8bb6b74aede820489c600/ca/b639f203/IFormFile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9a00b514f1a941dd9f060453de7f7c4043200/61/a6ad950d/IMapperBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8056cd3f452fefb9834f05cdb275b762dd41f27b7766cd71174e78592dc495b/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df5e878c7ba32868868b7feaf47ebab09f84c77eb0b8252b7c467953ffc45/JsonSerializer.Read.Stream.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -187,6 +212,18 @@
       <workItem from="1735017080302" duration="3486000" />
       <workItem from="1735197296079" duration="2954000" />
       <workItem from="1735261932025" duration="2743000" />
+      <workItem from="1735503652238" duration="30000" />
+      <workItem from="1735503701356" duration="672000" />
+      <workItem from="1735505023151" duration="52000" />
+      <workItem from="1735505097980" duration="828000" />
+      <workItem from="1735532230188" duration="6461000" />
+      <workItem from="1735569281003" duration="129000" />
+      <workItem from="1735586035341" duration="56000" />
+      <workItem from="1735592511161" duration="1152000" />
+      <workItem from="1735593686508" duration="940000" />
+      <workItem from="1735595161082" duration="2666000" />
+      <workItem from="1735743949812" duration="586000" />
+      <workItem from="1735755325936" duration="2152000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />

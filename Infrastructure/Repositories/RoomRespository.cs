@@ -1,10 +1,11 @@
+using Application.Rooms.DTOs;
 using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Repositories;
+namespace Infrastructure.Repositories;
 
 public class RoomRespository : IRoomRepository
 {
@@ -46,7 +47,7 @@ public class RoomRespository : IRoomRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<PagedResult<Room>> GetPagedAsync(int pageNumber, int pageSize)
+    public async Task<PaginatedResult<Room>> GetPagedAsync(int pageNumber, int pageSize)
     {
         var rooms = await _context.Rooms
             .Skip((pageNumber - 1) * pageSize)
@@ -55,7 +56,7 @@ public class RoomRespository : IRoomRepository
         
         var totalRooms = await _context.Rooms.CountAsync();
         
-        return new PagedResult<Room>
+        return new PaginatedResult<Room>
         {
             Items = rooms,
             TotalItems = totalRooms,
@@ -63,4 +64,38 @@ public class RoomRespository : IRoomRepository
             PageSize = pageSize
         };
     }
+
+    public async Task<PaginatedResult<Room>> GetRoomsByCongressPagedAsync(int congressId, int pageNumber, int pageSize)
+    {
+        var query = _context.Rooms
+            .Where(r => r.CongressId == congressId);
+        
+        var rooms = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
+        var totalRooms = await query.CountAsync();
+        
+        return PaginatedResult<Room>.Create(rooms, totalRooms, pageNumber, pageSize);
+    }
+
+
+    
+    public async Task<PaginatedResult<Room>> GetRoomsWithCongressPagedAsync(int pageNumber, int pageSize)
+    {
+        var query = _context.Rooms
+            .Include(r => r.Congress);
+        
+        var rooms = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        var totalRooms = await query.CountAsync();
+        
+        return PaginatedResult<Room>.Create(rooms, totalRooms, pageNumber, pageSize);
+    }
 }
+
+

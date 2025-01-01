@@ -62,10 +62,34 @@ public class RoomService : IRoomService
         return _mapper.Map<RoomDto>(room);
     }
 
-    public async Task<PagedResult<RoomDto>> GetPagedAsync(int pageNumber, int pageSize)
+    public async Task<PaginatedResult<RoomDto>> GetPagedAsync(int pageNumber, int pageSize)
     {
         var pagedData = await _roomRepository.GetPagedAsync(pageNumber, pageSize);
         
         return pagedData.Map(c => _mapper.Map<RoomDto>(c));
+    }
+
+    public async Task<PaginatedResult<RoomDto>> GetRoomsByCongressPagedAsync(int congressId, int pageNumber, int pageSize)
+    {
+        var pagedData = await _roomRepository.GetRoomsByCongressPagedAsync(congressId, pageNumber, pageSize);
+        
+        return pagedData.Map(c => _mapper.Map<RoomDto>(c));
+    }
+
+    public async Task<PaginatedResult<RoomWithCongressDto>> GetRoomsWithCongressPagedAsync(int pageNumber, int pageSize)
+    {
+        var pagedData = await _roomRepository.GetRoomsWithCongressPagedAsync(pageNumber, pageSize);
+        
+        return pagedData.Map(c => _mapper.Map<RoomWithCongressDto>(c));
+        
+        /*return pagedData.Map(room => new RoomWithCongressDto
+        {
+            RoomId = room.RoomId,
+            CongressId = room.CongressId,
+            CongressName = room.Congress?.Name,
+            Name = room.Name,
+            Capacity = room.Capacity,
+            Location = room.Location
+        });*/
     }
 }

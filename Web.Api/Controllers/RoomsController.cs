@@ -9,17 +9,17 @@ namespace Web.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoomController : ControllerBase
+    public class RoomsController : ControllerBase
     {
         private readonly IRoomService _roomService;
 
-        public RoomController(IRoomService roomService)
+        public RoomsController(IRoomService roomService)
         {
             _roomService = roomService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<PagedResult<RoomDto>>> GetRooms([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRooms([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
             if (pageNumber <= 0 || pageSize <= 0)
             {
@@ -56,5 +56,34 @@ namespace Web.Api.Controllers
             var roomDto = await _roomService.UpdateAsync(id, updateDto);
             return roomDto == null ? NotFound() :  Ok(roomDto);
         }
+        
+        //obtener las salas de un congreso
+        [HttpGet("/api/Congress/{congressId}/Rooms")]
+        public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRoomsByCongress(int congressId, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        {
+            if (pageNumber <= 0 || pageSize <= 0)
+            {
+                return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
+            }
+            
+            var rooms = await _roomService.GetRoomsByCongressPagedAsync(congressId, pageNumber, pageSize);
+
+            return Ok(rooms);
+        }
+        
+        //obtener las salas con el congreso {RoomId,CongressId,CongressName,Name,Capacity,Location}
+        [HttpGet("WithCongress")]
+        public async Task<ActionResult<PaginatedResult<RoomWithCongressDto>>> GetRoomsWithCongress([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        {
+            if (pageNumber <= 0 || pageSize <= 0)
+            {
+                return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
+            }
+
+            var rooms = await _roomService.GetRoomsWithCongressPagedAsync(pageNumber, pageSize);
+            
+            return Ok(rooms);
+        }
+        
     }
 }
