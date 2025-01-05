@@ -64,9 +64,9 @@ public class CongressService : ICongressService
         return _mapper.Map<CongressDto>(congress);
     }
 
-    public async Task<PaginatedResult<CongressDto>> GetPagedAsync(int pageNumber, int pageSize)
+    public async Task<PaginatedResult<CongressDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
-        var pagedData = await _congressRepository.GetPagedAsync(pageNumber, pageSize);
+        var pagedData = await _congressRepository.GetPagedAsync(pageNumber, pageSize, search);
 
         return pagedData.Map(c => _mapper.Map<CongressDto>(c));
     }

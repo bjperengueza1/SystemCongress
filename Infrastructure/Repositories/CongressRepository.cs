@@ -47,14 +47,21 @@ public class CongressRepository : ICongressRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<PaginatedResult<Congress>> GetPagedAsync(int pageNumber, int pageSize)
+    public async Task<PaginatedResult<Congress>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
-        var congresses = await _context.Congresses
+        IQueryable<Congress> query = _context.Congresses;
+        
+        if(!string.IsNullOrWhiteSpace(search))
+        {
+            query = query.Where(c => c.Name.Contains(search));
+        }
+        
+        var congresses = await query
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
         
-        var totalCongresses = await _context.Congresses.CountAsync();
+        var totalCongresses = await query.CountAsync();
         
         return new PaginatedResult<Congress>
         {

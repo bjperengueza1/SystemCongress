@@ -45,7 +45,7 @@ public class AuthorRepository : IAuthorRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PaginatedResult<Author>> GetPagedAsync(int pageNumber, int pageSize)
+    public Task<PaginatedResult<Author>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
         throw new NotImplementedException();
     }

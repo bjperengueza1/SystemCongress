@@ -62,9 +62,9 @@ public class RoomService : IRoomService
         return _mapper.Map<RoomDto>(room);
     }
 
-    public async Task<PaginatedResult<RoomDto>> GetPagedAsync(int pageNumber, int pageSize)
+    public async Task<PaginatedResult<RoomDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
-        var pagedData = await _roomRepository.GetPagedAsync(pageNumber, pageSize);
+        var pagedData = await _roomRepository.GetPagedAsync(pageNumber, pageSize, search);
         
         return pagedData.Map(c => _mapper.Map<RoomDto>(c));
     }

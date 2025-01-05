@@ -19,7 +19,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRooms([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRooms([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, string search = "")
         {
             if (pageNumber <= 0 || pageSize <= 0)
             {
@@ -27,7 +27,7 @@ namespace Web.Api.Controllers
             }
             
             //var rooms = await _roomService.GetAllAsync();
-            var rooms = await _roomService.GetPagedAsync(pageNumber, pageSize);
+            var rooms = await _roomService.GetPagedAsync(pageNumber, pageSize, search);
             
             return Ok(rooms);
         }

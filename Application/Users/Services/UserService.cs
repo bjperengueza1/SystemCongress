@@ -54,7 +54,7 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public Task<PaginatedResult<UserDto>> GetPagedAsync(int pageNumber, int pageSize)
+    public Task<PaginatedResult<UserDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
         throw new NotImplementedException();
     }

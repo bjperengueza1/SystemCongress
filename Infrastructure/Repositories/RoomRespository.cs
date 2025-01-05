@@ -47,7 +47,7 @@ public class RoomRespository : IRoomRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<PaginatedResult<Room>> GetPagedAsync(int pageNumber, int pageSize)
+    public async Task<PaginatedResult<Room>> GetPagedAsync(int pageNumber, int pageSize,string search)
     {
         var rooms = await _context.Rooms
             .Skip((pageNumber - 1) * pageSize)

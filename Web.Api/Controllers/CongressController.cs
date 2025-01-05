@@ -19,14 +19,14 @@ namespace Web.Api.Controllers
         
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongressos([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongressos([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string search = "")
         {
             if (pageNumber <= 0 || pageSize <= 0)
             {
                 return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
             }
             
-            var congressos = await _congressService.GetPagedAsync(pageNumber, pageSize);
+            var congressos = await _congressService.GetPagedAsync(pageNumber, pageSize, search);
             
             return Ok(congressos);
         }

@@ -44,7 +44,7 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PaginatedResult<User>> GetPagedAsync(int pageNumber, int pageSize)
+    public Task<PaginatedResult<User>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
         throw new NotImplementedException();
     }

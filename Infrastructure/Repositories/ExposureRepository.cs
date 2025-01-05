@@ -61,7 +61,7 @@ public class ExposureRepository : IExposureRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize)
+    public Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize,string search)
     {
         throw new NotImplementedException();
     }
