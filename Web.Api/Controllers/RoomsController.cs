@@ -2,6 +2,7 @@ using Application.Rooms.DTOs;
 using Application.Rooms.Interfaces;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRooms([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, string search = "")
         {
             if (pageNumber <= 0 || pageSize <= 0)
@@ -33,6 +35,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<RoomDto>> GetRoom(int id)
         {
             var room = await _roomService.GetByIdAsync(id);
@@ -43,6 +46,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateRoom([FromBody] RoomInsertDto insertDto)
         {
             var createdRoom = await _roomService.CreateAsync(insertDto);
@@ -51,6 +55,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> UpdateRoom(int id, [FromBody] RoomUpdateDto updateDto)
         {
             var roomDto = await _roomService.UpdateAsync(id, updateDto);
@@ -59,6 +64,7 @@ namespace Web.Api.Controllers
         
         //obtener las salas de un congreso
         [HttpGet("/api/Congress/{congressId}/Rooms")]
+        [Authorize]
         public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRoomsByCongress(int congressId, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
             if (pageNumber <= 0 || pageSize <= 0)
@@ -73,14 +79,15 @@ namespace Web.Api.Controllers
         
         //obtener las salas con el congreso {RoomId,CongressId,CongressName,Name,Capacity,Location}
         [HttpGet("WithCongress")]
-        public async Task<ActionResult<PaginatedResult<RoomWithCongressDto>>> GetRoomsWithCongress([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        [Authorize]
+        public async Task<ActionResult<PaginatedResult<RoomWithCongressDto>>> GetRoomsWithCongress([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string search = "")
         {
             if (pageNumber <= 0 || pageSize <= 0)
             {
                 return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
             }
 
-            var rooms = await _roomService.GetRoomsWithCongressPagedAsync(pageNumber, pageSize);
+            var rooms = await _roomService.GetRoomsWithCongressPagedAsync(pageNumber, pageSize, search);
             
             return Ok(rooms);
         }

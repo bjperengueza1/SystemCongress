@@ -19,8 +19,14 @@ public class Exposure
     // Foreign Key for Room
     public int RoomId { get; set; }
     //set name of the foreign key is RoomId
-    [ForeignKey("RoomId")]
-    public virtual Room? Room { get; set; }
+    /*[ForeignKey("RoomId")]
+    public virtual Room? Room { get; set; }*/
+    
+    // Foreign Key for Congress
+    public int CongressId { get; set; }
+    //set name of the foreign key is CongressId
+    [ForeignKey("CongressId")]
+    public virtual Congress? Congress { get; set; }
     
     //exposure can have max 3 authors
     public virtual ICollection<Author> Authors { get; set; }

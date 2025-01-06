@@ -2,6 +2,7 @@ using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
@@ -28,6 +29,7 @@ public class CongressRepository : ICongressRepository
 
     public async Task AddAsync(Congress entity)
     {
+        entity.Guid = GuidHelper.GenerateGuid();
         await _context.Congresses.AddAsync(entity);
     }
 
@@ -70,5 +72,10 @@ public class CongressRepository : ICongressRepository
             PageNumber = pageNumber,
             PageSize = pageSize
         };
+    }
+
+    public async Task<Congress> GetByGuidAsync(string guid)
+    {
+        return await _context.Congresses.FirstOrDefaultAsync(c => c.Guid == guid);
     }
 }

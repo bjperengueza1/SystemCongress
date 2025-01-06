@@ -5,9 +5,9 @@ namespace Application.Exposures.DTOs;
 
 public class ExposureInsertDto
 {
-    public string NameExposure { get; set; }
+    public string Name { get; set; }
     //StatusExposure by default is "Pending"
-    private StatusExposure StatusExposure { get; set; }
+    private StatusExposure Status { get; set; }
     public ResearchLine ResearchLine { get; set; }
     public int CongressId { get; set; }
     public List<AuthorInsertDto> Authors { get; set; }

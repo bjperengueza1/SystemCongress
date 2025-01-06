@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CongressContext))]
-    partial class CongressContextModelSnapshot : ModelSnapshot
+    [Migration("20250106055631_remove relation exposure to room")]
+    partial class removerelationexposuretoroom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,9 +174,6 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ExposureId"));
 
-                    b.Property<int>("CongressId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -192,8 +192,6 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("ExposureId");
-
-                    b.HasIndex("CongressId");
 
                     b.HasIndex("RoomId");
 
@@ -293,19 +291,11 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Exposure", b =>
                 {
-                    b.HasOne("Domain.Entities.Congress", "Congress")
-                        .WithMany()
-                        .HasForeignKey("CongressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Entities.Room", null)
                         .WithMany("Exposures")
                         .HasForeignKey("RoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Congress");
                 });
 
             modelBuilder.Entity("Domain.Entities.Room", b =>

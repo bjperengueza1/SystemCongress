@@ -70,4 +70,11 @@ public class CongressService : ICongressService
 
         return pagedData.Map(c => _mapper.Map<CongressDto>(c));
     }
+
+    public async Task<CongressDto> GetByGuidAsync(string guid)
+    {
+        var congress = await _congressRepository.GetByGuidAsync(guid);
+        
+        return congress == null ? null : _mapper.Map<CongressDto>(congress);
+    }
 }

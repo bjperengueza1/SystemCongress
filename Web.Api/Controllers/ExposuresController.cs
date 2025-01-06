@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Application.Authors.DTOs;
+using Application.Congresses.Interfaces;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using Application.Files.Interfaces;
@@ -15,18 +16,21 @@ namespace Web.Api.Controllers
     [ApiController]
     public class ExposuresController : ControllerBase
     {
-        public readonly IExposureService _exposureService;
-        public readonly IFileService _fileService;
+        private readonly IExposureService _exposureService;
+        private readonly ICongressService _congressService;
+        private readonly IFileService _fileService;
         private readonly IMapper _mapper;
         
         
         public ExposuresController(
             IExposureService exposureService,
+            ICongressService congressService,
             IFileService fileService,
             IMapper mapper
             )
         {
             _exposureService = exposureService;
+            _congressService = congressService;
             _fileService = fileService;
             _mapper = mapper;
         }
@@ -52,9 +56,6 @@ namespace Web.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> AddExposure(IFormFile pdfFile, [FromForm] ExposureInsertFormDto insertFormDto )
         {
-            /*Console.WriteLine(insertFormDto.Authors[0].Name);
-            return Ok();*/
-            
             if (pdfFile == null || pdfFile.Length == 0)
             {
                 return BadRequest("El archivo no es válido.");
@@ -77,11 +78,21 @@ namespace Web.Api.Controllers
                 return BadRequest(e.Message);
             }
             
+            var congress = await _congressService.GetByGuidAsync(insertFormDto.CongressGuid);
+            
+            if (congress == null)
+            {
+                return BadRequest("El congreso no existe.");
+            }
+            
             var insertDto = _mapper.Map<ExposureInsertDto>(insertFormDto);
+            
+            insertDto.SummaryFilePath = fileUploaded.FileName;
+            
+            insertDto.CongressId = congress.CongressId;
             
             insertDto.Authors = JsonSerializer.Deserialize<List<AuthorInsertDto>>(insertFormDto.Authors);
             
-            insertDto.SummaryFilePath = fileUploaded.FileName;
             var exposureDto = await _exposureService.CreateAsync(insertDto);
 
             if (exposureDto == null)

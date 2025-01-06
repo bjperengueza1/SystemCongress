@@ -35,8 +35,7 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Authors, opt => opt.Ignore()); // Lo manejamos manualmente
 
         CreateMap<ExposureInsertDto, Exposure>()
-            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors))
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.NameExposure )); // Mapea la colección de Authors
+            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors)); // Mapea la colección de Authors
 
         CreateMap<Exposure, ExposureDto>()
             .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors)); // Mapea la colección de Authors
@@ -45,20 +44,6 @@ public class MappingProfile : Profile
         CreateMap<AuthorInsertDto, Author>()
             .ForMember(dest => dest.Exposure, opt => opt.Ignore()); // Ignorar la propiedad de navegación
         
-        CreateMap<Domain.Entities.Author, AuthorDto>();
-
-
+        CreateMap<Author, AuthorDto>();
     }
 }
-
-/*
-public class MappingProfile : Profile
-{
-    public MappingProfile()
-    {
-        CreateMap<Francisco, Roberto>()
-            .ForMember(dest => dest.MujeresRoberto, opt => opt.MapFrom(src => src.MujeresFrancisco ));
-
-    }
-}
-*/

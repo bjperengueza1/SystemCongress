@@ -82,16 +82,22 @@ public class RoomRespository : IRoomRepository
 
 
     
-    public async Task<PaginatedResult<Room>> GetRoomsWithCongressPagedAsync(int pageNumber, int pageSize)
+    public async Task<PaginatedResult<Room>> GetRoomsWithCongressPagedAsync(int pageNumber, int pageSize, string search)
     {
-        var query = _context.Rooms
+        
+        IQueryable<Room> query = _context.Rooms
             .Include(r => r.Congress);
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            query = query.Where(r => r.Name.Contains(search) || r.Congress.Name.Contains(search));
+        }
         
         var rooms = await query
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
-
+        
         var totalRooms = await query.CountAsync();
         
         return PaginatedResult<Room>.Create(rooms, totalRooms, pageNumber, pageSize);
