@@ -3,7 +3,7 @@ using Domain.Entities.Enums;
 
 namespace Application.Exposures.DTOs;
 
-public class ExposureDto
+public class ExposureWitchAuthorsDto
 {
     public int ExposureId { get; set; }
     

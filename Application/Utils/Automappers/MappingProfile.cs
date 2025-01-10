@@ -37,7 +37,7 @@ public class MappingProfile : Profile
         CreateMap<ExposureInsertDto, Exposure>()
             .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors)); // Mapea la colección de Authors
 
-        CreateMap<Exposure, ExposureDto>()
+        CreateMap<Exposure, ExposureWitchAuthorsDto>()
             .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors)); // Mapea la colección de Authors
         
         //Autores

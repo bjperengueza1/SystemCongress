@@ -11,4 +11,6 @@ public class CongressDto
     public DateTime EndDate { get; set; }
     
     public string Location { get; set; }
+    
+    public string Guid { get; set; }
 }

@@ -3,7 +3,7 @@ using Application.Exposures.DTOs;
 
 namespace Application.Exposures.Interfaces;
 
-public interface IExposureService : ICommonService<ExposureDto, ExposureInsertDto, ExposureUpdateDto>
+public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, ExposureInsertDto, ExposureUpdateDto>
 {
-    Task<ExposureDto> ChangeStatusAsync(int id, ExposureUpdateStatusDto exposureUpdateStatusDto);
+    Task<ExposureWitchAuthorsDto> ChangeStatusAsync(int id, ExposureUpdateStatusDto exposureUpdateStatusDto);
 }

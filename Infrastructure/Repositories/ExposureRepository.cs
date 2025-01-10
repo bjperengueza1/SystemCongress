@@ -61,9 +61,24 @@ public class ExposureRepository : IExposureRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize,string search)
+    public async Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize,string search)
     {
-        throw new NotImplementedException();
+        IQueryable<Exposure> query = _context.Exposures
+            .Include(e => e.Authors);
+        
+        if(!string.IsNullOrWhiteSpace(search))
+        {
+            query = query.Where(e => e.Name.Contains(search));
+        }
+        
+        var exposures = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
+        var totalExposures = await query.CountAsync();
+        
+        return PaginatedResult<Exposure>.Create(exposures, totalExposures, pageNumber, pageSize);
     }
 
     public Task<PaginatedResult<Exposure>> GetExposuresByRoomPagedAsync(int roomId, int pageNumber, int pageSize)

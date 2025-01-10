@@ -5,6 +5,7 @@ using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using Application.Files.Interfaces;
 using AutoMapper;
+using Domain.Common.Pagination;
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,14 +38,21 @@ namespace Web.Api.Controllers
         
         //get all
         [HttpGet]
-        public async Task<IEnumerable<ExposureDto>> GetExposures()
+        public async Task<ActionResult<PaginatedResult<ExposureWitchAuthorsDto>>> GetExposures([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string search = "")
         {
-            return await _exposureService.GetAllAsync();
+            if (pageNumber <= 0 || pageSize <= 0)
+            {
+                return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
+            }
+            
+            var exposures = await _exposureService.GetPagedAsync(pageNumber, pageSize, search);
+            
+            return exposures;
         }
         
         //get by id
         [HttpGet("{id}")]
-        public async Task<ActionResult<ExposureDto>> GetExposure(int id)
+        public async Task<ActionResult<ExposureWitchAuthorsDto>> GetExposure(int id)
         {
             var exposureDto = await _exposureService.GetByIdAsync(id);
             
