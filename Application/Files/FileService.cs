@@ -29,14 +29,18 @@ public class FileService : IFileService
             throw new ArgumentException("La firma del archivo no es válida.");
         }
 
-        await _fileStorageService.SaveFileAsync(fileName, content);
+        fileName = await _fileStorageService.SaveFileAsync(fileName, content);
 
         return new FileUploaded()
         {
-            FileName = fileName,
-            Path = Path.Combine("/home/wdg/Descargas/", "uploads", fileName),
+            FileName = fileName
         };
 
+    }
 
+    //get file
+    public async Task<byte[]> GetFileAsync(string fileName)
+    {
+        return await _fileStorageService.GetFileAsync(fileName);
     }
 }

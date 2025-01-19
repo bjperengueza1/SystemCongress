@@ -139,6 +139,27 @@ namespace Web.Api.Controllers
             return Ok(exposureDto);
         }
         
+        //dowload file summary
+        [HttpGet("{id}/summary")]
+        public async Task<IActionResult> DownloadSummary(int id)
+        {
+            var exposure = await _exposureService.GetByIdAsync(id);
+            
+            if (exposure == null)
+            {
+                return NotFound();
+            }
+            
+            var file = await _fileService.GetFileAsync(exposure.SummaryFilePath);
+            
+            if (file == null)
+            {
+                return NotFound();
+            }
+            
+            return File(file, "application/pdf", exposure.SummaryFilePath);
+        }
+        
         
     }
 }

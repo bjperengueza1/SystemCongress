@@ -13,6 +13,8 @@ public class ExposureWitchAuthorsDto
     
     public ResearchLine ResearchLine { get; set; }
     
+    public string SummaryFilePath { get; set; }
+    
     public int CongressId { get; set; }
     
     public ICollection<AuthorDto> Authors { get; set; }

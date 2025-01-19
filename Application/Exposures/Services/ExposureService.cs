@@ -80,9 +80,6 @@ public class ExposureService : IExposureService
         // Enviar correo al actualizar el estado
         var emailSent = await _emailService.SendStatusChangeNotificationAsync(exposure);
         
-        Console.WriteLine(emailSent.ToString());
-
-        
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
 }
