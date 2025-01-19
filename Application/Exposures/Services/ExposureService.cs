@@ -1,4 +1,4 @@
-using Application.Congresses.DTOs;
+using Application.Common;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using AutoMapper;
@@ -11,13 +11,16 @@ namespace Application.Exposures.Services;
 public class ExposureService : IExposureService
 {
     private readonly IExposureRepository _exposureRepository;
+    private readonly IEmailService _emailService;
     private readonly IMapper _mapper;
     
     public ExposureService(
         IExposureRepository exposureRepository,
+        IEmailService emailService,
         IMapper mapper)
     {
         _exposureRepository = exposureRepository;
+        _emailService = emailService;
         _mapper = mapper;
     }
     
@@ -63,15 +66,23 @@ public class ExposureService : IExposureService
     public async Task<ExposureWitchAuthorsDto> ChangeStatusAsync(int id, ExposureUpdateStatusDto exposureUpdateStatusDto)
     {
         //Traigo el objeto
-        var congress = await _exposureRepository.GetByIdAsync(id);
+        var exposure = await _exposureRepository.GetByIdAsync(id);
         
-        if (congress == null) return null;
+        if (exposure == null) return null;
         
         //Y lo que coincida lo actualizo
-        congress = _mapper.Map(exposureUpdateStatusDto, congress);
+        exposure = _mapper.Map(exposureUpdateStatusDto, exposure);
         
-        _exposureRepository.UpdateAsync(congress);
+        _exposureRepository.UpdateAsync(exposure);
+
+        await _exposureRepository.SaveAsync();
         
-        return _mapper.Map<ExposureWitchAuthorsDto>(congress);
+        // Enviar correo al actualizar el estado
+        var emailSent = await _emailService.SendStatusChangeNotificationAsync(exposure);
+        
+        Console.WriteLine(emailSent.ToString());
+
+        
+        return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
 }

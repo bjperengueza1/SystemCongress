@@ -1,3 +1,6 @@
+using System.Net;
+using System.Net.Mail;
+using Application.Common;
 using Application.Utils.Automappers;
 using Application.Congresses.Interfaces;
 using Application.Congresses.Services;
@@ -13,6 +16,7 @@ using Application.Users.Interfaces;
 using Application.Users.Services;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Email;
 using Infrastructure.Repositories;
 using Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -68,6 +72,10 @@ builder.Services.AddScoped<IExposureService, ExposureService>();
 builder.Services.AddSingleton<IFileStorageService, FileStorageService>();
 builder.Services.AddTransient<IFileService, FileService>();
 
+builder.Services.Configure<GmailOptions>(
+    builder.Configuration.GetSection(GmailOptions.GmailOptionsKey));
+
+builder.Services.AddTransient<IEmailService, GmailService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
