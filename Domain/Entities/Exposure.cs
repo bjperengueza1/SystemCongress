@@ -16,6 +16,8 @@ public class Exposure
     
     public ResearchLine ResearchLine { get; set; }
     
+    public string? Guid { get; set; }
+    
     // Foreign Key for Room
     public int RoomId { get; set; }
     //set name of the foreign key is RoomId

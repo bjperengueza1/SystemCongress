@@ -90,4 +90,14 @@ public class ExposureRepository : IExposureRepository
     {
         throw new NotImplementedException();
     }
+
+    public async Task<Exposure> GetByGuidAsync(string guid)
+    {
+        IQueryable<Exposure> query = _context.Exposures
+            .Include(e => e.Authors);
+        
+        query = query.Where(e => e.Guid == guid);
+        
+        return await query.FirstOrDefaultAsync();
+    }
 }

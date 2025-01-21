@@ -1,5 +1,9 @@
 using System.Net;
 using System.Net.Mail;
+using Application.Attendances.Interfaces;
+using Application.Attendances.Services;
+using Application.Attendees.Interfaces;
+using Application.Attendees.Services;
 using Application.Common;
 using Application.Utils.Automappers;
 using Application.Congresses.Interfaces;
@@ -68,6 +72,12 @@ builder.Services.AddScoped<IRoomService, RoomService>();
 
 builder.Services.AddScoped<IExposureRepository, ExposureRepository>(); // Asegúrate de que ExposureRepository implemente IExposureRepository
 builder.Services.AddScoped<IExposureService, ExposureService>();
+
+builder.Services.AddScoped<IAttendeeRepository, AttendeeRepository>(); // Asegúrate de que AttendeeRepository implemente IAttendeeRepository
+builder.Services.AddScoped<IAttendeeService, AttendeeService>();
+
+builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>(); // Asegúrate de que AttendanceRepository implemente IAttendanceRepository
+builder.Services.AddScoped<IAttendanceService, AttendanceService>();
 
 builder.Services.AddSingleton<IFileStorageService, FileStorageService>();
 builder.Services.AddTransient<IFileService, FileService>();

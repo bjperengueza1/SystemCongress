@@ -1,3 +1,5 @@
+using Application.Attendances.DTOs;
+using Application.Attendees.DTOs;
 using Application.Authors.DTOs;
 using Application.Congresses.DTOs;
 using Application.Exposures.DTOs;
@@ -46,6 +48,15 @@ public class MappingProfile : Profile
         //Autores
         CreateMap<AuthorInsertDto, Author>()
             .ForMember(dest => dest.Exposure, opt => opt.Ignore()); // Ignorar la propiedad de navegación
+        
+        //Asistentes
+        CreateMap<AttendeeInsertDto, Attendee>();
+        CreateMap<AttendeeDto, AttendeeInsertDto>();
+        CreateMap<Attendee, AttendeeDto>();
+        
+        //Asistencia
+        CreateMap<AttendanceInsertDto, Attendance>();
+        CreateMap<Attendance, AttendanceDto>();
         
         CreateMap<Author, AuthorDto>();
     }

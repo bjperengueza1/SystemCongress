@@ -82,4 +82,11 @@ public class ExposureService : IExposureService
         
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
+
+    public async Task<ExposureWitchAuthorsDto> GetByGuidAsync(string guid)
+    {
+        var exposure = await _exposureRepository.GetByGuidAsync(guid);
+        
+        return exposure == null ? null : _mapper.Map<ExposureWitchAuthorsDto>(exposure);
+    }
 }

@@ -10,7 +10,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/Attendances/DTOs/AttendanceAttendeeInsertDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendances/DTOs/AttendanceDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendances/DTOs/AttendanceInsertDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendances/DTOs/AttendanceUpdateDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendances/Interfaces/IAttendanceService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendees/DTOs/AttendeeDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendees/DTOs/AttendeeInsertDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendees/DTOs/AttendeeUpdateDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendees/Interfaces/IAttendeeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Attendees/Services/AttendeeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendanceRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250120142522_add guid to exposure.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250120142522_add guid to exposure.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendanceRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web.Api/Controllers/AttendancesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web.Api/Controllers/AttendeesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/DTOs/ExposureInsertFormDtoOld.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +79,7 @@
     <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Web.Api/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="HttpClientEndpointsTabState">
-    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;0ba2198146f7144330c43b935c320e73bfc84462&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Exposures&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;080c03c8a99c879bb983daa69079b8b320173770&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Attendances&quot; /&gt;&#10;  &lt;entry key=&quot;be4e7cbf2d43757f89dc5f988662515b5f4f2a01&quot; value=&quot;###&amp;#10;GET http://localhost:5196/api/Exposures/{{id}}/summary&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -218,6 +251,12 @@
       <workItem from="1737298371418" duration="147000" />
       <workItem from="1737301976521" duration="4631000" />
       <workItem from="1737306637262" duration="62000" />
+      <workItem from="1737315663917" duration="5821000" />
+      <workItem from="1737382779011" duration="3787000" />
+      <workItem from="1737398501028" duration="502000" />
+      <workItem from="1737399591345" duration="593000" />
+      <workItem from="1737401660921" duration="1418000" />
+      <workItem from="1737429093890" duration="13904000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -363,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737306673887</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="dowload files">
+      <option name="closed" value="true" />
+      <created>1737322402019</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1737322402019</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,6 +449,7 @@
     <MESSAGE value="init crud exposiciones" />
     <MESSAGE value="varios" />
     <MESSAGE value="fix send email" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix send email" />
+    <MESSAGE value="dowload files" />
+    <option name="LAST_COMMIT_MESSAGE" value="dowload files" />
   </component>
 </project>

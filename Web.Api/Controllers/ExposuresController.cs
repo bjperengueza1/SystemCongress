@@ -7,9 +7,7 @@ using Application.Files.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Web.Api.DTOs;
 
 namespace Web.Api.Controllers
 {
@@ -160,6 +158,13 @@ namespace Web.Api.Controllers
             return File(file, "application/pdf", exposure.SummaryFilePath);
         }
         
-        
+        //get by guid
+        [HttpGet("guid/{guid}")]
+        public async Task<ActionResult<ExposureWitchAuthorsDto>> GetExposureByGuid(string guid)
+        {
+            var exposureDto = await _exposureService.GetByGuidAsync(guid);
+            
+            return exposureDto == null ? NotFound() : Ok(exposureDto);
+        }
     }
 }
