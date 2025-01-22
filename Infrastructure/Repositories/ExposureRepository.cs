@@ -2,6 +2,7 @@ using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
@@ -28,6 +29,8 @@ public class ExposureRepository : IExposureRepository
 
     public async Task AddAsync(Exposure entity)
     {
+        
+        entity.Guid = GuidHelper.GenerateGuid();
         await _context.Exposures.AddAsync(entity);
         
         //var authors = entity.Authors;
