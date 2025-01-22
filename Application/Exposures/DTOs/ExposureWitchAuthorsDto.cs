@@ -17,6 +17,8 @@ public class ExposureWitchAuthorsDto
     
     public int CongressId { get; set; }
     
+    public string CongressName { get; set; }
+    
     public string Guid { get; set; }
     public ICollection<AuthorDto> Authors { get; set; }
     

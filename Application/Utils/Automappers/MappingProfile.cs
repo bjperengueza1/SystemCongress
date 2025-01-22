@@ -40,7 +40,8 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors)); // Mapea la colección de Authors
 
         CreateMap<Exposure, ExposureWitchAuthorsDto>()
-            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors)); // Mapea la colección de Authors
+            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors))
+            .ForMember(dest => dest.CongressName, opt => opt.MapFrom(src => src.Congress.Name)); // Mapea la colección de Authors
 
         CreateMap<Exposure, ExposureUpdateStatusDto>();
         CreateMap<ExposureUpdateStatusDto, Exposure>();

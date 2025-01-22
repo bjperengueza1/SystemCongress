@@ -45,9 +45,11 @@ public class AttendeeService : IAttendeeService
         throw new NotImplementedException();
     }
 
-    public Task<PaginatedResult<AttendeeDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<AttendeeDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
-        throw new NotImplementedException();
+        var pagedData = await _attendeeRepository.GetPagedAsync(pageNumber, pageSize, search);
+        
+        return pagedData.Map(_mapper.Map<AttendeeDto>);
     }
     
     public async Task<AttendeeDto> GetAttendeeByIdNumberAsync(string idNumber)

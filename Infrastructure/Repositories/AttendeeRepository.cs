@@ -44,9 +44,30 @@ public class AttendeeRepository : IAttendeeRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PaginatedResult<Attendee>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<Attendee>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
-        throw new NotImplementedException();
+        IQueryable<Attendee> query = _context.Attendees;
+        
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(
+                e => e.Name.Contains(search) || 
+                     e.IDNumber.Contains(search) ||
+                     e.Institution.Contains(search));
+        }
+        
+        //order desc
+        query = query.OrderByDescending(e => e.AttendeeId);
+        
+        var attendees = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
+        var totalItems = await query.CountAsync();
+        
+        return PaginatedResult<Attendee>.Create(attendees, totalItems, pageNumber, pageSize);
+        
     }
     
     public async Task<Attendee> GetAttendeeByIdNumberAsync(string idNumber)

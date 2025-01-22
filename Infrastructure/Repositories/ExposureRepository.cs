@@ -61,15 +61,19 @@ public class ExposureRepository : IExposureRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize,string search)
+    public async Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
         IQueryable<Exposure> query = _context.Exposures
-            .Include(e => e.Authors);
+            .Include(e => e.Authors)
+            .Include(e => e.Congress);
         
         if(!string.IsNullOrWhiteSpace(search))
         {
             query = query.Where(e => e.Name.Contains(search));
         }
+        
+        //order desc
+        query = query.OrderByDescending(e => e.ExposureId);
         
         var exposures = await query
             .Skip((pageNumber - 1) * pageSize)

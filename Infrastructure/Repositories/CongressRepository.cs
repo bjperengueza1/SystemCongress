@@ -58,20 +58,18 @@ public class CongressRepository : ICongressRepository
             query = query.Where(c => c.Name.Contains(search));
         }
         
+        //order desc
+        query = query.OrderByDescending(c => c.CongressId);
+        
         var congresses = await query
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
         
         var totalCongresses = await query.CountAsync();
+
+        return PaginatedResult<Congress>.Create(congresses, totalCongresses, pageNumber, pageSize);
         
-        return new PaginatedResult<Congress>
-        {
-            Items = congresses,
-            TotalItems = totalCongresses,
-            PageNumber = pageNumber,
-            PageSize = pageSize
-        };
     }
 
     public async Task<Congress> GetByGuidAsync(string guid)

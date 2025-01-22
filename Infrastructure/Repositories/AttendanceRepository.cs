@@ -58,6 +58,9 @@ public class AttendanceRepository : IAttendanceRepository
                      e.Exposure.Name.Contains(search));
         }
         
+        //order desc
+        query = query.OrderByDescending(e => e.AttendanceId);
+        
         var attendances = await query
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
