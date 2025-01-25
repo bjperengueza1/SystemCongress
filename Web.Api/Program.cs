@@ -5,9 +5,11 @@ using Application.Attendances.Services;
 using Application.Attendees.Interfaces;
 using Application.Attendees.Services;
 using Application.Common;
+using Application.Congresses.DTOs;
 using Application.Utils.Automappers;
 using Application.Congresses.Interfaces;
 using Application.Congresses.Services;
+using Application.Congresses.Validators;
 using Application.Exposures.Interfaces;
 using Application.Exposures.Services;
 using Application.Files;
@@ -19,6 +21,7 @@ using Application.Token;
 using Application.Users.Interfaces;
 using Application.Users.Services;
 using Domain.Interfaces;
+using FluentValidation;
 using Infrastructure.Data;
 using Infrastructure.Email;
 using Infrastructure.Repositories;
@@ -86,6 +89,9 @@ builder.Services.Configure<GmailOptions>(
     builder.Configuration.GetSection(GmailOptions.GmailOptionsKey));
 
 builder.Services.AddTransient<IEmailService, GmailService>();
+
+builder.Services.AddScoped<IValidator<CongressInsertDto>, CongressInsertValidator>();
+builder.Services.AddScoped<IValidator<CongressUpdateDto>, CongressUpdateValidator>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

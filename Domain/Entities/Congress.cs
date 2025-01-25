@@ -17,6 +17,9 @@ public class Congress
     
     public string Location { get; set; }
     
+    //Minimo de horas completadas parar recibir certificado
+    public int MinHours { get; set; }
+    
     public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
     
     //string guuid for the congress

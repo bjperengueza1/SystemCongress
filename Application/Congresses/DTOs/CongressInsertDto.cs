@@ -9,4 +9,5 @@ public class CongressInsertDto
     public DateTime EndDate { get; set; }
     
     public string Location { get; set; }
+    public int MinHours { get; set; }
 }

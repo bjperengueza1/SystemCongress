@@ -12,5 +12,7 @@ public class CongressDto
     
     public string Location { get; set; }
     
+    public int MinHours { get; set; }
+    
     public string Guid { get; set; }
 }
