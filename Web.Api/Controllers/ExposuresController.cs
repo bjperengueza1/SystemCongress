@@ -7,6 +7,7 @@ using Application.Files.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Api.Controllers
@@ -15,6 +16,7 @@ namespace Web.Api.Controllers
     [ApiController]
     public class ExposuresController : ControllerBase
     {
+        private readonly IValidator<ExposureInsertDto> _exposureInsertValidator;
         private readonly IExposureService _exposureService;
         private readonly ICongressService _congressService;
         private readonly IFileService _fileService;
@@ -22,12 +24,14 @@ namespace Web.Api.Controllers
         
         
         public ExposuresController(
+            IValidator<ExposureInsertDto> exposureInsertValidator,
             IExposureService exposureService,
             ICongressService congressService,
             IFileService fileService,
             IMapper mapper
             )
         {
+            _exposureInsertValidator = exposureInsertValidator;
             _exposureService = exposureService;
             _congressService = congressService;
             _fileService = fileService;
@@ -98,6 +102,22 @@ namespace Web.Api.Controllers
             insertDto.CongressId = congress.CongressId;
             
             insertDto.Authors = JsonSerializer.Deserialize<List<AuthorInsertDto>>(insertFormDto.Authors);
+            
+            if(insertDto.Authors.Count == 0)
+            {
+                return BadRequest("Debe haber al menos un autor.");
+            }
+            
+            var validationResult = await _exposureInsertValidator.ValidateAsync(insertDto);
+            
+            if (!validationResult.IsValid)
+            {
+                var errors = validationResult.Errors
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+                
+                return BadRequest(new { Errors = errors });
+            }
             
             var exposureDto = await _exposureService.CreateAsync(insertDto);
 

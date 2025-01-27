@@ -10,8 +10,10 @@ using Application.Utils.Automappers;
 using Application.Congresses.Interfaces;
 using Application.Congresses.Services;
 using Application.Congresses.Validators;
+using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using Application.Exposures.Services;
+using Application.Exposures.Validators;
 using Application.Files;
 using Application.Files.Interfaces;
 using Application.Password;
@@ -92,6 +94,8 @@ builder.Services.AddTransient<IEmailService, GmailService>();
 
 builder.Services.AddScoped<IValidator<CongressInsertDto>, CongressInsertValidator>();
 builder.Services.AddScoped<IValidator<CongressUpdateDto>, CongressUpdateValidator>();
+
+builder.Services.AddScoped<IValidator<ExposureInsertDto>, ExposureInsertValidator>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

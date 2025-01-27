@@ -74,6 +74,6 @@ public class CongressRepository : ICongressRepository
 
     public async Task<Congress> GetByGuidAsync(string guid)
     {
-        return await _context.Congresses.FirstOrDefaultAsync(c => c.Guid == guid);
+        return await _context.Congresses.FirstOrDefaultAsync(c => c.Guid == guid && c.StartDate > DateTime.Now);
     }
 }

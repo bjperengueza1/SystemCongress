@@ -87,5 +87,15 @@ namespace Web.Api.Controllers
             
             return congressDto == null ? NotFound() : Ok(congressDto);
         }
+        
+        //get by guid
+        [HttpGet("guid/{guid}")]
+        [Authorize]
+        public async Task<ActionResult<CongressDto>> GetCongressByGuid(string guid)
+        {
+            var congressDto = await _congressService.GetByGuidAsync(guid);
+            
+            return congressDto == null ? NotFound() : Ok(congressDto);
+        }
     }
 }
