@@ -4,7 +4,6 @@ using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Interfaces;
-using Newtonsoft.Json;
 
 namespace Application.Attendances.Services;
 

@@ -28,10 +28,10 @@ public class Exposure
     public int CongressId { get; set; }
     //set name of the foreign key is CongressId
     [ForeignKey("CongressId")]
-    public virtual Congress? Congress { get; set; }
+    public Congress? Congress { get; set; }
     
     //exposure can have max 3 authors
-    public virtual ICollection<Author> Authors { get; set; }
+    public ICollection<ExposureAuthor> ExposureAuthor { get; set; } = [];
     
     public string SummaryFilePath { get; set; }
     

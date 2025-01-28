@@ -78,6 +78,8 @@ builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddScoped<IExposureRepository, ExposureRepository>(); // Asegúrate de que ExposureRepository implemente IExposureRepository
 builder.Services.AddScoped<IExposureService, ExposureService>();
 
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>(); // Asegúrate de que AuthorRepository implemente IAuthorRepository
+
 builder.Services.AddScoped<IAttendeeRepository, AttendeeRepository>(); // Asegúrate de que AttendeeRepository implemente IAttendeeRepository
 builder.Services.AddScoped<IAttendeeService, AttendeeService>();
 

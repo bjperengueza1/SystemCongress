@@ -11,11 +11,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Authors/Validators/AuthorInsertValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Exposures/Validators/ExposureInsertValidator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Entities/ExposureAuthor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250128145724_many to many exposures author.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250128145724_many to many exposures author.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250128145932_tabla intermendia.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250128145932_tabla intermendia.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/97414bbb-5992-43f8-9d27-54411a4cce33.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/97414bbb-5992-43f8-9d27-54411a4cce33.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Author.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Author.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Email/GmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Email/GmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
     </list>
@@ -70,28 +84,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Web.Api: http.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.Web.Api: https.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Web.Api: http.executor": "Debug",
+    ".NET Launch Settings Profile.Web.Api: https.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pathVariables",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
@@ -239,7 +253,11 @@
       <workItem from="1737653173682" duration="67000" />
       <workItem from="1737726768872" duration="3586000" />
       <workItem from="1737814396306" duration="10362000" />
-      <workItem from="1737952037832" duration="852000" />
+      <workItem from="1737952037832" duration="1536000" />
+      <workItem from="1737985836868" duration="1285000" />
+      <workItem from="1737989245477" duration="876000" />
+      <workItem from="1738036348120" duration="1982000" />
+      <workItem from="1738071713510" duration="9728000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -441,7 +459,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737828151777</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="exposure validation">
+      <option name="closed" value="true" />
+      <created>1737954302331</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1737954302331</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +488,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="init respository" />
     <MESSAGE value="add migration ef" />
     <MESSAGE value="as" />
     <MESSAGE value="expsures" />
@@ -487,6 +512,7 @@
     <MESSAGE value="update email settings" />
     <MESSAGE value="FIX GUID EXPOSURE" />
     <MESSAGE value="validations dto congress" />
-    <option name="LAST_COMMIT_MESSAGE" value="validations dto congress" />
+    <MESSAGE value="exposure validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="exposure validation" />
   </component>
 </project>

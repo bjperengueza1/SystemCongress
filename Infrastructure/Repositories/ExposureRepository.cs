@@ -23,29 +23,14 @@ public class ExposureRepository : IExposureRepository
     public async Task<Exposure> GetByIdAsync(int id)
     {
         return await _context.Exposures
-            .Include(e => e.Authors)
+            //.Include(e => e.Authors)
             .FirstOrDefaultAsync(e => e.ExposureId == id);
     }
 
     public async Task AddAsync(Exposure entity)
     {
-        
         entity.Guid = GuidHelper.GenerateGuid();
         await _context.Exposures.AddAsync(entity);
-        
-        //var authors = entity.Authors;
-        //recorrer autores e insertarlos en la tabla de autores
-        /*foreach (var author in authors)
-        {
-            var authorEntity = new Authors
-            {
-                Name = author.Name,
-                LastName = author.LastName
-            };
-            _context.Authors.Add(authorEntity);
-        }*/
-        
-        //throw new NotImplementedException();
     }
 
     public void UpdateAsync(Exposure entity)
@@ -67,9 +52,10 @@ public class ExposureRepository : IExposureRepository
     public async Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
         IQueryable<Exposure> query = _context.Exposures
-            .Include(e => e.Authors)
-            .Include(e => e.Congress);
-        
+            .Include(e => e.Congress)
+            .Include(e => e.ExposureAuthor)
+            .ThenInclude(ea => ea.Author);
+
         if(!string.IsNullOrWhiteSpace(search))
         {
             query = query.Where(e => e.Name.Contains(search));
@@ -101,7 +87,8 @@ public class ExposureRepository : IExposureRepository
     public async Task<Exposure> GetByGuidAsync(string guid)
     {
         IQueryable<Exposure> query = _context.Exposures
-            .Include(e => e.Authors);
+            .Include(e => e.ExposureAuthor)
+            .ThenInclude(ea => ea.Author);
         
         query = query.Where(e => e.Guid == guid);
         

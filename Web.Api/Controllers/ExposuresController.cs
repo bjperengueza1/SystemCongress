@@ -40,7 +40,10 @@ namespace Web.Api.Controllers
         
         //get all
         [HttpGet]
-        public async Task<ActionResult<PaginatedResult<ExposureWitchAuthorsDto>>> GetExposures([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string search = "")
+        public async Task<ActionResult<PaginatedResult<ExposureWitchAuthorsDto>>> GetExposures(
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10,
+            [FromQuery] string search = "")
         {
             if (pageNumber <= 0 || pageSize <= 0)
             {

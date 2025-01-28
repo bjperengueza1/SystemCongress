@@ -21,7 +21,7 @@ public class GmailService : IEmailService
         try
         {
             //recipient es el email del primer autor de la exposicion ICollection<Author> Authors 
-            var recipient = exposure.Authors.FirstOrDefault()?.PersonalMail;
+            /*var recipient = exposure.Authors.FirstOrDefault()?.PersonalMail;
             
             if (string.IsNullOrWhiteSpace(recipient))
             {
@@ -45,7 +45,7 @@ public class GmailService : IEmailService
             using var smtpClient = new SmtpClient(_gmailOptions.Host, _gmailOptions.Port);
             smtpClient.Credentials = new NetworkCredential(_gmailOptions.Email, _gmailOptions.Password);
             smtpClient.EnableSsl = true;
-            await smtpClient.SendMailAsync(mailMessage);
+            await smtpClient.SendMailAsync(mailMessage);*/
             
             return true;
         }

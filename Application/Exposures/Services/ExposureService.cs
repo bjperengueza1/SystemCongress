@@ -11,15 +11,18 @@ namespace Application.Exposures.Services;
 public class ExposureService : IExposureService
 {
     private readonly IExposureRepository _exposureRepository;
+    private readonly IAuthorRepository _authorRepository;
     private readonly IEmailService _emailService;
     private readonly IMapper _mapper;
     
     public ExposureService(
         IExposureRepository exposureRepository,
+        IAuthorRepository authorRepository,
         IEmailService emailService,
         IMapper mapper)
     {
         _exposureRepository = exposureRepository;
+        _authorRepository = authorRepository;
         _emailService = emailService;
         _mapper = mapper;
     }
@@ -43,6 +46,23 @@ public class ExposureService : IExposureService
     public async Task<ExposureWitchAuthorsDto> CreateAsync(ExposureInsertDto ti)
     {
         var exposure = _mapper.Map<Exposure>(ti);
+        
+        for (var i = 0; i < ti.Authors.Count; i++)
+        {
+            // Verificar si el autor ya existe en la base de datos
+            //todo
+            
+            var author = _mapper.Map<Author>(ti.Authors[i]);
+            await _authorRepository.AddAsync(author);
+            
+            exposure.ExposureAuthor.Add(
+                new ExposureAuthor
+                {
+                    Author = author
+                });
+        }
+
+        await _authorRepository.SaveAsync();
         
         await _exposureRepository.AddAsync(exposure);
         await _exposureRepository.SaveAsync();

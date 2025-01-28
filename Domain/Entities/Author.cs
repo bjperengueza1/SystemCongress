@@ -10,9 +10,6 @@ public class Author
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int AuthorId { get; set; }
     
-    //position of the author in the list of authors
-    public int Position { get; set; }
-    
     public string Name { get; set; }
     
     public string IDNumber { get; set; }
@@ -29,9 +26,5 @@ public class Author
     
     public AcademicDegree AcademicDegree { get; set; }
     
-    // Foreign Key for Exposure
-    public int ExposureId { get; set; }
-    //set name of the foreign key is ExposureId
-    [ForeignKey("ExposureId")]
-    public virtual Exposure Exposure { get; set; }
+    public ICollection<ExposureAuthor> ExposureAuthor { get; set; } = [];
 }

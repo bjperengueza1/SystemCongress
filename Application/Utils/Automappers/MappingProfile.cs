@@ -36,19 +36,29 @@ public class MappingProfile : Profile
         CreateMap<ExposureInsertFormDto, ExposureInsertDto>()
             .ForMember(dest => dest.Authors, opt => opt.Ignore()); // Lo manejamos manualmente
 
-        CreateMap<ExposureInsertDto, Exposure>()
-            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors)); // Mapea la colección de Authors
+        CreateMap<ExposureInsertDto, Exposure>();
 
         CreateMap<Exposure, ExposureWitchAuthorsDto>()
-            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors))
-            .ForMember(dest => dest.CongressName, opt => opt.MapFrom(src => src.Congress.Name)); // Mapea la colección de Authors
+            .ForMember(dest => dest.CongressName, opt => opt.MapFrom(src => src.Congress.Name))
+            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.ExposureAuthor.Select(ea => new AuthorDto
+            {
+                AuthorId = ea.AuthorId,
+                Name = ea.Author.Name,
+                IDNumber = ea.Author.IDNumber,
+                InstitutionalMail = ea.Author.InstitutionalMail,
+                PersonalMail = ea.Author.PersonalMail,
+                PhoneNumber = ea.Author.PhoneNumber,
+                Country = ea.Author.Country,
+                City = ea.Author.City,
+                AcademicDegree = ea.Author.AcademicDegree,
+                Position = ea.Position
+            }).OrderBy(a => a.Position).ToList()));
 
         CreateMap<Exposure, ExposureUpdateStatusDto>();
         CreateMap<ExposureUpdateStatusDto, Exposure>();
         
         //Autores
-        CreateMap<AuthorInsertDto, Author>()
-            .ForMember(dest => dest.Exposure, opt => opt.Ignore()); // Ignorar la propiedad de navegación
+        CreateMap<AuthorInsertDto, Author>();
         
         //Asistentes
         CreateMap<AttendeeInsertDto, Attendee>();
