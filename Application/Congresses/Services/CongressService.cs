@@ -12,15 +12,18 @@ public class CongressService : ICongressService
 {
     
     private readonly ICongressRepository _congressRepository;
+    private readonly IAttendeeRepository _attendeeRepository;
     private readonly IFileService _fileService;
     private readonly IMapper _mapper;
     
     public CongressService(
         ICongressRepository congressRepository,
+        IAttendeeRepository attendeeRepository,
         IFileService fileService,
         IMapper mapper)
     {
         _congressRepository = congressRepository;
+        _attendeeRepository = attendeeRepository;
         _fileService = fileService;
         _mapper = mapper;
     }
@@ -91,13 +94,17 @@ public class CongressService : ICongressService
 
     public async Task<Stream> DownloadCertificateAttendanceAsync(int congressId, string dni, string directorio)
     {
+        var attendee = await _attendeeRepository.GetAttendeeByIdNumberAsync(dni);
+
+        if (attendee == null) return null;
+        
         var guid = Guid.NewGuid().ToString();
         var nameTemp = $"{dni}_{guid}.docx";
 
         await _fileService.CopyFileAsync("ASISTENTE.docx", nameTemp, directorio);
         
         // Reemplaza el texto en el archivo
-        _fileService.ReplaceTextInWord(nameTemp,directorio,"NOMBRESAPELLIDOS","OMAR");
+        _fileService.ReplaceTextInWord(nameTemp,directorio,"NOMBRESAPELLIDOS",attendee.Name);
         
         _fileService.ConvertToPdf(nameTemp, directorio);
         var certificado = await _fileService.GetFileAsync($"{dni}_{guid}.pdf", directorio);
@@ -107,6 +114,5 @@ public class CongressService : ICongressService
         await _fileService.DeleteFileAsync($"{dni}_{guid}.pdf", directorio);
         
         return certificado;
-        
     }
 }

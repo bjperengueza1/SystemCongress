@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Domain.Interfaces.Files;
@@ -11,6 +12,7 @@ public class LocalFileStorageService : IFileStorageService
 {
     private readonly FileStorageSettings _settings;
     private const string LibreOfficePath = "/usr/bin/soffice";
+    private const string LibreOfficePathWindows = "C:/Program Files/LibreOffice/program/soffice.exe";
     
     public LocalFileStorageService(IOptions<FileStorageSettings> options)
     {
@@ -39,7 +41,7 @@ public class LocalFileStorageService : IFileStorageService
     public async Task<Stream> GetFileAsync(string fileName, string directory)
     {
         var filePath = Path.Combine(_settings.BasePath, directory, fileName);
-        Console.WriteLine(filePath);
+
         if (!File.Exists(filePath))
             throw new FileNotFoundException("Archivo no encontrado.");
 
@@ -93,11 +95,26 @@ public class LocalFileStorageService : IFileStorageService
         var inputFilePath = Path.Combine(_settings.BasePath, directory, fileName);
         var outputFilePath = Path.Combine(_settings.BasePath, directory, Path.GetFileNameWithoutExtension(fileName) + ".pdf");
         
+        //check if is windows or linux
+        var libreOfficePatch = "";
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            libreOfficePatch = LibreOfficePathWindows;
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            libreOfficePatch = LibreOfficePath;
+        }
+        else
+        {
+            throw new PlatformNotSupportedException("Plataforma no soportada.");
+        }
+        
         var process = new Process
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = LibreOfficePath,
+                FileName = libreOfficePatch,
                 Arguments = $"--headless --convert-to pdf {inputFilePath} --outdir {Path.GetDirectoryName(outputFilePath)}",
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
