@@ -40,6 +40,8 @@ public class ExposureService : IExposureService
         
         if (exposure == null) return null;
         
+        Console.WriteLine(exposure.SummaryFilePath);
+        
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
 

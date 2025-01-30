@@ -1,24 +1,23 @@
 using Application.Files.Interfaces;
 using Application.Utils.Helpers;
 using Domain.Entities;
+using Domain.Interfaces.Files;
 
 namespace Application.Files;
 
 public class FileService : IFileService
 {
     private readonly IFileStorageService _fileStorageService;
-    private readonly string[] _permittedExtensions = {".pdf" };
-    
     public FileService(IFileStorageService fileStorageService)
     {
         _fileStorageService = fileStorageService;
     }
     
     
-    public async Task<FileUploaded> UploadFileAsync(string fileName, byte[] content)
+    public async Task<FileUploaded> SaveFileAsync(string fileName, byte[] content, string[] permittedExtensions, string directory)
     {
         //validate extension file
-        if (!FileValidator.ValidateFileExtension(fileName, _permittedExtensions))
+        if (!FileValidator.ValidateFileExtension(fileName, permittedExtensions))
         {
             throw new ArgumentException("La extensión del archivo no es permitida.");
         }
@@ -29,7 +28,7 @@ public class FileService : IFileService
             throw new ArgumentException("La firma del archivo no es válida.");
         }
 
-        fileName = await _fileStorageService.SaveFileAsync(fileName, content);
+        fileName = await _fileStorageService.SaveFileAsync(new MemoryStream(content), fileName, directory );
 
         return new FileUploaded()
         {
@@ -39,8 +38,13 @@ public class FileService : IFileService
     }
 
     //get file
-    public async Task<byte[]> GetFileAsync(string fileName)
+    public async Task<Stream> GetFileAsync(string fileName, string directory)
     {
-        return await _fileStorageService.GetFileAsync(fileName);
+        return await _fileStorageService.GetFileAsync(fileName, directory);
+    }
+
+    public async Task<bool> DeleteFileAsync(string fileName, string directory)
+    {
+        return await _fileStorageService.DeleteFileAsync(fileName, directory);
     }
 }

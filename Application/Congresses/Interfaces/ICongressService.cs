@@ -1,5 +1,6 @@
 using Application.Common;
 using Application.Congresses.DTOs;
+using Domain.Entities;
 
 namespace Application.Congresses.Interfaces;
 
@@ -7,5 +8,9 @@ namespace Application.Congresses.Interfaces;
 public interface ICongressService : ICommonService<CongressDto, CongressInsertDto, CongressUpdateDto>
 {
     Task<CongressDto> GetByGuidAsync(string guid);
+    
+    Task<IEnumerable<CongressCertificate>> GetCertificatesByDniAsync(string dni);
+    
+    Task<byte[]> DownloadCertificateAttendanceAsync(int congressId, string dni);
     
 }

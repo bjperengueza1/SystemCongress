@@ -1,5 +1,3 @@
-using System.Net;
-using System.Net.Mail;
 using Application.Attendances.Interfaces;
 using Application.Attendances.Services;
 using Application.Attendees.Interfaces;
@@ -23,13 +21,14 @@ using Application.Token;
 using Application.Users.Interfaces;
 using Application.Users.Services;
 using Domain.Interfaces;
+using Domain.Interfaces.Files;
 using FluentValidation;
 using Infrastructure.Data;
 using Infrastructure.Email;
+using Infrastructure.Files;
 using Infrastructure.Repositories;
 using Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -86,7 +85,10 @@ builder.Services.AddScoped<IAttendeeService, AttendeeService>();
 builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>(); // Asegúrate de que AttendanceRepository implemente IAttendanceRepository
 builder.Services.AddScoped<IAttendanceService, AttendanceService>();
 
-builder.Services.AddSingleton<IFileStorageService, FileStorageService>();
+// Configuración de FileStorageSettings
+builder.Services.Configure<FileStorageSettings>(builder.Configuration.GetSection("FileStorageSettings"));
+builder.Services.AddSingleton<IFileStorageService, LocalFileStorageService>();// aqui por ejemplo puedo cambiar a AzureFileStorageService si quiero y no afecta el resto del codigo
+                                                                              // porque la interfaz es la misma y la implementacion es diferente 
 builder.Services.AddTransient<IFileService, FileService>();
 
 builder.Services.Configure<GmailOptions>(

@@ -4,8 +4,10 @@ namespace Application.Files.Interfaces;
 
 public interface IFileService
 {
-    Task<FileUploaded> UploadFileAsync(string fileName, byte[] content);
+    Task<FileUploaded> SaveFileAsync(string fileName, byte[] content, string[] permittedExtensions, string directory);
     
-    Task<byte[]> GetFileAsync(string fileName);
+    Task<Stream> GetFileAsync(string fileName, string directory);
+    
+    Task<bool> DeleteFileAsync(string fileName, string directory);
 
 }

@@ -76,4 +76,55 @@ public class CongressRepository : ICongressRepository
     {
         return await _context.Congresses.FirstOrDefaultAsync(c => c.Guid == guid && c.StartDate > DateTime.Now);
     }
+
+    public async Task<IEnumerable<CongressCertificate>> GetCertificatesByDniAsync(string dni)
+    {
+        //seleccionar todos los congresos
+        var congresses = await _context.Congresses
+            .ToListAsync();
+        
+        var certificates = new List<CongressCertificate>();
+        
+        //iterar sobre los congresos
+        foreach (var congress in congresses)
+        {
+            var certificate = new CongressCertificate
+            {
+                CongressId = congress.CongressId,
+                Name = congress.Name,
+                StartDate = congress.StartDate,
+                EndDate = congress.EndDate,
+                Location = congress.Location
+            };
+            //seleccionar las exposiciones de ese congreso que tengan algun autor con ese dni
+            /*var exposures = await _context.Exposures
+                .Include(e => e.Congress)
+                .Include(e => e.ExposureAuthor)
+                .ThenInclude(ea => ea.Author)
+                .Where(e => e.ExposureAuthor.Any(ea => ea.Author.IDNumber == dni) && e.CongressId == congress.CongressId)
+                .ToListAsync();
+            
+            //si hay exposiciones
+            if (exposures.Count > 0)
+            {
+                certificate.Exposures = exposures;
+            }*/
+            
+            //seleccionar las asistencias que tenda aun Attendee con ese dni
+            var attendances = await _context.Attendances
+                .Include(a => a.Attendee)
+                .Include(a => a.Exposure)
+                .Where(a => a.Attendee.IDNumber == dni && a.Exposure.CongressId == congress.CongressId)
+                .ToListAsync();
+            
+            //si hay asistencias
+            if (attendances.Count > 0)
+            {
+                certificate.CertificateAttendance = true;
+            }
+            certificates.Add(certificate);
+        }
+
+        return certificates;
+    }
 }

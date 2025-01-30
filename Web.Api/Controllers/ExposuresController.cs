@@ -8,7 +8,9 @@ using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
 using FluentValidation;
+using Infrastructure.Settings;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace Web.Api.Controllers
 {
@@ -20,6 +22,7 @@ namespace Web.Api.Controllers
         private readonly IExposureService _exposureService;
         private readonly ICongressService _congressService;
         private readonly IFileService _fileService;
+        private readonly FileStorageSettings _fileStorageSettings;
         private readonly IMapper _mapper;
         
         
@@ -28,6 +31,7 @@ namespace Web.Api.Controllers
             IExposureService exposureService,
             ICongressService congressService,
             IFileService fileService,
+            IOptions<FileStorageSettings> options,
             IMapper mapper
             )
         {
@@ -35,6 +39,7 @@ namespace Web.Api.Controllers
             _exposureService = exposureService;
             _congressService = congressService;
             _fileService = fileService;
+            _fileStorageSettings = options.Value;
             _mapper = mapper;
         }
         
@@ -85,7 +90,7 @@ namespace Web.Api.Controllers
 
             try
             {
-                fileUploaded = await _fileService.UploadFileAsync(pdfFile.FileName, fileBytes);
+                fileUploaded = await _fileService.SaveFileAsync(pdfFile.FileName, fileBytes,[".pdf"], _fileStorageSettings.PresentationsPath);
             } catch (ArgumentException e)
             {
                 return BadRequest(e.Message);
@@ -126,6 +131,14 @@ namespace Web.Api.Controllers
 
             if (exposureDto == null)
             {
+                try
+                {
+                    await _fileService.DeleteFileAsync(fileUploaded.FileName, _fileStorageSettings.PresentationsPath);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
@@ -161,7 +174,7 @@ namespace Web.Api.Controllers
         }
         
         //dowload file summary
-        [HttpGet("{id}/summary")]
+        [HttpGet("{id:int}/summary")]
         public async Task<IActionResult> DownloadSummary(int id)
         {
             var exposure = await _exposureService.GetByIdAsync(id);
@@ -171,7 +184,7 @@ namespace Web.Api.Controllers
                 return NotFound();
             }
             
-            var file = await _fileService.GetFileAsync(exposure.SummaryFilePath);
+            var file = await _fileService.GetFileAsync(exposure.SummaryFilePath,_fileStorageSettings.PresentationsPath);
             
             if (file == null)
             {

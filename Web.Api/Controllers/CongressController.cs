@@ -1,6 +1,7 @@
 using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
 using Domain.Common.Pagination;
+using Domain.Entities;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -96,6 +97,30 @@ namespace Web.Api.Controllers
             var congressDto = await _congressService.GetByGuidAsync(guid);
             
             return congressDto == null ? NotFound() : Ok(congressDto);
+        }
+        
+        //get list of certificates congress by dni
+        [HttpGet("certificates/{dni}")]
+        public async Task<ActionResult<IEnumerable<CongressCertificate>>> GetCertificatesByDni(string dni)
+        {
+            var congresses = await _congressService.GetCertificatesByDniAsync(dni);
+            
+            return Ok(congresses);
+        }
+        
+        
+        //download certificate congress
+        [HttpGet("certificate/{id}/{dni}")]
+        public async Task<IActionResult> DownloadCertificate(int id,string dni)
+        {
+            var file = await _congressService.DownloadCertificateAttendanceAsync(id, dni);
+            
+            if (file == null)
+            {
+                return NotFound();
+            }
+            
+            return File(file, "application/pdf", "certificate.pdf");
         }
     }
 }
