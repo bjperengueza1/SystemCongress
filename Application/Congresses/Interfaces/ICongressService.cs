@@ -11,6 +11,6 @@ public interface ICongressService : ICommonService<CongressDto, CongressInsertDt
     
     Task<IEnumerable<CongressCertificate>> GetCertificatesByDniAsync(string dni);
     
-    Task<byte[]> DownloadCertificateAttendanceAsync(int congressId, string dni);
+    Task<Stream> DownloadCertificateAttendanceAsync(int congressId, string dni, string directorio);
     
 }

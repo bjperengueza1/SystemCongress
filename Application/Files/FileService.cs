@@ -47,4 +47,19 @@ public class FileService : IFileService
     {
         return await _fileStorageService.DeleteFileAsync(fileName, directory);
     }
+    
+    public async Task<string> CopyFileAsync(string sourceFileName, string targetFileName, string directory)
+    {
+        return await _fileStorageService.CopyFileAsync(sourceFileName, targetFileName, directory);
+    }
+    
+    public void ReplaceTextInWord(string fileName, string directory, string placeholder, string replacementText)
+    {
+        _fileStorageService.ReplaceTextInWord(fileName, directory, placeholder, replacementText);
+    }
+
+    public void ConvertToPdf(string inputFilePath, string outputFilePath)
+    {
+        _fileStorageService.ConvertToPdf(inputFilePath, outputFilePath);
+    }
 }

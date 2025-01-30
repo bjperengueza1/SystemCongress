@@ -3,8 +3,10 @@ using Application.Congresses.Interfaces;
 using Domain.Common.Pagination;
 using Domain.Entities;
 using FluentValidation;
+using Infrastructure.Settings;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace Web.Api.Controllers
 {
@@ -14,14 +16,17 @@ namespace Web.Api.Controllers
     {
         private readonly IValidator<CongressInsertDto> _congressInsertValidator;
         private readonly IValidator<CongressUpdateDto> _congressUpdateValidator;
+        private readonly FileStorageSettings _fileStorageSettings;
         private readonly ICongressService _congressService;
         
         public CongressController(IValidator<CongressInsertDto> congressInsertValidator,
             IValidator<CongressUpdateDto> congressUpdateValidator,
+            IOptions<FileStorageSettings> options,
             ICongressService congressService)
         {
             _congressInsertValidator = congressInsertValidator;
             _congressUpdateValidator = congressUpdateValidator;
+            _fileStorageSettings = options.Value;
             _congressService = congressService;
         }
         
@@ -113,7 +118,8 @@ namespace Web.Api.Controllers
         [HttpGet("certificate/{id}/{dni}")]
         public async Task<IActionResult> DownloadCertificate(int id,string dni)
         {
-            var file = await _congressService.DownloadCertificateAttendanceAsync(id, dni);
+            
+            var file = await _congressService.DownloadCertificateAttendanceAsync(id, dni, _fileStorageSettings.TemplateCertificatesPath);
             
             if (file == null)
             {

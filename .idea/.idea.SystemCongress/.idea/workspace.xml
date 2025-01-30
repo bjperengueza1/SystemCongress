@@ -10,29 +10,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Congresses/Services/WordReplacer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Entities/CongressCertificate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Files/IFileStorageService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Files/LocalFileStorageService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Settings/FileStorageSettings.cs" afterDir="false" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="file service">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Application.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/WordReplacer.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Files/FileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Files/FileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Files/FileStorageService.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Files/Interfaces/IFileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Files/Interfaces/IFileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Files/Interfaces/IFileStorageService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Utils/Helpers/FileValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Helpers/FileValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/Files/IFileStorageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/Files/IFileStorageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Files/LocalFileStorageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Files/LocalFileStorageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +253,7 @@
       <workItem from="1738181725300" duration="2062000" />
       <workItem from="1738183844880" duration="24000" />
       <workItem from="1738185109998" duration="5101000" />
-      <workItem from="1738206562423" duration="9140000" />
+      <workItem from="1738206562423" duration="13736000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -483,7 +471,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738082137448</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="file service">
+      <option name="closed" value="true" />
+      <created>1738215845997</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1738215845998</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +500,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="as" />
     <MESSAGE value="expsures" />
     <MESSAGE value="faltaantes" />
     <MESSAGE value="update models" />
@@ -529,6 +524,7 @@
     <MESSAGE value="validations dto congress" />
     <MESSAGE value="exposure validation" />
     <MESSAGE value="multiple authors to many exposures" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiple authors to many exposures" />
+    <MESSAGE value="file service" />
+    <option name="LAST_COMMIT_MESSAGE" value="file service" />
   </component>
 </project>

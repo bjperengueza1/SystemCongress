@@ -1,7 +1,6 @@
-using System.Diagnostics;
-using System.Reflection;
 using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
+using Application.Files.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Interfaces;
@@ -13,13 +12,16 @@ public class CongressService : ICongressService
 {
     
     private readonly ICongressRepository _congressRepository;
+    private readonly IFileService _fileService;
     private readonly IMapper _mapper;
     
     public CongressService(
         ICongressRepository congressRepository,
+        IFileService fileService,
         IMapper mapper)
     {
         _congressRepository = congressRepository;
+        _fileService = fileService;
         _mapper = mapper;
     }
     
@@ -87,57 +89,24 @@ public class CongressService : ICongressService
         return congresses;
     }
 
-    public async Task<byte[]> DownloadCertificateAttendanceAsync(int congressId, string dni)
+    public async Task<Stream> DownloadCertificateAttendanceAsync(int congressId, string dni, string directorio)
     {
-        var directorioPadre = Directory.GetParent(Directory.GetCurrentDirectory()).FullName;
-        var carpetaPlantillas = Path.Combine(directorioPadre, "templates");
-        var rutaPlantilla = Path.Combine(carpetaPlantillas, "ASISTENTE.docx");
-        
         var guid = Guid.NewGuid().ToString();
-        var rutaSalida = Path.Combine(carpetaPlantillas, guid+".docx");
-        
-        WordReplacer.ReplaceTextInWord(rutaPlantilla,rutaSalida,"NOMBRESAPELLIDOS","OMAR");
-        
-        // Verifica si el archivo existe
-        if (!File.Exists(rutaPlantilla))
-            throw new FileNotFoundException("La plantilla del certificado no se encontró.");
-        
-        const string libreOfficePath = "/usr/bin/soffice";
-        
-        // Verifica si libreoffice está instalado
-        if (!File.Exists(libreOfficePath))
-            throw new FileNotFoundException("LibreOffice no está instalado.");
-        
-        var rutaCertificados = Path.Combine(directorioPadre, "certificados");
-        
-        var process = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                FileName = libreOfficePath,
-                Arguments = $"--headless --convert-to pdf:writer_pdf_Export --outdir {rutaCertificados} {rutaSalida}",
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            }
-        };
-        
-        process.Start();
-        
-        await process.WaitForExitAsync();
+        var nameTemp = $"{dni}_{guid}.docx";
 
-        var rutaCertificadoPdf = rutaCertificados + guid + ".pdf";
+        await _fileService.CopyFileAsync("ASISTENTE.docx", nameTemp, directorio);
         
-        if (!File.Exists(rutaCertificadoPdf))
-            throw new FileNotFoundException("El certificado no se generó correctamente.");
+        // Reemplaza el texto en el archivo
+        _fileService.ReplaceTextInWord(nameTemp,directorio,"NOMBRESAPELLIDOS","OMAR");
         
-        //Lee el archivo generado
-        var file = await File.ReadAllBytesAsync(rutaCertificadoPdf);
+        _fileService.ConvertToPdf(nameTemp, directorio);
+        var certificado = await _fileService.GetFileAsync($"{dni}_{guid}.pdf", directorio);
+
+        //delete temp files
+        await _fileService.DeleteFileAsync(nameTemp, directorio);
+        await _fileService.DeleteFileAsync($"{dni}_{guid}.pdf", directorio);
         
-        //Elimina el archivo generado
-        File.Delete(rutaCertificadoPdf);
+        return certificado;
         
-        return file;
     }
 }
