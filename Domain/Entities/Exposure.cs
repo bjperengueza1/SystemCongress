@@ -15,14 +15,15 @@ public class Exposure
     public StatusExposure StatusExposure { get; set; }
     
     public ResearchLine ResearchLine { get; set; }
-    
+    public TypeExposure Type { get; set; }
+    public DateTime Date { get; set; }
     public string? Guid { get; set; }
     
     // Foreign Key for Room
     public int RoomId { get; set; }
     //set name of the foreign key is RoomId
     /*[ForeignKey("RoomId")]
-    public virtual Room? Room { get; set; }*/
+    public Room? Room { get; set; }*/
     
     // Foreign Key for Congress
     public int CongressId { get; set; }

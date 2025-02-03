@@ -14,7 +14,7 @@ public class AuthorRepository : IAuthorRepository
     {
         _context = context;
     }
-    public async Task<IEnumerable<Author>> GetAllAsync()
+    public async Task<IEnumerable<Author?>> GetAllAsync()
     {
         return await _context.Authors.ToListAsync();
     }
@@ -24,12 +24,12 @@ public class AuthorRepository : IAuthorRepository
         return await _context.Authors.FindAsync(id);
     }
 
-    public async Task AddAsync(Author entity)
+    public async Task AddAsync(Author? entity)
     {
         await _context.Authors.AddAsync(entity);
     }
 
-    public void UpdateAsync(Author entity)
+    public void UpdateAsync(Author? entity)
     {
         _context.Authors.Attach(entity);
         _context.Entry(entity).State = EntityState.Modified;
@@ -48,5 +48,10 @@ public class AuthorRepository : IAuthorRepository
     public Task<PaginatedResult<Author>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<Author?> GetByIdNumberAsync(string idNumber)
+    {
+        return await _context.Authors.FirstOrDefaultAsync(x => x.IDNumber == idNumber);
     }
 }

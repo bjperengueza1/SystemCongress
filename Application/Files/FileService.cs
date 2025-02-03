@@ -14,7 +14,7 @@ public class FileService : IFileService
     }
     
     
-    public async Task<FileUploaded> SaveFileAsync(string fileName, byte[] content, string[] permittedExtensions, string directory)
+    public async Task<FileUploaded> SaveFileAsync(string fileName, Stream fileStream, string[] permittedExtensions, string directory)
     {
         //validate extension file
         if (!FileValidator.ValidateFileExtension(fileName, permittedExtensions))
@@ -23,12 +23,16 @@ public class FileService : IFileService
         }
         
         //validate file signature
-        if (!FileValidator.ValidateFileSignature(new MemoryStream(content), Path.GetExtension(fileName).ToLowerInvariant()))
+        /*if (!FileValidator.ValidateFileSignature(fileStream, Path.GetExtension(fileName).ToLowerInvariant()))
         {
             throw new ArgumentException("La firma del archivo no es válida.");
-        }
+        }*/
+        
+        var nameGuid = Guid.NewGuid().ToString("N")+Path.GetExtension(fileName).ToLowerInvariant();
+        
+        var paths = new List<string> {directory};
 
-        fileName = await _fileStorageService.SaveFileAsync(new MemoryStream(content), fileName, directory );
+        fileName = await _fileStorageService.SaveFileAsync(fileStream, nameGuid, paths);
 
         return new FileUploaded()
         {
@@ -38,28 +42,28 @@ public class FileService : IFileService
     }
 
     //get file
-    public async Task<Stream> GetFileAsync(string fileName, string directory)
+    public async Task<Stream> GetFileAsync(string fileName, string[] directory)
     {
         return await _fileStorageService.GetFileAsync(fileName, directory);
     }
 
-    public async Task<bool> DeleteFileAsync(string fileName, string directory)
+    public async Task<bool> DeleteFileAsync(string fileName, string[] directory)
     {
         return await _fileStorageService.DeleteFileAsync(fileName, directory);
     }
     
-    public async Task<string> CopyFileAsync(string sourceFileName, string targetFileName, string directory)
+    public async Task<string> CopyFileAsync(string sourceFileName, string targetFileName, string[] paths)
     {
-        return await _fileStorageService.CopyFileAsync(sourceFileName, targetFileName, directory);
+        return await _fileStorageService.CopyFileAsync(sourceFileName, targetFileName,paths);
     }
     
-    public void ReplaceTextInWord(string fileName, string directory, string placeholder, string replacementText)
+    public void ReplaceTextInWord(string fileName, string[] directory,  Dictionary<string, string> replacements)
     {
-        _fileStorageService.ReplaceTextInWord(fileName, directory, placeholder, replacementText);
+        _fileStorageService.ReplaceTextInWord(fileName, directory, replacements);
     }
 
-    public void ConvertToPdf(string inputFilePath, string outputFilePath)
+    public string ConvertToPdf(string fileName, string[] outputFilePath)
     {
-        _fileStorageService.ConvertToPdf(inputFilePath, outputFilePath);
+        return _fileStorageService.ConvertToPdf(fileName, outputFilePath);
     }
 }

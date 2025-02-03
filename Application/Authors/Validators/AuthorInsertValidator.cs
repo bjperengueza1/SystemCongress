@@ -8,44 +8,44 @@ public class AuthorInsertValidator : AbstractValidator<AuthorInsertDto>
     public AuthorInsertValidator()
     {
         RuleFor(x => x.Position)
-            .NotEmpty()
+            .NotEmpty().WithMessage("La posición del autor es requerida.")
             .GreaterThan(0)
             .LessThan(4);
         
         RuleFor(x => x.Name)
-            .NotEmpty()
-            .MinimumLength(10)
-            .MaximumLength(100);
+            .NotEmpty().WithMessage("El nombre del autor es requerido.")
+            .MinimumLength(10).WithMessage("El nombre del autor debe tener al menos 10 caracteres.")
+            .MaximumLength(100).WithMessage("El nombre del autor no debe exceder los 100 caracteres.");
         
         RuleFor(x => x.IDNumber)
-            .NotEmpty()
-            .MinimumLength(10)
+            .NotEmpty().WithMessage("El número de identificación es requerido.")
+            .MinimumLength(10).WithMessage("El número de identificación debe tener al menos 10 caracteres.")
             .MaximumLength(20);
         
         RuleFor(x => x.InstitutionalMail)
-            .NotEmpty()
-            .MaximumLength(100);
+            .NotEmpty().WithMessage("El correo institucional es requerido.")
+            .MaximumLength(100).WithMessage("El correo institucional no debe exceder los 100 caracteres.");
         
         RuleFor(x => x.PersonalMail)
-            .NotEmpty()
-            .MaximumLength(100);
+            .NotEmpty().WithMessage("El correo personal es requerido.")
+            .MaximumLength(100).WithMessage("El correo personal no debe exceder los 100 caracteres.");
         
         RuleFor(x => x.PhoneNumber)
-            .NotEmpty()
-            .MaximumLength(20);
+            .NotEmpty().WithMessage("El número de teléfono es requerido.")
+            .MaximumLength(20).WithMessage("El número de teléfono no debe exceder los 20 caracteres.");
         
         RuleFor(x => x.Country)
-            .NotEmpty()
-            .MinimumLength(3)
-            .MaximumLength(20);
+            .NotEmpty().WithMessage("El país es requerido.")
+            .MinimumLength(3).WithMessage("El país debe tener al menos 3 caracteres.")
+            .MaximumLength(20).WithMessage("El país no debe exceder los 20 caracteres.");
         
         RuleFor(x => x.City)
-            .NotEmpty()
-            .MinimumLength(3)
-            .MaximumLength(20);
+            .NotEmpty().WithMessage("La ciudad es requerida.")
+            .MinimumLength(3).WithMessage("La ciudad debe tener al menos 3 caracteres.")
+            .MaximumLength(20).WithMessage("La ciudad no debe exceder los 20 caracteres.");
         
         RuleFor(x => x.AcademicDegree)
-            .NotEmpty();
+            .NotEmpty().WithMessage("El grado académico es requerido.");
     }
     
 }

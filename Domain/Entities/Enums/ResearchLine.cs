@@ -2,12 +2,12 @@ namespace Domain.Entities.Enums;
 
 public enum ResearchLine
 {
-    InformationCommunicationTechnologies = 0,
-    HigherEducationModalitiesStudy = 1,
-    AdministrationMarketingEntrepreneurship,
-    QualityEducationalInnovation,
-    ArtsHumanities,
-    SportsPhysicalActivity,
-    ServicesProtectionSecurityTransportation,
-    IndustrialEngineeringConstruction
+    InformationCommunicationTechnologies = 1,
+    HigherEducationModalitiesStudy = 2,
+    AdministrationMarketingEntrepreneurship = 3,
+    QualityEducationalInnovation = 4,
+    ArtsHumanities = 5,
+    SportsPhysicalActivity = 6,
+    ServicesProtectionSecurityTransportation = 7,
+    IndustrialEngineeringConstruction = 8,
 }

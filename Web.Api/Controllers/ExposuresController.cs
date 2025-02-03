@@ -78,29 +78,27 @@ namespace Web.Api.Controllers
             {
                 return BadRequest("El archivo no es válido.");
             }
-            // Convertir IFormFile a byte[]
-            byte[] fileBytes;
-            using (var ms = new MemoryStream())
-            {
-                await pdfFile.CopyToAsync(ms);
-                fileBytes = ms.ToArray();
-            }
-            
-            FileUploaded fileUploaded;
-
-            try
-            {
-                fileUploaded = await _fileService.SaveFileAsync(pdfFile.FileName, fileBytes,[".pdf"], _fileStorageSettings.PresentationsPath);
-            } catch (ArgumentException e)
-            {
-                return BadRequest(e.Message);
-            }
             
             var congress = await _congressService.GetByGuidAsync(insertFormDto.CongressGuid);
             
             if (congress == null)
             {
                 return BadRequest("El congreso no existe.");
+            }
+            
+            var fileStream = new MemoryStream();
+            
+            await pdfFile.CopyToAsync(fileStream);
+            
+            FileUploaded fileUploaded;
+
+            try
+            {
+                //envio el nombre solo para validar con la extension
+                fileUploaded = await _fileService.SaveFileAsync(pdfFile.FileName, fileStream, [".pdf"], _fileStorageSettings.PresentationsPath);
+            } catch (ArgumentException e)
+            {
+                return BadRequest(e.Message);
             }
             
             var insertDto = _mapper.Map<ExposureInsertDto>(insertFormDto);
@@ -113,6 +111,14 @@ namespace Web.Api.Controllers
             
             if(insertDto.Authors.Count == 0)
             {
+                try
+                {
+                    await _fileService.DeleteFileAsync(fileUploaded.FileName, [_fileStorageSettings.PresentationsPath]);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 return BadRequest("Debe haber al menos un autor.");
             }
             
@@ -124,16 +130,26 @@ namespace Web.Api.Controllers
                     .Select(e => e.ErrorMessage)
                     .ToList();
                 
+                try
+                {
+                    await _fileService.DeleteFileAsync(fileUploaded.FileName, [_fileStorageSettings.PresentationsPath]);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+                
                 return BadRequest(new { Errors = errors });
             }
             
             var exposureDto = await _exposureService.CreateAsync(insertDto);
 
-            if (exposureDto == null)
+            if (exposureDto != null)
+                return CreatedAtAction(nameof(GetExposure), new { id = exposureDto.ExposureId }, null);
             {
                 try
                 {
-                    await _fileService.DeleteFileAsync(fileUploaded.FileName, _fileStorageSettings.PresentationsPath);
+                    await _fileService.DeleteFileAsync(fileUploaded.FileName, [_fileStorageSettings.PresentationsPath]);
                 }
                 catch (Exception e)
                 {
@@ -142,7 +158,6 @@ namespace Web.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
-            return CreatedAtAction(nameof(GetExposure), new { id = exposureDto.ExposureId}, null);
         }
         
         //update exposure
@@ -184,7 +199,7 @@ namespace Web.Api.Controllers
                 return NotFound();
             }
             
-            var file = await _fileService.GetFileAsync(exposure.SummaryFilePath,_fileStorageSettings.PresentationsPath);
+            var file = await _fileService.GetFileAsync(exposure.SummaryFilePath,[_fileStorageSettings.PresentationsPath]);
             
             if (file == null)
             {

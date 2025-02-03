@@ -4,5 +4,5 @@ namespace Domain.Interfaces;
 
 public interface IAuthorRepository : IRepository<Author>
 {
-    
+    Task<Author?> GetByIdNumberAsync(string idNumber);
 }

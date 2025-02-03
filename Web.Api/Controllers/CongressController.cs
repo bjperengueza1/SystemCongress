@@ -1,6 +1,7 @@
 using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
 using Domain.Common.Pagination;
+using Domain.Dtos;
 using Domain.Entities;
 using FluentValidation;
 using Infrastructure.Settings;
@@ -115,8 +116,8 @@ namespace Web.Api.Controllers
         
         
         //download certificate congress
-        [HttpGet("certificate/{id}/{dni}")]
-        public async Task<IActionResult> DownloadCertificate(int id,string dni)
+        [HttpGet("certificate-attendance/{id:int}/{dni}")]
+        public async Task<IActionResult> DownloadCertificateAttendance(int id,string dni)
         {
             
             var file = await _congressService.DownloadCertificateAttendanceAsync(id, dni, _fileStorageSettings.TemplateCertificatesPath);
@@ -126,7 +127,37 @@ namespace Web.Api.Controllers
                 return NotFound();
             }
             
-            return File(file, "application/pdf", "certificate.pdf");
+            return File(file, "application/pdf");
+        }
+        
+        //download certificate congress
+        [HttpGet("certificate-exposure/{id:int}/{dni}")]
+        public async Task<IActionResult> DownloadCertificateExposure(int id,string dni)
+        {
+            
+            var file = await _congressService.DownloadCertificateExposureAsync(id, dni, _fileStorageSettings.TemplateCertificatesPath);
+            
+            if (file == null)
+            {
+                return NotFound();
+            }
+            
+            return File(file, "application/pdf");
+        }
+        
+        //download certificate congress
+        [HttpGet("certificate-conference/{id:int}/{dni}")]
+        public async Task<IActionResult> DownloadCertificateConference(int id,string dni)
+        {
+            
+            var file = await _congressService.DownloadCertificateConferenceAsync(id, dni, _fileStorageSettings.TemplateCertificatesPath);
+            
+            if (file == null)
+            {
+                return NotFound();
+            }
+            
+            return File(file, "application/pdf");
         }
     }
 }

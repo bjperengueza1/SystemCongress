@@ -1,3 +1,4 @@
+using Application.Authors.DTOs;
 using Application.Common;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
@@ -40,8 +41,6 @@ public class ExposureService : IExposureService
         
         if (exposure == null) return null;
         
-        Console.WriteLine(exposure.SummaryFilePath);
-        
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
 
@@ -49,14 +48,15 @@ public class ExposureService : IExposureService
     {
         var exposure = _mapper.Map<Exposure>(ti);
         
-        for (var i = 0; i < ti.Authors.Count; i++)
+        foreach (var t in ti.Authors)
         {
-            // Verificar si el autor ya existe en la base de datos
-            //todo
-            
-            var author = _mapper.Map<Author>(ti.Authors[i]);
-            await _authorRepository.AddAsync(author);
-            
+            var author = await _authorRepository.GetByIdNumberAsync(t.IDNumber);
+            if ( author == null)
+            {
+                author = _mapper.Map<Author>(t);
+                await _authorRepository.AddAsync(author);
+            }
+
             exposure.ExposureAuthor.Add(
                 new ExposureAuthor
                 {
@@ -70,7 +70,6 @@ public class ExposureService : IExposureService
         await _exposureRepository.SaveAsync();
         
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
-
     }
 
     public Task<ExposureWitchAuthorsDto> UpdateAsync(int id, ExposureUpdateDto tu)

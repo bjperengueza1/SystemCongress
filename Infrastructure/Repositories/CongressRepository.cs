@@ -1,8 +1,8 @@
 using Domain.Common.Pagination;
+using Domain.Dtos;
 using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
-using Infrastructure.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
@@ -29,7 +29,7 @@ public class CongressRepository : ICongressRepository
 
     public async Task AddAsync(Congress entity)
     {
-        entity.Guid = GuidHelper.GenerateGuid();
+        entity.Guid = Guid.NewGuid().ToString();
         await _context.Congresses.AddAsync(entity);
     }
 
@@ -86,9 +86,10 @@ public class CongressRepository : ICongressRepository
         var certificates = new List<CongressCertificate>();
         
         //iterar sobre los congresos
-        foreach (var congress in congresses)
+        for (var index = 0; index < congresses.Count; index++)
         {
-            var certificate = new CongressCertificate
+            var congress = congresses[index];
+            var congressCertificate = new CongressCertificate
             {
                 CongressId = congress.CongressId,
                 Name = congress.Name,
@@ -96,33 +97,37 @@ public class CongressRepository : ICongressRepository
                 EndDate = congress.EndDate,
                 Location = congress.Location
             };
-            //seleccionar las exposiciones de ese congreso que tengan algun autor con ese dni
-            /*var exposures = await _context.Exposures
-                .Include(e => e.Congress)
-                .Include(e => e.ExposureAuthor)
-                .ThenInclude(ea => ea.Author)
-                .Where(e => e.ExposureAuthor.Any(ea => ea.Author.IDNumber == dni) && e.CongressId == congress.CongressId)
+            
+            //Traer solo la tabla de exposiciones sin incluir las tablas relacionadas
+            IEnumerable<ExposureWithOutRelationsDto> expos = await _context.Exposures
+                .Where(e => e.CongressId == congress.CongressId
+                && e.ExposureAuthor.Any(ea => ea.Author.IDNumber == dni))
+                .Select(e => new ExposureWithOutRelationsDto
+                {
+                    ExposureId = e.ExposureId,
+                    Name = e.Name,
+                    StatusExposure = e.StatusExposure,
+                    ResearchLine = e.ResearchLine,
+                    Type = e.Type,
+                    Date = e.Date,
+                    Guid = e.Guid
+                })
                 .ToListAsync();
             
-            //si hay exposiciones
-            if (exposures.Count > 0)
-            {
-                certificate.Exposures = exposures;
-            }*/
-            
+            congressCertificate.Exposure = expos;
+
             //seleccionar las asistencias que tenda aun Attendee con ese dni
             var attendances = await _context.Attendances
-                .Include(a => a.Attendee)
-                .Include(a => a.Exposure)
                 .Where(a => a.Attendee.IDNumber == dni && a.Exposure.CongressId == congress.CongressId)
                 .ToListAsync();
-            
-            //si hay asistencias
-            if (attendances.Count > 0)
+
+            //si hay 4 asistencias
+            if (attendances.Count >= 1)
             {
-                certificate.CertificateAttendance = true;
+                congressCertificate.CertificateAttendance = true;
             }
-            certificates.Add(certificate);
+
+            certificates.Add(congressCertificate);
         }
 
         return certificates;

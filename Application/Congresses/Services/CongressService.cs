@@ -3,8 +3,10 @@ using Application.Congresses.Interfaces;
 using Application.Files.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
+using Domain.Dtos;
 using Domain.Interfaces;
 using Domain.Entities;
+using Newtonsoft.Json;
 
 namespace Application.Congresses.Services;
 
@@ -12,18 +14,24 @@ public class CongressService : ICongressService
 {
     
     private readonly ICongressRepository _congressRepository;
+    private readonly IExposureRepository _exposureRepository;
     private readonly IAttendeeRepository _attendeeRepository;
+    private readonly IAuthorRepository _authorRepository;
     private readonly IFileService _fileService;
     private readonly IMapper _mapper;
     
     public CongressService(
         ICongressRepository congressRepository,
+        IExposureRepository exposureRepository,
         IAttendeeRepository attendeeRepository,
+        IAuthorRepository authorRepository,
         IFileService fileService,
         IMapper mapper)
     {
         _congressRepository = congressRepository;
+        _exposureRepository = exposureRepository;
         _attendeeRepository = attendeeRepository;
+        _authorRepository = authorRepository;
         _fileService = fileService;
         _mapper = mapper;
     }
@@ -95,23 +103,100 @@ public class CongressService : ICongressService
     public async Task<Stream> DownloadCertificateAttendanceAsync(int congressId, string dni, string directorio)
     {
         var attendee = await _attendeeRepository.GetAttendeeByIdNumberAsync(dni);
-
-        if (attendee == null) return null;
+        var congress = await _congressRepository.GetByIdAsync(congressId);
         
-        var guid = Guid.NewGuid().ToString();
+        if (congress == null || attendee == null) return null;
+        
+        var guid = Guid.NewGuid().ToString("N");
         var nameTemp = $"{dni}_{guid}.docx";
 
-        await _fileService.CopyFileAsync("ASISTENTE.docx", nameTemp, directorio);
+        string[] pathTemplate = [directorio,congress.Guid];
+
+        await _fileService.CopyFileAsync("ASISTENTE.docx", nameTemp, pathTemplate);
         
-        // Reemplaza el texto en el archivo
-        _fileService.ReplaceTextInWord(nameTemp,directorio,"NOMBRESAPELLIDOS",attendee.Name);
+        //lista de campos a reemplazar
+        var fields = new Dictionary<string, string>
+        {
+            {"PERSONA", attendee.Name.ToUpper()}
+        };
         
-        _fileService.ConvertToPdf(nameTemp, directorio);
-        var certificado = await _fileService.GetFileAsync($"{dni}_{guid}.pdf", directorio);
+        //Reemplaza el texto en el archivo
+        _fileService.ReplaceTextInWord(nameTemp,pathTemplate,fields);
+        
+        var namePdf = _fileService.ConvertToPdf(nameTemp, pathTemplate);
+        var certificado = await _fileService.GetFileAsync(namePdf, pathTemplate);
 
         //delete temp files
-        await _fileService.DeleteFileAsync(nameTemp, directorio);
-        await _fileService.DeleteFileAsync($"{dni}_{guid}.pdf", directorio);
+        await _fileService.DeleteFileAsync(nameTemp, pathTemplate);
+        await _fileService.DeleteFileAsync(namePdf, pathTemplate);
+        
+        return certificado;
+    }
+
+    public async Task<Stream> DownloadCertificateExposureAsync(int exposureId, string dni, string directorio)
+    {
+        var author = await _authorRepository.GetByIdNumberAsync(dni);
+        var exposure = await _exposureRepository.GetByIdAsync(exposureId);
+        
+        if (exposure == null || author == null) return null;
+        
+        var guid = Guid.NewGuid().ToString("N");
+        var nameTemp = $"{dni}_{guid}.docx";
+        
+        string[] pathTemplate = [directorio,exposure.Congress.Guid];
+        
+        await _fileService.CopyFileAsync("PONENCIA.docx", nameTemp, pathTemplate);
+        
+        //lista de campos a reemplazar
+        var fields = new Dictionary<string, string>
+        {
+            {"PERSONA", author.Name.ToUpper()},
+            {"TEMA", exposure.Name.ToUpper()}
+        };
+        
+        //Reemplaza el texto en el archivo
+        _fileService.ReplaceTextInWord(nameTemp,pathTemplate,fields);
+        
+        var namePdf = _fileService.ConvertToPdf(nameTemp, pathTemplate);
+        var certificado = await _fileService.GetFileAsync(namePdf, pathTemplate);
+
+        //delete temp files
+        await _fileService.DeleteFileAsync(nameTemp, pathTemplate);
+        await _fileService.DeleteFileAsync(namePdf, pathTemplate);
+        
+        return certificado;
+    }
+
+    public async Task<Stream> DownloadCertificateConferenceAsync(int exposureId, string dni, string directorio)
+    {
+        var author = await _authorRepository.GetByIdNumberAsync(dni);
+        var exposure = await _exposureRepository.GetByIdAsync(exposureId);
+        
+        if (exposure == null || author == null) return null;
+        
+        var guid = Guid.NewGuid().ToString("N");
+        var nameTemp = $"{dni}_{guid}.docx";
+        
+        string[] pathTemplate = [directorio,exposure.Congress.Guid];
+        
+        await _fileService.CopyFileAsync("CONFERENCIA.docx", nameTemp, pathTemplate);
+        
+        //lista de campos a reemplazar
+        var fields = new Dictionary<string, string>
+        {
+            {"PERSONA", author.Name.ToUpper()},
+            {"TEMA", exposure.Name.ToUpper()}
+        };
+        
+        //Reemplaza el texto en el archivo
+        _fileService.ReplaceTextInWord(nameTemp,pathTemplate,fields);
+        
+        var namePdf = _fileService.ConvertToPdf(nameTemp, pathTemplate);
+        var certificado = await _fileService.GetFileAsync(namePdf, pathTemplate);
+
+        //delete temp files
+        await _fileService.DeleteFileAsync(nameTemp, pathTemplate);
+        await _fileService.DeleteFileAsync(namePdf, pathTemplate);
         
         return certificado;
     }

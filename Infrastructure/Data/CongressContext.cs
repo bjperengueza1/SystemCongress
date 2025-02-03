@@ -11,18 +11,9 @@ public class CongressContext : DbContext
     public DbSet<Congress> Congresses { get; set; }
     public DbSet<Room> Rooms { get; set; }
     public DbSet<Exposure> Exposures { get; set; }
-    public DbSet<Author> Authors { get; set; }
+    public DbSet<Author?> Authors { get; set; }
     public DbSet<ExposureAuthor> ExposureAuthors { get; set; }
     public DbSet<Attendee> Attendees { get; set; }
     public DbSet<Attendance> Attendances { get; set; }
     public DbSet<User?> Users { get; set; }
-    
-    // Método OnModelCreating para configuraciones avanzadas
-    /*protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        // Configuración para convertir Enum a string
-        modelBuilder.Entity<Exposure>()
-            .Property(e => e.StatusExposure)
-            .HasConversion<string>(); // Convierte el enum a string al guardar/leer
-    }*/
 }

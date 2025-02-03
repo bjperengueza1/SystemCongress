@@ -23,7 +23,7 @@ public class ExposureRepository : IExposureRepository
     public async Task<Exposure> GetByIdAsync(int id)
     {
         return await _context.Exposures
-            //.Include(e => e.Authors)
+            .Include(e => e.Congress)
             .FirstOrDefaultAsync(e => e.ExposureId == id);
     }
 

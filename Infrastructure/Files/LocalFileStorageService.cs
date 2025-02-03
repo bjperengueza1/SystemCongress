@@ -12,35 +12,38 @@ public class LocalFileStorageService : IFileStorageService
 {
     private readonly FileStorageSettings _settings;
     private const string LibreOfficePath = "/usr/bin/soffice";
-    private const string LibreOfficePathWindows = "C:/Program Files/LibreOffice/program/soffice.exe";
+    private const string LibreOfficePathWindows = @"C:\Program Files\LibreOffice\program\soffice.exe";
     
     public LocalFileStorageService(IOptions<FileStorageSettings> options)
     {
         _settings = options.Value;
     }
-
-    private readonly string _basePath = "wwwroot/uploads/";
-
-    public async Task<string> SaveFileAsync(Stream fileStream, string fileName, string directory)
+    
+    public async Task<string> SaveFileAsync(Stream fileStream, string fileName, List<string> directory)
     {
-        var folderPath = Path.Combine(_settings.BasePath, directory);
+        var paths = new List<string> {_settings.BasePath};
+        paths.AddRange(directory);
+        
+        var folderPath = Path.Combine(paths.ToArray());
+        
         if (!Directory.Exists(folderPath))
-        {
             Directory.CreateDirectory(folderPath); // Asegura que la carpeta exista
-            //permisos de lectura y escritura
-        }
+        
         
         var filePath = Path.Combine(folderPath, fileName);
-
+        
+        //validar  Cannot access a closed Stream
         await using var fileStreamOutput = new FileStream(filePath, FileMode.Create);
+        fileStream.Seek(0, SeekOrigin.Begin);
         await fileStream.CopyToAsync(fileStreamOutput);
 
         return fileName; // Retorna la ruta almacenada
     }
 
-    public async Task<Stream> GetFileAsync(string fileName, string directory)
+    public async Task<Stream> GetFileAsync(string fileName, string[] directory)
     {
-        var filePath = Path.Combine(_settings.BasePath, directory, fileName);
+        var path = Path.Combine(directory);
+        var filePath = Path.Combine(_settings.BasePath, path, fileName);
 
         if (!File.Exists(filePath))
             throw new FileNotFoundException("Archivo no encontrado.");
@@ -48,21 +51,23 @@ public class LocalFileStorageService : IFileStorageService
         return new FileStream(filePath, FileMode.Open, FileAccess.Read);
     }
 
-    public Task<bool> DeleteFileAsync(string fileName, string directory)
+    public async Task<bool> DeleteFileAsync(string fileName, string[] directory)
     {
-        var filePath = Path.Combine(_settings.BasePath, directory, fileName);
+        var path = Path.Combine(directory);
+        var filePath = Path.Combine(_settings.BasePath, path, fileName);
 
-        if (!File.Exists(filePath)) return Task.FromResult(false);
+        if (!File.Exists(filePath)) return await Task.FromResult(false);
         File.Delete(filePath);
-        return Task.FromResult(true);
+        return await Task.FromResult(true);
 
     }
     
-    public async Task<string> CopyFileAsync(string sourceFileName, string targetFileName, string directory)
+    public async Task<string> CopyFileAsync(string sourceFileName, string targetFileName, string[] paths)
     {
+        var directory = Path.Combine(paths);
         var sourceFilePath = Path.Combine(_settings.BasePath, directory, sourceFileName);
         var targetFilePath = Path.Combine(_settings.BasePath, directory, targetFileName);
-
+        
         if (!File.Exists(sourceFilePath))
             throw new FileNotFoundException("Archivo no encontrado.");
 
@@ -74,26 +79,35 @@ public class LocalFileStorageService : IFileStorageService
         return targetFileName;
     }
 
-    public void ReplaceTextInWord(string fileName, string directory, string placeholder, string replacementText)
+    public void ReplaceTextInWord(string fileName, string[] directory, Dictionary<string, string> replacements)
     {
-        var inputFilePath = Path.Combine(_settings.BasePath, directory, fileName);
+        var path = Path.Combine(directory);
+        var inputFilePath = Path.Combine(_settings.BasePath, path, fileName);
+        //Validar si el archivo existe
+        if (!File.Exists(inputFilePath))
+            throw new FileNotFoundException("Archivo no encontrado.");
         // Abre el documento de Word
         using var doc = WordprocessingDocument.Open(inputFilePath, true);
         var body = doc.MainDocumentPart.Document.Body;
         foreach (var text in body.Descendants<Text>())
         {
-            if (text.Text.Contains(placeholder))
+            foreach (var replacement in replacements)
             {
-                text.Text = text.Text.Replace(placeholder, replacementText);
+                if (text.Text.Contains(replacement.Key))
+                {
+                    text.Text = text.Text.Replace(replacement.Key, replacement.Value);
+                }
             }
         }
         doc.MainDocumentPart.Document.Save();
     }
     
-    public void ConvertToPdf(string fileName, string directory)
+    public string ConvertToPdf(string fileName, string[] directory)
     {
-        var inputFilePath = Path.Combine(_settings.BasePath, directory, fileName);
-        var outputFilePath = Path.Combine(_settings.BasePath, directory, Path.GetFileNameWithoutExtension(fileName) + ".pdf");
+        var path = Path.Combine(directory);
+        var inputFilePath = Path.Combine(_settings.BasePath, path, fileName);
+        var nombrePdf = Path.GetFileNameWithoutExtension(fileName)+".pdf";
+        var outputFilePath = Path.Combine(_settings.BasePath, path, nombrePdf);
         
         //check if is windows or linux
         var libreOfficePatch = "";
@@ -115,7 +129,7 @@ public class LocalFileStorageService : IFileStorageService
             StartInfo = new ProcessStartInfo
             {
                 FileName = libreOfficePatch,
-                Arguments = $"--headless --convert-to pdf {inputFilePath} --outdir {Path.GetDirectoryName(outputFilePath)}",
+                Arguments = $"--headless --convert-to pdf \"{inputFilePath}\" --outdir \"{Path.GetDirectoryName(outputFilePath)}\"",
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 UseShellExecute = false,
@@ -125,5 +139,7 @@ public class LocalFileStorageService : IFileStorageService
         
         process.Start();
         process.WaitForExit();
+
+        return nombrePdf;
     }
 }
