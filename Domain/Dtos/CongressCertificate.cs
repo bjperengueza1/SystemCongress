@@ -20,6 +20,7 @@ public class ExposureWithOutRelationsDto
     public StatusExposure StatusExposure { get; set; }
     public ResearchLine ResearchLine { get; set; }
     public TypeExposure Type { get; set; }
-    public DateTime Date { get; set; }
+    public DateTime DateStart { get; set; }
+    public DateTime DateEnd { get; set; }
     public string? Guid { get; set; }
 }

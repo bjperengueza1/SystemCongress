@@ -8,4 +8,8 @@ public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, Expo
     Task<ExposureWitchAuthorsDto> ChangeStatusAsync(int id, ExposureUpdateStatusDto exposureUpdateStatusDto);
     
     Task<ExposureWitchAuthorsDto> GetByGuidAsync(string guid);
+    
+    Task<ExposureWitchAuthorsDto> ApproveAsync(int id, ExposureApproveDto exposureApproveDto);
+    
+    Task<ExposureWitchAuthorsDto> RejectAsync(int id, ExposureRejectDto exposureRejectDto);
 }

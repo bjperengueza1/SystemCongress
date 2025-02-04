@@ -21,9 +21,10 @@ public class GmailService : IEmailService
         try
         {
             //recipient es el email del primer autor de la exposicion ICollection<Author> Authors 
-            /*var recipient = exposure.Authors.FirstOrDefault()?.PersonalMail;
+            var recipient = exposure.ExposureAuthor.FirstOrDefault()?.Author.PersonalMail;
+            Console.WriteLine("Recipient: " + recipient);
             
-            if (string.IsNullOrWhiteSpace(recipient))
+            /*if (string.IsNullOrWhiteSpace(recipient))
             {
                 Console.WriteLine("No email found for recipient");
                 return false;
@@ -46,6 +47,34 @@ public class GmailService : IEmailService
             smtpClient.Credentials = new NetworkCredential(_gmailOptions.Email, _gmailOptions.Password);
             smtpClient.EnableSsl = true;
             await smtpClient.SendMailAsync(mailMessage);*/
+            
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error sending email: {ex.Message}");
+            return false;
+        }
+    }
+    
+    public async Task<bool> SendEmailAsync(string email, string subject, string body)
+    {
+        try
+        {
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(_gmailOptions.Email),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
+
+            mailMessage.To.Add(email);
+            
+            using var smtpClient = new SmtpClient(_gmailOptions.Host, _gmailOptions.Port);
+            smtpClient.Credentials = new NetworkCredential(_gmailOptions.Email, _gmailOptions.Password);
+            smtpClient.EnableSsl = true;
+            await smtpClient.SendMailAsync(mailMessage);
             
             return true;
         }

@@ -109,7 +109,8 @@ public class CongressRepository : ICongressRepository
                     StatusExposure = e.StatusExposure,
                     ResearchLine = e.ResearchLine,
                     Type = e.Type,
-                    Date = e.Date,
+                    DateStart = e.DateStart,
+                    DateEnd = e.DateEnd,
                     Guid = e.Guid
                 })
                 .ToListAsync();

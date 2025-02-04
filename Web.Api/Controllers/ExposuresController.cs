@@ -187,7 +187,36 @@ namespace Web.Api.Controllers
 
             return Ok(exposureDto);
         }
+
+        [HttpPut("{id:int}/approve")]
+        public async Task<ActionResult> UpdateStatusExposure(int id, [FromBody] ExposureApproveDto approveDto)
+        {
+            //print as json
+            Console.WriteLine(JsonSerializer.Serialize(approveDto));
+            var exposureDto = await _exposureService.ApproveAsync(id, approveDto);
+
+            if (exposureDto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
         
+        //reject exposure
+        [HttpPut("{id:int}/reject")]
+        public async Task<ActionResult> RejectExposure(int id, [FromBody] ExposureRejectDto rejectDto)
+        {
+            var exposureDto = await _exposureService.RejectAsync(id, rejectDto);
+
+            if (exposureDto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
+
         //dowload file summary
         [HttpGet("{id:int}/summary")]
         public async Task<IActionResult> DownloadSummary(int id)

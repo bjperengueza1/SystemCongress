@@ -57,6 +57,12 @@ public class MappingProfile : Profile
         CreateMap<Exposure, ExposureUpdateStatusDto>();
         CreateMap<ExposureUpdateStatusDto, Exposure>();
         
+        CreateMap<Exposure, ExposureApproveDto>();
+        CreateMap<ExposureApproveDto, Exposure>();
+        
+        CreateMap<Exposure, ExposureRejectDto>();
+        CreateMap<ExposureRejectDto, Exposure>();
+        
         //Autores
         CreateMap<AuthorInsertDto, Author>();
         

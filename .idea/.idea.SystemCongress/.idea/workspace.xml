@@ -10,35 +10,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Domain/Dtos/CongressCertificate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Entities/Enums/TypeExposure.cs" afterDir="false" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="download certificartes">
+      <change afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureApproveDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureRejectDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250203143350_date and observation exposure.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250203143350_date and observation exposure.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Authors/Validators/AuthorInsertValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Authors/Validators/AuthorInsertValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertFormDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureInsertFormDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/IEmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/IEmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Validators/ExposureInsertValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Validators/ExposureInsertValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Files/FileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Files/FileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Files/Interfaces/IFileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Files/Interfaces/IFileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/CongressCertificate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Enums/ResearchLine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Enums/ResearchLine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Dtos/CongressCertificate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Dtos/CongressCertificate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/Files/IFileStorageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/Files/IFileStorageService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAuthorRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Files/LocalFileStorageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Files/LocalFileStorageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Email/GmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Email/GmailService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Settings/FileStorageSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Settings/FileStorageSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,28 +84,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Web.Api: http.executor": "Run",
-    ".NET Launch Settings Profile.Web.Api: https.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pathVariables",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Web.Api: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Web.Api: https.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
@@ -279,7 +270,9 @@
       <workItem from="1738270637387" duration="2243000" />
       <workItem from="1738355398805" duration="90000" />
       <workItem from="1738456671295" duration="12633000" />
-      <workItem from="1738503812624" duration="25855000" />
+      <workItem from="1738503812624" duration="26577000" />
+      <workItem from="1738591367638" duration="8186000" />
+      <workItem from="1738660726628" duration="9974000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -521,7 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738274139375</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="download certificartes">
+      <option name="closed" value="true" />
+      <created>1738552626078</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1738552626078</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +543,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="update models" />
     <MESSAGE value="updaate models databse" />
     <MESSAGE value="todo" />
     <MESSAGE value="rooms" />
@@ -567,6 +567,7 @@
     <MESSAGE value="file service" />
     <MESSAGE value="FIX CLASS FILES" />
     <MESSAGE value="validatino plataform for libreoffice" />
-    <option name="LAST_COMMIT_MESSAGE" value="validatino plataform for libreoffice" />
+    <MESSAGE value="download certificartes" />
+    <option name="LAST_COMMIT_MESSAGE" value="download certificartes" />
   </component>
 </project>

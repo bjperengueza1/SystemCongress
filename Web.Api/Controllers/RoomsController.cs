@@ -63,7 +63,7 @@ namespace Web.Api.Controllers
         }
         
         //obtener las salas de un congreso
-        [HttpGet("/api/Congress/{congressId}/Rooms")]
+        [HttpGet("/api/Congress/{congressId:int}/Rooms")]
         [Authorize]
         public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRoomsByCongress(int congressId, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {

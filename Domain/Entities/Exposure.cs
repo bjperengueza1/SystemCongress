@@ -16,7 +16,9 @@ public class Exposure
     
     public ResearchLine ResearchLine { get; set; }
     public TypeExposure Type { get; set; }
-    public DateTime Date { get; set; }
+    public DateTime DateStart { get; set; }
+    public DateTime DateEnd { get; set; }
+    public string Observation { get; set; } = string.Empty;
     public string? Guid { get; set; }
     
     // Foreign Key for Room
@@ -34,7 +36,7 @@ public class Exposure
     //exposure can have max 3 authors
     public ICollection<ExposureAuthor> ExposureAuthor { get; set; } = [];
     
-    public string SummaryFilePath { get; set; }
+    public string SummaryFilePath { get; set; } = string.Empty;
     
     public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
     

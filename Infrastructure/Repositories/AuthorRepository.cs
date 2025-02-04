@@ -54,4 +54,22 @@ public class AuthorRepository : IAuthorRepository
     {
         return await _context.Authors.FirstOrDefaultAsync(x => x.IDNumber == idNumber);
     }
+    
+    //get authors by exposure
+    public async Task<IEnumerable<Author>> GetAuthorsByExposureAsync(int exposureId)
+    {
+        return await _context.ExposureAuthors
+            .Where(ea => ea.ExposureId == exposureId)
+            .Select(ea => ea.Author)
+            .ToListAsync();
+    }
+    
+    //get first author by exposure
+    public async Task<Author?> GetFirstAuthorByExposureAsync(int exposureId)
+    {
+        return await _context.ExposureAuthors
+            .Where(ea => ea.ExposureId == exposureId && ea.Position == 0)
+            .Select(ea => ea.Author)
+            .FirstOrDefaultAsync();
+    }
 }
