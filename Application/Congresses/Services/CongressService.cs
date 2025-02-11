@@ -200,4 +200,33 @@ public class CongressService : ICongressService
         
         return certificado;
     }
+
+    public async Task<CongressDto> ActiveAsync(int id)
+    {
+        var congress = await _congressRepository.GetByIdAsync(id);
+        
+        if (congress == null) return null;
+        
+        //get congresses active
+        var congressActive = await _congressRepository.GetActiveAsync();
+        
+        //set inactive all congresses
+        congressActive.Status = false; 
+        _congressRepository.UpdateAsync(congressActive);
+        
+        //active congress
+        congress.Status = true;
+        
+        _congressRepository.UpdateAsync(congress);
+        await _congressRepository.SaveAsync();
+        
+        return _mapper.Map<CongressDto>(congress);
+    }
+
+    public async Task<CongressDto> GetActivesAsync()
+    {
+        var congress = await _congressRepository.GetActiveAsync();
+        
+        return congress == null ? null : _mapper.Map<CongressDto>(congress);
+    }
 }

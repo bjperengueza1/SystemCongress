@@ -1,5 +1,6 @@
 using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
+using Application.Exposures.Interfaces;
 using Domain.Common.Pagination;
 using Domain.Dtos;
 using Domain.Entities;
@@ -19,21 +20,27 @@ namespace Web.Api.Controllers
         private readonly IValidator<CongressUpdateDto> _congressUpdateValidator;
         private readonly FileStorageSettings _fileStorageSettings;
         private readonly ICongressService _congressService;
+        private readonly IExposureService _exposureService;
         
         public CongressController(IValidator<CongressInsertDto> congressInsertValidator,
             IValidator<CongressUpdateDto> congressUpdateValidator,
             IOptions<FileStorageSettings> options,
-            ICongressService congressService)
+            ICongressService congressService,
+            IExposureService exposureService)
         {
             _congressInsertValidator = congressInsertValidator;
             _congressUpdateValidator = congressUpdateValidator;
             _fileStorageSettings = options.Value;
             _congressService = congressService;
+            _exposureService = exposureService;
         }
         
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongresses([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string search = "")
+        public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongresses(
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10,
+            [FromQuery] string search = "")
         {
             if (pageNumber <= 0 || pageSize <= 0)
             {
@@ -159,5 +166,39 @@ namespace Web.Api.Controllers
             
             return File(file, "application/pdf");
         }
+        
+        //active congress
+        [HttpPut("{id:int}/active")]
+        [Authorize]
+        public async Task<IActionResult> ActiveCongress(int id)
+        {
+            var congressDto = await _congressService.ActiveAsync(id);
+            
+            return congressDto == null ? NotFound() : Ok(congressDto);
+        }
+        
+        //get congresses active
+        [HttpGet("active")]
+        public async Task<ActionResult<IEnumerable<CongressDto>>> GetActiveCongresses()
+        {
+            var congresses = await _congressService.GetActivesAsync();
+            
+            return Ok(congresses);
+        }
+        
+        //get exposures by congress
+        [HttpGet("{id:int}/exposures")]
+        public async Task<ActionResult<IEnumerable<ExposureWithOutRelationsDto>>> GetExposuresByCongress(
+            int id,
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10
+            )
+        {
+            var exposures = await _exposureService.GetByCongressAsync(id, pageNumber, pageSize);
+            
+            return Ok(exposures);
+        }
+
+
     }
 }

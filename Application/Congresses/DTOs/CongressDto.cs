@@ -12,6 +12,8 @@ public class CongressDto
     
     public string Location { get; set; }
     
+    public bool Status { get; set; } = false;
+    
     public int MinHours { get; set; }
     
     public string Guid { get; set; }

@@ -1,5 +1,6 @@
 using Application.Common;
 using Application.Exposures.DTOs;
+using Domain.Common.Pagination;
 
 namespace Application.Exposures.Interfaces;
 
@@ -12,4 +13,8 @@ public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, Expo
     Task<ExposureWitchAuthorsDto> ApproveAsync(int id, ExposureApproveDto exposureApproveDto);
     
     Task<ExposureWitchAuthorsDto> RejectAsync(int id, ExposureRejectDto exposureRejectDto);
+    
+    Task<PaginatedResult<ExposureWitchAuthorsDto>> GetByCongressAsync(int id, int page, int size);
+    
+    Task<bool> RegisterPreviousAsync(int id, string email);
 }

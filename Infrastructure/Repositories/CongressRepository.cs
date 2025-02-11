@@ -133,4 +133,9 @@ public class CongressRepository : ICongressRepository
 
         return certificates;
     }
+
+    public async Task<Congress> GetActiveAsync()
+    {
+        return await _context.Congresses.FirstOrDefaultAsync(c => c.Status);
+    }
 }

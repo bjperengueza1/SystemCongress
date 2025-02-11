@@ -17,6 +17,9 @@ public class Congress
     
     public string Location { get; set; }
     
+    //status active or inactive
+    public bool Status { get; set; }
+    
     //Minimo de horas completadas parar recibir certificado
     public int MinHours { get; set; }
     

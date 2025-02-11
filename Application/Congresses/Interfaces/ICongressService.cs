@@ -16,4 +16,8 @@ public interface ICongressService : ICommonService<CongressDto, CongressInsertDt
     Task<Stream> DownloadCertificateExposureAsync(int exposureId, string dni, string directorio);
     Task<Stream> DownloadCertificateConferenceAsync(int exposureId, string dni, string directorio);
     
+    Task<CongressDto> ActiveAsync(int id);
+    
+    Task<CongressDto> GetActivesAsync();
+    
 }

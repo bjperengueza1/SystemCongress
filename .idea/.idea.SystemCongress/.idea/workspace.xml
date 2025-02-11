@@ -10,27 +10,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="download certificartes">
-      <change afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureApproveDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureRejectDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250203143350_date and observation exposure.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250203143350_date and observation exposure.cs" afterDir="false" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/Users/DTOs/EmailRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/IEmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/IEmailService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Dtos/CongressCertificate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Dtos/CongressCertificate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAuthorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Congress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Congress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Email/GmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Email/GmailService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +267,14 @@
       <workItem from="1738456671295" duration="12633000" />
       <workItem from="1738503812624" duration="26577000" />
       <workItem from="1738591367638" duration="8186000" />
-      <workItem from="1738660726628" duration="9974000" />
+      <workItem from="1738660726628" duration="10152000" />
+      <workItem from="1738902658292" duration="79000" />
+      <workItem from="1739047171133" duration="1723000" />
+      <workItem from="1739217938814" duration="1467000" />
+      <workItem from="1739246799287" duration="2001000" />
+      <workItem from="1739249906842" duration="1842000" />
+      <workItem from="1739252272083" duration="3710000" />
+      <workItem from="1739257560686" duration="5375000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -522,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738552626078</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="varios">
+      <option name="closed" value="true" />
+      <created>1738671496547</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1738671496547</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +563,6 @@
     <MESSAGE value="pagination" />
     <MESSAGE value="update pagination" />
     <MESSAGE value="init crud exposiciones" />
-    <MESSAGE value="varios" />
     <MESSAGE value="fix send email" />
     <MESSAGE value="dowload files" />
     <MESSAGE value="guardar asistencias" />
@@ -568,6 +577,7 @@
     <MESSAGE value="FIX CLASS FILES" />
     <MESSAGE value="validatino plataform for libreoffice" />
     <MESSAGE value="download certificartes" />
-    <option name="LAST_COMMIT_MESSAGE" value="download certificartes" />
+    <MESSAGE value="varios" />
+    <option name="LAST_COMMIT_MESSAGE" value="varios" />
   </component>
 </project>

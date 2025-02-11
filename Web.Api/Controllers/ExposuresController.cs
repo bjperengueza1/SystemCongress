@@ -4,6 +4,7 @@ using Application.Congresses.Interfaces;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using Application.Files.Interfaces;
+using Application.Users.DTOs;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
@@ -175,7 +176,7 @@ namespace Web.Api.Controllers
         }
         
         //aprobe or reject exposure
-        [HttpPut("{id}/status")]
+        [HttpPut("{id:int}/status")]
         public async Task<ActionResult> UpdateStatusExposure(int id, [FromBody] ExposureUpdateStatusDto updateStatusDto)
         {
             var exposureDto = await _exposureService.ChangeStatusAsync(id, updateStatusDto);
@@ -245,6 +246,19 @@ namespace Web.Api.Controllers
             var exposureDto = await _exposureService.GetByGuidAsync(guid);
             
             return exposureDto == null ? NotFound() : Ok(exposureDto);
+        }
+        
+        [HttpPost("{id:int}/register-previous")] //in the body, only email
+        public async Task<IActionResult> RegisterPrevious(int id, EmailRequest emailRequest)
+        {
+            var result = await _exposureService.RegisterPreviousAsync(id, emailRequest.Email);
+            
+            if (!result )
+            {
+                return BadRequest("No se pudo registrar.");
+            }
+            
+            return Ok();
         }
     }
 }

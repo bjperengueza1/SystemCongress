@@ -296,4 +296,94 @@ public class ExposureService : IExposureService
         
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
+
+    public async Task<PaginatedResult<ExposureWitchAuthorsDto>> GetByCongressAsync(int id, int pageNumber, int pageSize )
+    {
+        var pagedData = await _exposureRepository.GetExposuresByCongressPagedAsync(id, pageNumber, pageSize);
+        
+        return pagedData.Map(p => _mapper.Map<ExposureWitchAuthorsDto>(p));
+    }
+
+    public async Task<bool> RegisterPreviousAsync(int id, string email)
+    {
+        var exposure = await _exposureRepository.GetByIdAsync(id);
+        
+        if (exposure == null) return false;
+        
+        // Enviar correo al registrar previo registro
+        var subject = "Registro de Previa Participación";
+        var nombreDestinatario = exposure.Name.ToUpper();
+        var tituloPonencia = exposure.Name.ToUpper();
+        var nombreEvento = exposure.Congress.Name.ToUpper();
+        var nombreOrganizacion = "Instituto Los Andes";
+        var urlEvento = "https://www.tech2025.com";
+        var correoContacto = "contacto@tech2025.com";
+        
+        
+        var bodyHTML = $$"""
+                         
+                         <!DOCTYPE html>
+                         <html lang='es'>
+                         <head>
+                             <meta charset='UTF-8'>
+                             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                             <title>Notificación de Registro de Previa Participación</title>
+                             <style>
+                                 body {
+                                     font-family: Arial, sans-serif;
+                                     background-color: #f4f4f9;
+                                     color: #333;
+                                     padding: 20px;
+                                 }
+                                 .container {
+                                     background-color: #ffffff;
+                                     border-radius: 8px;
+                                     padding: 20px;
+                                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                 }
+                                 h2 {
+                                     color: #2e8b57;
+                                 }
+                                 p {
+                                     font-size: 16px;
+                                     line-height: 1.5;
+                                 }
+                                 .footer {
+                                     margin-top: 20px;
+                                     font-size: 14px;
+                                     color: #777;
+                                 }
+                                 .footer a {
+                                     color: #2e8b57;
+                                     text-decoration: none;
+                                 }
+                             </style>
+                         </head>
+                         <body>
+                             <div class='container'>
+                                 <h2>¡Felicidades! </h2>
+                                 <p>Nos complace informarte que tu preregistro a ponencia titulada '<strong>{{tituloPonencia}}</strong>' ha sido aprobada en nuestro evento {{nombreEvento}}.</p>
+                                 <p>Te agradecemos por tu participación y por compartir tu conocimiento con la comunidad. Próximamente, te enviaremos más detalles sobre el evento, la fecha y el horario en el que presentarás tu ponencia.</p>
+                                 <p>Si tienes alguna duda o necesitas más información, no dudes en contactarnos.</p>
+                                 <p>¡Enhorabuena nuevamente y nos vemos pronto!</p>
+                                 
+                                 <p>Atentamente,</p>
+                                 <p><strong>
+                                 {{nombreOrganizacion}}</p>
+                         
+                                 <div class='footer'>
+                                     <p>Si tienes alguna pregunta, puedes visitar nuestro sitio web <a href='{{urlEvento}}'>aquí</a> o escribirnos a {{correoContacto}}.</p>
+                                 </div>
+                             </div>
+                         </body>
+                         </html>
+                         
+                         """;
+        
+        var emailSent = await _emailService.SendEmailAsync(email, subject, bodyHTML);
+        
+        return emailSent;
+
+
+    }
 }
