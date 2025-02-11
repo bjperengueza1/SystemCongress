@@ -24,8 +24,8 @@ public class Exposure
     // Foreign Key for Room
     public int RoomId { get; set; }
     //set name of the foreign key is RoomId
-    /*[ForeignKey("RoomId")]
-    public Room? Room { get; set; }*/
+    [ForeignKey("RoomId")]
+    public Room? Room { get; set; }
     
     // Foreign Key for Congress
     public int CongressId { get; set; }

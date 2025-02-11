@@ -1,4 +1,5 @@
 using Application.Authors.DTOs;
+using Application.Rooms.DTOs;
 using Domain.Entities.Enums;
 
 namespace Application.Exposures.DTOs;
@@ -18,6 +19,7 @@ public class ExposureWitchAuthorsDto
     public string Observation { get; set; }
     public string Guid { get; set; }
     public ICollection<AuthorDto> Authors { get; set; } = [];
+    public RoomDto Room { get; set; }
 
 
 }

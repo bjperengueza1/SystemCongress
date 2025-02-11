@@ -53,6 +53,33 @@ public class ExposureRepository : IExposureRepository
     public async Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize, string search)
     {
         IQueryable<Exposure> query = _context.Exposures
+            .Include(e  => e.Congress)
+            .Include(e => e.ExposureAuthor)
+            .ThenInclude(ea => ea.Author);
+
+        if(!string.IsNullOrWhiteSpace(search))
+        {
+            query = query.Where(e => e.Name.Contains(search));
+        }
+        
+        //order desc
+        query = query.OrderByDescending(e => e.ExposureId);
+        
+        var exposures = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
+        var totalExposures = await query.CountAsync();
+        
+        return PaginatedResult<Exposure>.Create(exposures, totalExposures, pageNumber, pageSize);
+    }
+    
+    public async Task<PaginatedResult<Exposure>> GetPagedWitchRoomsAsync(int pageNumber, int pageSize, string search)
+    {
+        IQueryable<Exposure> query = _context.Exposures
+            .Include(e => e.Room)
+            .Include(e  => e.Congress)
             .Include(e => e.ExposureAuthor)
             .ThenInclude(ea => ea.Author);
 
@@ -82,7 +109,7 @@ public class ExposureRepository : IExposureRepository
     public async Task<PaginatedResult<Exposure>> GetExposuresByCongressPagedAsync(int congressId, int pageNumber, int pageSize)
     {
         IQueryable<Exposure> query = _context.Exposures
-            .Where(e => e.StatusExposure == StatusExposure.Approved)
+            .Include(e => e.Room)
             .Include(e => e.Congress)
             .Include(e => e.ExposureAuthor)
             .ThenInclude(ea => ea.Author);

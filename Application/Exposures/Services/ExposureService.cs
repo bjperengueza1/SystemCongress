@@ -318,6 +318,7 @@ public class ExposureService : IExposureService
         var nombreOrganizacion = "Instituto Los Andes";
         var urlEvento = "https://www.tech2025.com";
         var correoContacto = "contacto@tech2025.com";
+        var observacion = exposure.Observation;
         
         
         var bodyHTML = $$"""
@@ -366,7 +367,8 @@ public class ExposureService : IExposureService
                                  <p>Te agradecemos por tu participación y por compartir tu conocimiento con la comunidad. Próximamente, te enviaremos más detalles sobre el evento, la fecha y el horario en el que presentarás tu ponencia.</p>
                                  <p>Si tienes alguna duda o necesitas más información, no dudes en contactarnos.</p>
                                  <p>¡Enhorabuena nuevamente y nos vemos pronto!</p>
-                                 
+                                 <p><strong>Observación:</strong></p>
+                                 <p>{{observacion}}</p>
                                  <p>Atentamente,</p>
                                  <p><strong>
                                  {{nombreOrganizacion}}</p>

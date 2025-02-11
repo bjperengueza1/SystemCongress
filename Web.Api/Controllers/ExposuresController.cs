@@ -10,6 +10,7 @@ using Domain.Common.Pagination;
 using Domain.Entities;
 using FluentValidation;
 using Infrastructure.Settings;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -190,10 +191,10 @@ namespace Web.Api.Controllers
         }
 
         [HttpPut("{id:int}/approve")]
+        [Authorize]
         public async Task<ActionResult> UpdateStatusExposure(int id, [FromBody] ExposureApproveDto approveDto)
         {
             //print as json
-            Console.WriteLine(JsonSerializer.Serialize(approveDto));
             var exposureDto = await _exposureService.ApproveAsync(id, approveDto);
 
             if (exposureDto == null)

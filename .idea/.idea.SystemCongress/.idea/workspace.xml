@@ -11,18 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Users/DTOs/EmailRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Congress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Congress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
@@ -62,6 +55,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9c9b30526ff8fe363be59b87459d62a356917d70568f2f95d96618c3bae909e/SmtpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df5e878c7ba32868868b7feaf47ebab09f84c77eb0b8252b7c467953ffc45/JsonSerializer.Read.Stream.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Web.Api/Controllers/ExposuresController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="HttpClientEndpointsTabState">
     <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;080c03c8a99c879bb983daa69079b8b320173770&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Attendances&quot; /&gt;&#10;  &lt;entry key=&quot;be4e7cbf2d43757f89dc5f988662515b5f4f2a01&quot; value=&quot;###&amp;#10;GET http://localhost:5196/api/Exposures/{{id}}/summary&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
@@ -274,7 +268,9 @@
       <workItem from="1739246799287" duration="2001000" />
       <workItem from="1739249906842" duration="1842000" />
       <workItem from="1739252272083" duration="3710000" />
-      <workItem from="1739257560686" duration="5375000" />
+      <workItem from="1739257560686" duration="5474000" />
+      <workItem from="1739285247115" duration="2136000" />
+      <workItem from="1739290308464" duration="2095000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -532,7 +528,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738671496547</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="todo">
+      <option name="closed" value="true" />
+      <created>1739267694113</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1739267694113</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +558,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="updaate models databse" />
-    <MESSAGE value="todo" />
     <MESSAGE value="rooms" />
     <MESSAGE value="rooms logic" />
     <MESSAGE value="cors" />
@@ -578,6 +581,7 @@
     <MESSAGE value="validatino plataform for libreoffice" />
     <MESSAGE value="download certificartes" />
     <MESSAGE value="varios" />
-    <option name="LAST_COMMIT_MESSAGE" value="varios" />
+    <MESSAGE value="todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo" />
   </component>
 </project>

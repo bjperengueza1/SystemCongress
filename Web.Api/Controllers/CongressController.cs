@@ -1,5 +1,6 @@
 using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
+using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using Domain.Common.Pagination;
 using Domain.Dtos;
@@ -9,6 +10,7 @@ using Infrastructure.Settings;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace Web.Api.Controllers
 {
@@ -21,7 +23,7 @@ namespace Web.Api.Controllers
         private readonly FileStorageSettings _fileStorageSettings;
         private readonly ICongressService _congressService;
         private readonly IExposureService _exposureService;
-        
+
         public CongressController(IValidator<CongressInsertDto> congressInsertValidator,
             IValidator<CongressUpdateDto> congressUpdateValidator,
             IOptions<FileStorageSettings> options,
@@ -34,7 +36,7 @@ namespace Web.Api.Controllers
             _congressService = congressService;
             _exposureService = exposureService;
         }
-        
+
         [HttpGet]
         [Authorize]
         public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongresses(
@@ -46,21 +48,21 @@ namespace Web.Api.Controllers
             {
                 return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
             }
-            
+
             var congressos = await _congressService.GetPagedAsync(pageNumber, pageSize, search);
-            
+
             return Ok(congressos);
         }
-        
+
         [HttpGet("{id}")]
         [Authorize]
         public async Task<ActionResult<CongressDto>> GetCongresso(int id)
         {
             var congressDto = await _congressService.GetByIdAsync(id);
-            
+
             return congressDto == null ? NotFound() : Ok(congressDto);
         }
-        
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddCongress([FromBody] CongressInsertDto insertDto)
@@ -68,127 +70,130 @@ namespace Web.Api.Controllers
             var validationResult = await _congressInsertValidator.ValidateAsync(insertDto);
             if (!validationResult.IsValid)
             {
-                
+
                 var errors = validationResult.Errors
                     .Select(e => e.ErrorMessage)
                     .ToList();
-                
+
                 return BadRequest(new { Errors = errors });
 
             }
-            
+
             var congressDto = await _congressService.CreateAsync(insertDto);
-            
-            return CreatedAtAction(nameof(GetCongresses), new { id = congressDto.CongressId}, null);
+
+            return CreatedAtAction(nameof(GetCongresses), new { id = congressDto.CongressId }, null);
         }
-        
+
         [HttpPut("{id:int}")]
         [Authorize]
         public async Task<IActionResult> UpdateCongress(int id, [FromBody] CongressUpdateDto updateDto)
         {
             var validationResult = await _congressUpdateValidator.ValidateAsync(updateDto);
-            
+
             if (!validationResult.IsValid)
             {
                 var errors = validationResult.Errors
                     .Select(e => e.ErrorMessage)
                     .ToList();
-                
+
                 return BadRequest(new { Errors = errors });
             }
-            
+
             var congressDto = await _congressService.UpdateAsync(id, updateDto);
-            
+
             return congressDto == null ? NotFound() : Ok(congressDto);
         }
-        
+
         //get by guid
         [HttpGet("guid/{guid}")]
         [Authorize]
         public async Task<ActionResult<CongressDto>> GetCongressByGuid(string guid)
         {
             var congressDto = await _congressService.GetByGuidAsync(guid);
-            
+
             return congressDto == null ? NotFound() : Ok(congressDto);
         }
-        
+
         //get list of certificates congress by dni
         [HttpGet("certificates/{dni}")]
         public async Task<ActionResult<IEnumerable<CongressCertificate>>> GetCertificatesByDni(string dni)
         {
             var congresses = await _congressService.GetCertificatesByDniAsync(dni);
-            
+
             return Ok(congresses);
         }
-        
-        
+
+
         //download certificate congress
         [HttpGet("certificate-attendance/{id:int}/{dni}")]
-        public async Task<IActionResult> DownloadCertificateAttendance(int id,string dni)
+        public async Task<IActionResult> DownloadCertificateAttendance(int id, string dni)
         {
-            
-            var file = await _congressService.DownloadCertificateAttendanceAsync(id, dni, _fileStorageSettings.TemplateCertificatesPath);
-            
+
+            var file = await _congressService.DownloadCertificateAttendanceAsync(id, dni,
+                _fileStorageSettings.TemplateCertificatesPath);
+
             if (file == null)
             {
                 return NotFound();
             }
-            
+
             return File(file, "application/pdf");
         }
-        
+
         //download certificate congress
         [HttpGet("certificate-exposure/{id:int}/{dni}")]
-        public async Task<IActionResult> DownloadCertificateExposure(int id,string dni)
+        public async Task<IActionResult> DownloadCertificateExposure(int id, string dni)
         {
-            
-            var file = await _congressService.DownloadCertificateExposureAsync(id, dni, _fileStorageSettings.TemplateCertificatesPath);
-            
+
+            var file = await _congressService.DownloadCertificateExposureAsync(id, dni,
+                _fileStorageSettings.TemplateCertificatesPath);
+
             if (file == null)
             {
                 return NotFound();
             }
-            
+
             return File(file, "application/pdf");
         }
-        
+
         //download certificate congress
         [HttpGet("certificate-conference/{id:int}/{dni}")]
-        public async Task<IActionResult> DownloadCertificateConference(int id,string dni)
+        public async Task<IActionResult> DownloadCertificateConference(int id, string dni)
         {
-            
-            var file = await _congressService.DownloadCertificateConferenceAsync(id, dni, _fileStorageSettings.TemplateCertificatesPath);
-            
+
+            var file = await _congressService.DownloadCertificateConferenceAsync(id, dni,
+                _fileStorageSettings.TemplateCertificatesPath);
+
             if (file == null)
             {
                 return NotFound();
             }
-            
+
             return File(file, "application/pdf");
         }
-        
+
         //active congress
         [HttpPut("{id:int}/active")]
         [Authorize]
         public async Task<IActionResult> ActiveCongress(int id)
         {
             var congressDto = await _congressService.ActiveAsync(id);
-            
+
             return congressDto == null ? NotFound() : Ok(congressDto);
         }
-        
+
         //get congresses active
         [HttpGet("active")]
         public async Task<ActionResult<IEnumerable<CongressDto>>> GetActiveCongresses()
         {
             var congresses = await _congressService.GetActivesAsync();
-            
+
             return Ok(congresses);
         }
-        
+
         //get exposures by congress
         [HttpGet("{id:int}/exposures")]
-        public async Task<ActionResult<IEnumerable<ExposureWithOutRelationsDto>>> GetExposuresByCongress(
+        public async Task<ActionResult<IEnumerable<ExposureWitchAuthorsDto>>> GetExposuresByCongress(
             int id,
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10
