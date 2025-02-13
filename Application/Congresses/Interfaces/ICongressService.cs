@@ -20,4 +20,6 @@ public interface ICongressService : ICommonService<CongressDto, CongressInsertDt
     
     Task<CongressDto> GetActivesAsync();
     
+    //Task<bool> UploadTemplateCertificateAttendanceAsync(int id, )
+    
 }

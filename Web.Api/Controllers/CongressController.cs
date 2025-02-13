@@ -2,6 +2,7 @@ using Application.Congresses.DTOs;
 using Application.Congresses.Interfaces;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
+using Application.Files.Interfaces;
 using Domain.Common.Pagination;
 using Domain.Dtos;
 using Domain.Entities;
@@ -21,18 +22,21 @@ namespace Web.Api.Controllers
         private readonly IValidator<CongressInsertDto> _congressInsertValidator;
         private readonly IValidator<CongressUpdateDto> _congressUpdateValidator;
         private readonly FileStorageSettings _fileStorageSettings;
+        private readonly IFileService _fileService;
         private readonly ICongressService _congressService;
         private readonly IExposureService _exposureService;
 
         public CongressController(IValidator<CongressInsertDto> congressInsertValidator,
             IValidator<CongressUpdateDto> congressUpdateValidator,
             IOptions<FileStorageSettings> options,
+            IFileService fileService,
             ICongressService congressService,
             IExposureService exposureService)
         {
             _congressInsertValidator = congressInsertValidator;
             _congressUpdateValidator = congressUpdateValidator;
             _fileStorageSettings = options.Value;
+            _fileService = fileService;
             _congressService = congressService;
             _exposureService = exposureService;
         }
@@ -202,6 +206,46 @@ namespace Web.Api.Controllers
             var exposures = await _exposureService.GetByCongressAsync(id, pageNumber, pageSize);
             
             return Ok(exposures);
+        }
+        
+        //upload template certificate attendance
+        [HttpPost("{id:int}/upload-template-certificate-attendance")]
+        //[Authorize]
+        public async Task<IActionResult> UploadTemplateCertificateAttendance(int id, IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("No se ha enviado ningún archivo.");
+            }
+            
+            var congress = await _congressService.GetByIdAsync(id);
+            
+            if (congress == null)
+            {
+                return BadRequest("El congreso no existe.");
+            }
+            
+            var fileStream = new MemoryStream();
+            
+            await file.CopyToAsync(fileStream);
+            
+            FileUploaded fileUploaded;
+            
+            try
+            {
+                //mandar a borrar el archivo anterior
+                fileUploaded = await _fileService.SaveFileAsync(file.FileName, fileStream,[".pdf"],_fileStorageSettings.TemplateCertificatesPath+"/"+congress.Guid );
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return BadRequest("No se ha podido subir el archivo.");
+            }
+            
+
+            //var result = await _congressService.UploadTemplateCertificateAttendanceAsync(id, file);
+
+            return fileUploaded != null ? Ok() : BadRequest("No se ha podido subir el archivo.");
         }
 
 

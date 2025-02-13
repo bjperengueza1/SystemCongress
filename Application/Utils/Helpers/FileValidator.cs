@@ -30,7 +30,9 @@ public static class FileValidator
 
     public static bool ValidateFileExtension(string fileName, string[] permittedExtensions)
     {
+        Console.WriteLine( fileName);
         var ext = Path.GetExtension(fileName).ToLowerInvariant();
+        Console.WriteLine(ext);
         return !string.IsNullOrEmpty(ext) && permittedExtensions.Contains(ext);
     }
 }
