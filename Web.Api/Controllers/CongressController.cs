@@ -233,21 +233,148 @@ namespace Web.Api.Controllers
             
             try
             {
-                //mandar a borrar el archivo anterior
-                fileUploaded = await _fileService.SaveFileAsync(file.FileName, fileStream,[".pdf"],_fileStorageSettings.TemplateCertificatesPath+"/"+congress.Guid );
+                //mandar a borrar el archivo anterior si existe
+                if (!string.IsNullOrEmpty(congress.fileCertificateAttendance))
+                    await _fileService.DeleteFileAsync(congress.fileCertificateAttendance, [_fileStorageSettings.TemplateCertificatesPath, congress.Guid]);
+                fileUploaded = await _fileService.SaveFileAsync(file.FileName, fileStream,[".docx"],_fileStorageSettings.TemplateCertificatesPath+"/"+congress.Guid );
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
                 return BadRequest("No se ha podido subir el archivo.");
             }
             
-
-            //var result = await _congressService.UploadTemplateCertificateAttendanceAsync(id, file);
-
+            congress.fileCertificateAttendance = fileUploaded.FileName;
+            
+            await _congressService.FileCertificateAttendance(id, fileUploaded.FileName);
+            
             return fileUploaded != null ? Ok() : BadRequest("No se ha podido subir el archivo.");
         }
-
-
+        
+        //upload template certificate exposure
+        [HttpPost("{id:int}/upload-template-certificate-exposure")]
+        //[Authorize]
+        public async Task<IActionResult> UploadTemplateCertificateExposure(int id, IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("No se ha enviado ningún archivo.");
+            }
+            
+            var congress = await _congressService.GetByIdAsync(id);
+            
+            if (congress == null)
+            {
+                return BadRequest("El congreso no existe.");
+            }
+            
+            var fileStream = new MemoryStream();
+            
+            await file.CopyToAsync(fileStream);
+            
+            FileUploaded fileUploaded;
+            
+            try
+            {
+                //mandar a borrar el archivo anterior si existe
+                if (!string.IsNullOrEmpty(congress.fileCertificateExposure))
+                    await _fileService.DeleteFileAsync(congress.fileCertificateExposure, [_fileStorageSettings.TemplateCertificatesPath, congress.Guid]);
+                fileUploaded = await _fileService.SaveFileAsync(file.FileName, fileStream,[".docx"],_fileStorageSettings.TemplateCertificatesPath+"/"+congress.Guid );
+            }
+            catch (Exception e)
+            {
+                return BadRequest("No se ha podido subir el archivo.");
+            }
+            
+            congress.fileCertificateExposure = fileUploaded.FileName;
+            
+            await _congressService.FileCertificateExposure(id, fileUploaded.FileName);
+            
+            return fileUploaded != null ? Ok() : BadRequest("No se ha podido subir el archivo.");
+        }
+        
+        //upload template certificate conference
+        [HttpPost("{id:int}/upload-template-certificate-conference")]
+        //[Authorize]
+        public async Task<IActionResult> UploadTemplateCertificateConference(int id, IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("No se ha enviado ningún archivo.");
+            }
+            
+            var congress = await _congressService.GetByIdAsync(id);
+            
+            if (congress == null)
+            {
+                return BadRequest("El congreso no existe.");
+            }
+            
+            var fileStream = new MemoryStream();
+            
+            await file.CopyToAsync(fileStream);
+            
+            FileUploaded fileUploaded;
+            
+            try
+            {
+                //mandar a borrar el archivo anterior si existe
+                if (!string.IsNullOrEmpty(congress.fileCertificateConference))
+                    await _fileService.DeleteFileAsync(congress.fileCertificateConference, [_fileStorageSettings.TemplateCertificatesPath, congress.Guid]);
+                fileUploaded = await _fileService.SaveFileAsync(file.FileName, fileStream,[".docx"],_fileStorageSettings.TemplateCertificatesPath+"/"+congress.Guid );
+            }
+            catch (Exception e)
+            {
+                return BadRequest("No se ha podido subir el archivo.");
+            }
+            
+            congress.fileCertificateConference = fileUploaded.FileName;
+            
+            await _congressService.FileCertificateConference(id, fileUploaded.FileName);
+            
+            return fileUploaded != null ? Ok() : BadRequest("No se ha podido subir el archivo.");
+        }
+        
+        //upload flayer congress
+        [HttpPost("{id:int}/upload-flayer")]
+        //[Authorize]
+        public async Task<IActionResult> UploadFlayer(int id, IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("No se ha enviado ningún archivo.");
+            }
+            
+            var congress = await _congressService.GetByIdAsync(id);
+            
+            if (congress == null)
+            {
+                return BadRequest("El congreso no existe.");
+            }
+            
+            var fileStream = new MemoryStream();
+            
+            await file.CopyToAsync(fileStream);
+            
+            FileUploaded fileUploaded;
+            
+            try
+            {
+                //mandar a borrar el archivo anterior si existe
+                if (!string.IsNullOrEmpty(congress.fileFlayer))
+                    await _fileService.DeleteFileAsync(congress.fileFlayer, [_fileStorageSettings.TemplateCertificatesPath, congress.Guid]);
+                fileUploaded = await _fileService.SaveFileAsync(file.FileName, fileStream,[".jpg", ".jpeg", ".png"],_fileStorageSettings.TemplateCertificatesPath+"/"+congress.Guid );
+            }
+            catch (Exception e)
+            {
+                return BadRequest("No se ha podido subir el archivo.");
+            }
+            
+            congress.fileFlayer = fileUploaded.FileName;
+            
+            await _congressService.FileFlayer(id, fileUploaded.FileName);
+            
+            return fileUploaded != null ? Ok() : BadRequest("No se ha podido subir el archivo.");
+        }
+        
     }
 }

@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CongressContext))]
-    partial class CongressContextModelSnapshot : ModelSnapshot
+    [Migration("20250213071626_file certificete")]
+    partial class filecertificete
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,16 +159,7 @@ namespace Infrastructure.Data.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("fileCertificateAttendance")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("fileCertificateConference")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("fileCertificateExposure")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("fileFlayer")
                         .HasColumnType("longtext");
 
                     b.HasKey("CongressId");

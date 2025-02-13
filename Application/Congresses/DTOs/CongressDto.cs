@@ -17,4 +17,12 @@ public class CongressDto
     public int MinHours { get; set; }
     
     public string Guid { get; set; }
+    
+    public string? fileFlayer { get; set; } = string.Empty;
+    
+    public string? fileCertificateConference { get; set; } = string.Empty;
+    
+    public string? fileCertificateAttendance { get; set; } = string.Empty;
+    
+    public string? fileCertificateExposure { get; set; } = string.Empty;
 }

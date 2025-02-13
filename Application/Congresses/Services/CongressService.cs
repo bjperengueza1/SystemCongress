@@ -112,7 +112,7 @@ public class CongressService : ICongressService
 
         string[] pathTemplate = [directorio,congress.Guid];
 
-        await _fileService.CopyFileAsync("ASISTENTE.docx", nameTemp, pathTemplate);
+        await _fileService.CopyFileAsync(congress.fileCertificateAttendance, nameTemp, pathTemplate);
         
         //lista de campos a reemplazar
         var fields = new Dictionary<string, string>
@@ -145,7 +145,7 @@ public class CongressService : ICongressService
         
         string[] pathTemplate = [directorio,exposure.Congress.Guid];
         
-        await _fileService.CopyFileAsync("PONENCIA.docx", nameTemp, pathTemplate);
+        await _fileService.CopyFileAsync(exposure.Congress.fileCertificateExposure, nameTemp, pathTemplate);
         
         //lista de campos a reemplazar
         var fields = new Dictionary<string, string>
@@ -179,7 +179,7 @@ public class CongressService : ICongressService
         
         string[] pathTemplate = [directorio,exposure.Congress.Guid];
         
-        await _fileService.CopyFileAsync("CONFERENCIA.docx", nameTemp, pathTemplate);
+        await _fileService.CopyFileAsync(exposure.Congress.fileCertificateConference, nameTemp, pathTemplate);
         
         //lista de campos a reemplazar
         var fields = new Dictionary<string, string>
@@ -228,5 +228,65 @@ public class CongressService : ICongressService
         var congress = await _congressRepository.GetActiveAsync();
         
         return congress == null ? null : _mapper.Map<CongressDto>(congress);
+    }
+
+    public async Task<bool> FileCertificateAttendance(int id, string fileName)
+    {
+        var congress = await _congressRepository.GetByIdAsync(id);
+        
+        if (congress == null) return false;
+        
+        congress.fileCertificateAttendance = fileName;
+        
+        _congressRepository.UpdateAsync(congress);
+        
+        await _congressRepository.SaveAsync();
+        
+        return true;
+    }
+
+    public async Task<bool> FileCertificateExposure(int id, string fileName)
+    {
+        var congress = await _congressRepository.GetByIdAsync(id);
+        
+        if (congress == null) return false;
+        
+        congress.fileCertificateExposure = fileName;
+        
+        _congressRepository.UpdateAsync(congress);
+        
+        await _congressRepository.SaveAsync();
+        
+        return true;
+    }
+    
+    public async Task<bool> FileCertificateConference(int id, string fileName)
+    {
+        var congress = await _congressRepository.GetByIdAsync(id);
+        
+        if (congress == null) return false;
+        
+        congress.fileCertificateConference = fileName;
+        
+        _congressRepository.UpdateAsync(congress);
+        
+        await _congressRepository.SaveAsync();
+        
+        return true;
+    }
+
+    public async Task<bool> FileFlayer(int id, string fileName)
+    {
+        var congress = await _congressRepository.GetByIdAsync(id);
+        
+        if (congress == null) return false;
+        
+        congress.fileFlayer = fileName;
+        
+        _congressRepository.UpdateAsync(congress);
+        
+        await _congressRepository.SaveAsync();
+        
+        return true;
     }
 }

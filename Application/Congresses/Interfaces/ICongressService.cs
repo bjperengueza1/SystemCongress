@@ -19,7 +19,13 @@ public interface ICongressService : ICommonService<CongressDto, CongressInsertDt
     Task<CongressDto> ActiveAsync(int id);
     
     Task<CongressDto> GetActivesAsync();
+
+    Task<bool> FileCertificateAttendance(int id, string fileName);
     
-    //Task<bool> UploadTemplateCertificateAttendanceAsync(int id, )
+    Task<bool> FileCertificateExposure(int id, string fileName);
     
+    Task<bool> FileCertificateConference(int id, string fileName);
+    
+    Task<bool> FileFlayer(int id, string fileName);
+
 }
