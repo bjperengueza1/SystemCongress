@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  web.api:
+    build:
+      context: "/home/wdg/RiderProjects/SystemCongress"
+      dockerfile: "Web.Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Web.Api.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "web.api:dev"
+    ports: []
+    volumes:
+    - "/home/wdg/RiderProjects/SystemCongress/Web.Api:/app:rw"
+    - "/home/wdg/RiderProjects/SystemCongress:/src:rw"
+    - "/home/wdg/.nuget/packages:/home/app/.nuget/packages"
+    working_dir: "/app"

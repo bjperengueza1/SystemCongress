@@ -6,7 +6,6 @@ using Domain.Common.Pagination;
 using Domain.Dtos;
 using Domain.Interfaces;
 using Domain.Entities;
-using Newtonsoft.Json;
 
 namespace Application.Congresses.Services;
 
