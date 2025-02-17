@@ -1,0 +1,40 @@
+﻿services:
+  webapi:
+    image: mi-webapi:latest
+    build:
+      context: .
+      dockerfile: Web.Api/Dockerfile
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+    ports:
+      - "5196:8080"
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.10.2
+    depends_on:
+      - mariadb
+    volumes:
+      - ./volumes/webapi/Files:/app/Files
+
+  mariadb:
+    image: mariadb:10.4.32
+    container_name: mariadb-compose
+    environment:
+      MYSQL_ROOT_PASSWORD: Miespe.123.(.)
+      MYSQL_DATABASE: V1
+    #ports:
+    #  - "3307:3306"
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.10.3
+    volumes:
+      - ./volumes/mariadb:/var/lib/mysql
+      - ./volumes/init-scripts:/docker-entrypoint-initdb.d
+        
+networks:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: "192.168.10.0/24"

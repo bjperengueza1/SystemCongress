@@ -1,4 +1,9 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+
+# Cambiar al usuario root temporalmente para instalar LibreOffice
+USER root
+RUN apt-get update && apt-get install -y libreoffice && rm -rf /var/lib/apt/lists/*
+
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
