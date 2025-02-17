@@ -326,6 +326,7 @@
       <workItem from="1739781575324" duration="171000" />
       <workItem from="1739782279121" duration="41000" />
       <workItem from="1739782751953" duration="913000" />
+      <workItem from="1739784064697" duration="176000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -631,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739783862137</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="fix">
+      <option name="closed" value="true" />
+      <created>1739784231297</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1739784231297</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -652,7 +661,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="antes de agregar referencia" />
     <MESSAGE value="pagination" />
     <MESSAGE value="update pagination" />
     <MESSAGE value="init crud exposiciones" />
@@ -677,6 +685,7 @@
     <MESSAGE value="templates" />
     <MESSAGE value="comint" />
     <MESSAGE value="init sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="init sql" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>

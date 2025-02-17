@@ -41,7 +41,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200","http://34.173.148.212:4200")  // Permite Angular
+            policy.WithOrigins("http://localhost:4200","http://34.173.148.212:4200", "http://34.173.148.212","http://localhost")  // Permite Angular
                   .AllowAnyMethod() // Permite cualquier método (GET, POST, PUT, DELETE)
                   .AllowAnyHeader() // Permite cualquier header
                   .AllowCredentials(); // Permite cookies o autenticación con credenciales
