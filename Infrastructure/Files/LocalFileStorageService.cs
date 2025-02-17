@@ -44,7 +44,7 @@ public class LocalFileStorageService : IFileStorageService
     {
         var path = Path.Combine(directory);
         var filePath = Path.Combine(_settings.BasePath, path, fileName);
-
+        
         if (!File.Exists(filePath))
             throw new FileNotFoundException("Archivo no encontrado.");
 

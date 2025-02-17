@@ -27,5 +27,7 @@ public interface ICongressService : ICommonService<CongressDto, CongressInsertDt
     Task<bool> FileCertificateConference(int id, string fileName);
     
     Task<bool> FileFlayer(int id, string fileName);
+    
+    Task<Stream> GetFlayerActiveCongressAsync(string directorio);
 
 }

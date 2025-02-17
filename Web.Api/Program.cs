@@ -38,13 +38,13 @@ var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-        policy  =>
+    options.AddPolicy("AllowFrontend",
+        policy =>
         {
-            policy.WithOrigins("http://localhost:4200",
-                "http://localhost:4200")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
+            policy.WithOrigins("http://localhost:4200")  // Permite Angular
+                  .AllowAnyMethod() // Permite cualquier método (GET, POST, PUT, DELETE)
+                  .AllowAnyHeader() // Permite cualquier header
+                  .AllowCredentials(); // Permite cookies o autenticación con credenciales
         });
 });
 
@@ -129,35 +129,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-app.UseCors(MyAllowSpecificOrigins);
+//app.UseCors(MyAllowSpecificOrigins);
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 
 app.UseAuthorization();
-
-app.Use(async (context, next) =>
-{
-    
-    /*context.Request.EnableBuffering();
-
-    // Leer el cuerpo de la solicitud
-    using (var reader = new StreamReader(
-               context.Request.Body,
-               encoding: System.Text.Encoding.UTF8,
-               detectEncodingFromByteOrderMarks: false,
-               bufferSize: 1024,
-               leaveOpen: true))
-    {
-        var body = await reader.ReadToEndAsync();
-
-        // Do some processing with body…
-        Console.WriteLine(body);
-    }*/
-    
-    await next.Invoke();
-});
 
 app.MapControllers();
 

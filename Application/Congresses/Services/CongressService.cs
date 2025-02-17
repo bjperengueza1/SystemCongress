@@ -288,4 +288,15 @@ public class CongressService : ICongressService
         
         return true;
     }
+
+    public async Task<Stream> GetFlayerActiveCongressAsync(string directorio)
+    {
+        var congress = await _congressRepository.GetActiveAsync();
+        
+        if (congress == null) return null;
+        
+        string[] pathTemplate = [directorio,congress.Guid];
+        
+        return await _fileService.GetFileAsync(congress.fileFlayer, pathTemplate );
+    }
 }

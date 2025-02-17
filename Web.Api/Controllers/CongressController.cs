@@ -193,6 +193,20 @@ namespace Web.Api.Controllers
 
             return Ok(congresses);
         }
+        
+        //get file flayer congress active
+        [HttpGet("active/flayer")]
+        public async Task<IActionResult> GetFlayerActiveCongress()
+        {
+            var file = await _congressService.GetFlayerActiveCongressAsync(_fileStorageSettings.TemplateCertificatesPath);
+
+            if (file == null)
+            {
+                return NotFound();
+            }
+
+            return File(file, "image/jpeg");
+        }
 
         //get exposures by congress
         [HttpGet("{id:int}/exposures")]
