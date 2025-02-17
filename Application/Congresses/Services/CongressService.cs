@@ -208,10 +208,13 @@ public class CongressService : ICongressService
         
         //get congresses active
         var congressActive = await _congressRepository.GetActiveAsync();
-        
-        //set inactive all congresses
-        congressActive.Status = false; 
-        _congressRepository.UpdateAsync(congressActive);
+
+        if (congressActive != null)
+        {
+            //set inactive all congresses
+            congressActive.Status = false; 
+            _congressRepository.UpdateAsync(congressActive);
+        }
         
         //active congress
         congress.Status = true;
