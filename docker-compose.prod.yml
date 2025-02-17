@@ -11,8 +11,8 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
 #      - ASPNETCORE_URLS=http://+:8080
     ports:
-      - "8080:8080"
-      - "8181:8181"
+      - "5196:8080"
+#      - "8181:8181"
     network_mode: "host"
 #    networks:
 #      - mynetwork
