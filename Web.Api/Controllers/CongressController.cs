@@ -388,6 +388,23 @@ namespace Web.Api.Controllers
             
             return fileUploaded != null ? Ok() : BadRequest("No se ha podido subir el archivo.");
         }
+
+        [HttpPost("{id:int}/send-invitacion-conference")]
+        //[Authorize]
+        public async Task<IActionResult> SendNotification(int id, [FromBody] string[] emails)
+        {
+            var congress = await _congressService.GetByIdAsync(id);
+            
+            if (congress == null)
+            {
+                return BadRequest("El congreso no existe.");
+            }
+            
+            var result = await _congressService.SendInvitationConferenceAsync(congress, emails);
+            
+            return result ? Ok() : BadRequest("No se ha podido enviar la notificación.");
+        }
+
         
     }
 }

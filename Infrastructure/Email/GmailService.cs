@@ -85,6 +85,35 @@ public class GmailService : IEmailService
         }
     }
     
+    public async Task<bool> SendEmailAsync(string[] emails, string subject, string body)
+    {
+        try
+        {
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(_gmailOptions.Email),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
 
+            foreach (var email in emails)
+            {
+                mailMessage.To.Add(email);
+            }
+            
+            using var smtpClient = new SmtpClient(_gmailOptions.Host, _gmailOptions.Port);
+            smtpClient.Credentials = new NetworkCredential(_gmailOptions.Email, _gmailOptions.Password);
+            smtpClient.EnableSsl = true;
+            await smtpClient.SendMailAsync(mailMessage);
+            
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error sending email: {ex.Message}");
+            return false;
+        }
+    }
     
 }

@@ -30,4 +30,6 @@ public interface ICongressService : ICommonService<CongressDto, CongressInsertDt
     
     Task<Stream> GetFlayerActiveCongressAsync(string directorio);
 
+    Task<bool> SendInvitationConferenceAsync(CongressDto congress, string[] emails);
+
 }

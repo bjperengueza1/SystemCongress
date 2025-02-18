@@ -6,6 +6,7 @@ using Domain.Common.Pagination;
 using Domain.Dtos;
 using Domain.Interfaces;
 using Domain.Entities;
+using Application.Common;
 
 namespace Application.Congresses.Services;
 
@@ -17,14 +18,17 @@ public class CongressService : ICongressService
     private readonly IAttendeeRepository _attendeeRepository;
     private readonly IAuthorRepository _authorRepository;
     private readonly IFileService _fileService;
+    private readonly IEmailService _emailService;
     private readonly IMapper _mapper;
-    
+    private ICongressService _congressServiceImplementation;
+
     public CongressService(
         ICongressRepository congressRepository,
         IExposureRepository exposureRepository,
         IAttendeeRepository attendeeRepository,
         IAuthorRepository authorRepository,
         IFileService fileService,
+        IEmailService emailService,
         IMapper mapper)
     {
         _congressRepository = congressRepository;
@@ -32,6 +36,7 @@ public class CongressService : ICongressService
         _attendeeRepository = attendeeRepository;
         _authorRepository = authorRepository;
         _fileService = fileService;
+        _emailService = emailService;
         _mapper = mapper;
     }
     
@@ -301,5 +306,73 @@ public class CongressService : ICongressService
         string[] pathTemplate = [directorio,congress.Guid];
         
         return await _fileService.GetFileAsync(congress.fileFlayer, pathTemplate );
+    }
+
+    public async Task<bool> SendInvitationConferenceAsync(CongressDto congress, string[] emails)
+    {
+        var urlEvento = "https://www.tech2025.com";
+        var correoContacto = "contacto@tech2025.com";
+
+        var bodyHTML = $$"""
+
+                 <!DOCTYPE html>
+                 <html lang='es'>
+                 <head>
+                     <meta charset='UTF-8'>
+                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                     <title>Notificación de Aprobación de Ponencia</title>
+                     <style>
+                         body {
+                             font-family: Arial, sans-serif;
+                             background-color: #f4f4f9;
+                             color: #333;
+                             padding: 20px;
+                         }
+                         .container {
+                             background-color: #ffffff;
+                             border-radius: 8px;
+                             padding: 20px;
+                             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                         }
+                         h2 {
+                             color: #2e8b57;
+                         }
+                         p {
+                             font-size: 16px;
+                             line-height: 1.5;
+                         }
+                         .footer {
+                             margin-top: 20px;
+                             font-size: 14px;
+                             color: #777;
+                         }
+                         .footer a {
+                             color: #2e8b57;
+                             text-decoration: none;
+                         }
+                     </style>
+                 </head>
+                 <body>
+                     <div class='container'>
+                         <h2>¡Te invitamos al Congreso!</h2>
+                         <p>Es un honor para nosotros invitarte a participar en nuestro próximo congreso, un evento diseñado para reunir a profesionales, expertos y entusiastas de la industria.</p>
+                         <p><strong>{{congress.Name}}</strong>.</p>
+                         <p><strong>Ubicación:</strong> {{congress.Location}}</p>
+                         <p><strong>Fecha:</strong> Del {{congress.StartDate:yyyy-MM-dd}} al {{congress.EndDate:yyyy-MM-dd}}</p>
+                         <p>En este congreso, tendrás la oportunidad de asistir a conferencias magistrales, mesas redondas y talleres prácticos impartidos por líderes en la materia. También podrás conectar con colegas y expandir tu red de contactos.</p>
+                         <p>No pierdas esta oportunidad de actualizarte y ser parte de una comunidad vibrante e innovadora. ¡Tu presencia será fundamental para el éxito del evento!</p>
+                         <a href="http://34.173.148.212/registro-conferencia/{{congress.Guid}}" class="button">Regístrate aquí</a>
+                 
+                         <div class='footer'>
+                             <p>Si tienes alguna pregunta, puedes visitar nuestro sitio web <a href='{{urlEvento}}'>aquí</a> o escribirnos a {{correoContacto}}.</p>
+                         </div>
+                     </div>
+                 </body>
+                 </html>
+                 """;
+
+
+
+        return await _emailService.SendEmailAsync(emails, "Invitación a Congreso", bodyHTML);
     }
 }

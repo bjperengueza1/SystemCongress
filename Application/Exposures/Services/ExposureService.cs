@@ -127,7 +127,7 @@ public class ExposureService : IExposureService
         
         // Enviar correo al aprobar
         var email = firstAuthor.PersonalMail;
-        var subject = "Aprovada";
+        var subject = "Aprobada";
         var nombreDestinatario = firstAuthor.Name.ToUpper();
         var tituloPonencia = exposure.Name.ToUpper();
         var nombreEvento = exposure.Congress.Name.ToUpper();
@@ -362,7 +362,7 @@ public class ExposureService : IExposureService
                          <body>
                              <div class='container'>
                                  <h2>¡Felicidades! </h2>
-                                 <p>Nos complace informarte que tu preregistro a ponencia titulada '<strong>{{tituloPonencia}}</strong>' ha sido aprobada en nuestro evento {{nombreEvento}}.</p>
+                                 <p>Nos complace informarte que tu preregistro a ponencia titulada <strong>{{tituloPonencia}}</strong> ha sido aprobada en nuestro evento {{nombreEvento}}.</p>
                                  <p>Te agradecemos por tu participación y por compartir tu conocimiento con la comunidad. Próximamente, te enviaremos más detalles sobre el evento, la fecha y el horario en el que presentarás tu ponencia.</p>
                                  <p>Si tienes alguna duda o necesitas más información, no dudes en contactarnos.</p>
                                  <p>¡Enhorabuena nuevamente y nos vemos pronto!</p>
@@ -384,7 +384,6 @@ public class ExposureService : IExposureService
         var emailSent = await _emailService.SendEmailAsync(email, subject, bodyHTML);
         
         return emailSent;
-
 
     }
 }
