@@ -1,6 +1,7 @@
 using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Entities.Enums;
+using Domain.Filter;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Helpers;
@@ -49,32 +50,31 @@ public class ExposureRepository : IExposureRepository
     {
         await _context.SaveChangesAsync();
     }
-
-    public async Task<PaginatedResult<Exposure>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<Exposure>> GetPagedAsync(ExposureFilter tf)
     {
         IQueryable<Exposure> query = _context.Exposures
-            .Include(e  => e.Congress)
+            .Include(e => e.Congress)
             .Include(e => e.ExposureAuthor)
             .ThenInclude(ea => ea.Author);
 
-        if(!string.IsNullOrWhiteSpace(search))
+        if(!string.IsNullOrWhiteSpace(tf.search))
         {
-            query = query.Where(e => e.Name.Contains(search));
+            query = query.Where(e => e.Name.Contains(tf.search));
         }
         
         //order desc
         query = query.OrderByDescending(e => e.ExposureId);
         
         var exposures = await query
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
+            .Skip((tf.pageNumber - 1) * tf.pageSize)
+            .Take(tf.pageSize)
             .ToListAsync();
         
         var totalExposures = await query.CountAsync();
         
-        return PaginatedResult<Exposure>.Create(exposures, totalExposures, pageNumber, pageSize);
+        return PaginatedResult<Exposure>.Create(exposures, totalExposures, tf.pageNumber, tf.pageSize);
     }
-    
+
     public async Task<PaginatedResult<Exposure>> GetPagedWitchRoomsAsync(int pageNumber, int pageSize, string search)
     {
         IQueryable<Exposure> query = _context.Exposures

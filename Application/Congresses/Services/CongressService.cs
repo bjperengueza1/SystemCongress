@@ -7,6 +7,7 @@ using Domain.Dtos;
 using Domain.Interfaces;
 using Domain.Entities;
 using Application.Common;
+using Domain.Filter;
 
 namespace Application.Congresses.Services;
 
@@ -83,11 +84,11 @@ public class CongressService : ICongressService
         return _mapper.Map<CongressDto>(congress);
     }
 
-    public async Task<PaginatedResult<CongressDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<CongressDto>> GetPagedAsync(CongressFilter tf)
     {
-        var pagedData = await _congressRepository.GetPagedAsync(pageNumber, pageSize, search);
-
-        return pagedData.Map(c => _mapper.Map<CongressDto>(c));
+        var pagedData = await _congressRepository.GetPagedAsync(tf);
+        
+        return pagedData.Map(p => _mapper.Map<CongressDto>(p));
     }
 
     public async Task<CongressDto> GetByGuidAsync(string guid)

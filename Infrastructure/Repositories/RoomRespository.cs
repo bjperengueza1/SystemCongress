@@ -1,6 +1,7 @@
 using Application.Rooms.DTOs;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -47,25 +48,25 @@ public class RoomRespository : IRoomRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<PaginatedResult<Room>> GetPagedAsync(int pageNumber, int pageSize,string search)
+    public async Task<PaginatedResult<Room>> GetPagedAsync(RoomFilter tf)
     {
         IQueryable<Room> query = _context.Rooms;
         
-        if (!string.IsNullOrWhiteSpace(search))
+        if (!string.IsNullOrWhiteSpace(tf.search))
         {
-            query = query.Where(r => r.Name.Contains(search));
+            query = query.Where(r => r.Name.Contains(tf.search));
         }
         
         //order desc
         query = query.OrderByDescending(r => r.RoomId);
         
         var rooms = await query
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
+            .Skip((tf.pageNumber - 1) * tf.pageSize)
+            .Take(tf.pageSize)
             .ToListAsync();
         
         var totalRooms = await query.CountAsync();
-        return PaginatedResult<Room>.Create(rooms, totalRooms, pageNumber, pageSize);
+        return PaginatedResult<Room>.Create(rooms, totalRooms, tf.pageNumber, tf.pageSize);
     }
 
     public async Task<PaginatedResult<Room>> GetRoomsByCongressPagedAsync(int congressId, int pageNumber, int pageSize)

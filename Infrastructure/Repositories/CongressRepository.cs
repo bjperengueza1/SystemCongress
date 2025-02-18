@@ -1,6 +1,7 @@
 using Domain.Common.Pagination;
 using Domain.Dtos;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -49,27 +50,26 @@ public class CongressRepository : ICongressRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<PaginatedResult<Congress>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<Congress>> GetPagedAsync(CongressFilter tf)
     {
         IQueryable<Congress> query = _context.Congresses;
         
-        if(!string.IsNullOrWhiteSpace(search))
+        if(!string.IsNullOrWhiteSpace(tf.search))
         {
-            query = query.Where(c => c.Name.Contains(search));
+            query = query.Where(c => c.Name.Contains(tf.search));
         }
         
         //order desc
         query = query.OrderByDescending(c => c.CongressId);
         
         var congresses = await query
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
+            .Skip((tf.pageNumber - 1) * tf.pageSize)
+            .Take(tf.pageSize)
             .ToListAsync();
         
         var totalCongresses = await query.CountAsync();
-
-        return PaginatedResult<Congress>.Create(congresses, totalCongresses, pageNumber, pageSize);
         
+        return PaginatedResult<Congress>.Create(congresses, totalCongresses, tf.pageNumber, tf.pageSize);
     }
 
     public async Task<Congress> GetByGuidAsync(string guid)

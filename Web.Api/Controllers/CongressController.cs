@@ -6,6 +6,7 @@ using Application.Files.Interfaces;
 using Domain.Common.Pagination;
 using Domain.Dtos;
 using Domain.Entities;
+using Domain.Filter;
 using FluentValidation;
 using Infrastructure.Settings;
 using Microsoft.AspNetCore.Authorization;
@@ -41,18 +42,15 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongresses(
-            [FromQuery] int pageNumber = 1,
-            [FromQuery] int pageSize = 10,
-            [FromQuery] string search = "")
+        //[Authorize]
+        public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongresses([FromQuery] CongressFilter filter)
         {
-            if (pageNumber <= 0 || pageSize <= 0)
+            if (filter.pageNumber <= 0 || filter.pageSize <= 0)
             {
                 return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
             }
 
-            var congressos = await _congressService.GetPagedAsync(pageNumber, pageSize, search);
+            var congressos = await _congressService.GetPagedAsync(filter);
 
             return Ok(congressos);
         }

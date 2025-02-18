@@ -3,6 +3,7 @@ using Application.Attendances.DTOs;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 
 namespace Application.Attendances.Services;
@@ -43,9 +44,9 @@ public class AttendanceService : IAttendanceService
         throw new NotImplementedException();
     }
 
-    public async Task<PaginatedResult<AttendanceDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<AttendanceDto>> GetPagedAsync(AttendanceFilter tf)
     {
-        var pagedData = await _attendanceRepository.GetPagedAsync(pageNumber, pageSize, search);
+        var pagedData = await _attendanceRepository.GetPagedAsync(tf);
         
         return pagedData.Map(_mapper.Map<AttendanceDto>);
     }

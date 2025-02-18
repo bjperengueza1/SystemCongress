@@ -3,6 +3,7 @@ using Application.Attendees.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 
 namespace Application.Attendees.Services;
@@ -45,13 +46,13 @@ public class AttendeeService : IAttendeeService
         throw new NotImplementedException();
     }
 
-    public async Task<PaginatedResult<AttendeeDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<AttendeeDto>> GetPagedAsync(AttendeeFilter tf)
     {
-        var pagedData = await _attendeeRepository.GetPagedAsync(pageNumber, pageSize, search);
+        var pagedData = await _attendeeRepository.GetPagedAsync(tf);
         
         return pagedData.Map(_mapper.Map<AttendeeDto>);
     }
-    
+
     public async Task<AttendeeDto> GetAttendeeByIdNumberAsync(string idNumber)
     {
         var attendee = await _attendeeRepository.GetAttendeeByIdNumberAsync(idNumber);

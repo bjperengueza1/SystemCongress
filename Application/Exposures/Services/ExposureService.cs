@@ -1,10 +1,10 @@
-using Application.Authors.DTOs;
 using Application.Common;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 
 namespace Application.Exposures.Services;
@@ -77,9 +77,9 @@ public class ExposureService : IExposureService
         throw new NotImplementedException();
     }
 
-    public async Task<PaginatedResult<ExposureWitchAuthorsDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<ExposureWitchAuthorsDto>> GetPagedAsync(ExposureFilter tf)
     {
-        var pagedData = await _exposureRepository.GetPagedAsync(pageNumber, pageSize, search);
+        var pagedData = await _exposureRepository.GetPagedAsync(tf);
         
         return pagedData.Map(p => _mapper.Map<ExposureWitchAuthorsDto>(p));
     }

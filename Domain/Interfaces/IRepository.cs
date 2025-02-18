@@ -1,8 +1,9 @@
 using Domain.Common.Pagination;
+using Domain.Filter;
 
 namespace Domain.Interfaces;
 
-public interface IRepository<T> where T : class
+public interface IRepository<T,TF> where T : class where TF : Filter.Filter
 {
     // Get all entities async
     Task<IEnumerable<T>> GetAllAsync();
@@ -32,5 +33,5 @@ public interface IRepository<T> where T : class
     Task SaveAsync();
     
     // Get paged entities async
-    Task<PaginatedResult<T>> GetPagedAsync(int pageNumber, int pageSize, string search);
+    Task<PaginatedResult<T>> GetPagedAsync(TF tf);
 }

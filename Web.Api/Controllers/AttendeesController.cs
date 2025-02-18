@@ -1,6 +1,7 @@
 using Application.Attendees.DTOs;
 using Application.Attendees.Interfaces;
 using Domain.Common.Pagination;
+using Domain.Filter;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,9 +32,14 @@ namespace Web.Api.Controllers
         
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<PaginatedResult<AttendeeDto>>> GetAttendees([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string search = "")
+        public async Task<ActionResult<PaginatedResult<AttendeeDto>>> GetAttendees([FromQuery] AttendeeFilter filter)
         {
-            var paginatedResult = await _attendeeService.GetPagedAsync(pageNumber, pageSize, search);
+            if (filter.pageNumber <= 0 || filter.pageSize <= 0)
+            {
+                return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
+            }
+            
+            var paginatedResult = await _attendeeService.GetPagedAsync(filter);
 
             return Ok(paginatedResult);
         }

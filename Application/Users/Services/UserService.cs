@@ -5,6 +5,7 @@ using Application.Users.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 
 namespace Application.Users.Services;
@@ -55,6 +56,11 @@ public class UserService : IUserService
     }
 
     public Task<PaginatedResult<UserDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<PaginatedResult<UserDto>> GetPagedAsync(UserFilter tf)
     {
         throw new NotImplementedException();
     }

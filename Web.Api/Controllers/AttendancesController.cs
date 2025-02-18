@@ -4,6 +4,7 @@ using Application.Attendees.DTOs;
 using Application.Attendees.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
+using Domain.Filter;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -72,9 +73,9 @@ namespace Web.Api.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<PaginatedResult<AttendanceDto>>> GetAttendances([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string search = "")
+        public async Task<ActionResult<PaginatedResult<AttendanceDto>>> GetAttendances([FromQuery] AttendanceFilter filter)
         {
-            var paginatedResult = await _attendanceService.GetPagedAsync(pageNumber, pageSize, search);
+            var paginatedResult = await _attendanceService.GetPagedAsync(filter);
 
             return Ok(paginatedResult);
         }

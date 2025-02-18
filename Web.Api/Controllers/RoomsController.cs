@@ -2,6 +2,7 @@ using Application.Rooms.DTOs;
 using Application.Rooms.Interfaces;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,15 +22,14 @@ namespace Web.Api.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRooms([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, string search = "")
+        public async Task<ActionResult<PaginatedResult<RoomDto>>> GetRooms([FromQuery] RoomFilter filter)
         {
-            if (pageNumber <= 0 || pageSize <= 0)
+            if (filter.pageNumber <= 0 || filter.pageSize <= 0)
             {
                 return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
             }
             
-            //var rooms = await _roomService.GetAllAsync();
-            var rooms = await _roomService.GetPagedAsync(pageNumber, pageSize, search);
+            var rooms = await _roomService.GetPagedAsync(filter);
             
             return Ok(rooms);
         }

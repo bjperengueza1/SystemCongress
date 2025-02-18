@@ -1,8 +1,9 @@
 using Domain.Entities;
+using Domain.Filter;
 
 namespace Domain.Interfaces;
 
-public interface IAuthorRepository : IRepository<Author>
+public interface IAuthorRepository : IRepository<Author, AuthorFilter>
 {
     Task<Author?> GetByIdNumberAsync(string idNumber);
     

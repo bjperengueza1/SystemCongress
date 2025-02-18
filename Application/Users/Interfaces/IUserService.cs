@@ -1,9 +1,10 @@
 using Application.Common;
 using Application.Users.DTOs;
+using Domain.Filter;
 
 namespace Application.Users.Interfaces;
 
-public interface IUserService : ICommonService<UserDto, UserInsertDto, UserUpdateDto>
+public interface IUserService : ICommonService<UserDto, UserInsertDto, UserUpdateDto, UserFilter>
 {
     //Task<UserDto> Authenticate(string email, string password);
     /*Task<UserDto> RefreshToken(string token, string refreshToken);

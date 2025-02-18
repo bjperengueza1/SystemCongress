@@ -1,5 +1,6 @@
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -45,7 +46,7 @@ public class AuthorRepository : IAuthorRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<PaginatedResult<Author>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public Task<PaginatedResult<Author>> GetPagedAsync(AuthorFilter tf)
     {
         throw new NotImplementedException();
     }

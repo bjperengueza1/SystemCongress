@@ -1,5 +1,6 @@
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -45,30 +46,30 @@ public class AttendanceRepository : IAttendanceRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<PaginatedResult<Attendance>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    public async Task<PaginatedResult<Attendance>> GetPagedAsync(AttendanceFilter tf)
     {
         IQueryable<Attendance> query = _context.Attendances
             .Include(e => e.Attendee)
             .Include(e => e.Exposure);
         
-        if (!string.IsNullOrEmpty(search))
+        if (!string.IsNullOrEmpty(tf.search))
         {
             query = query.Where(
-                e => e.Attendee.Name.Contains(search) || 
-                     e.Exposure.Name.Contains(search));
+                e => e.Attendee.Name.Contains(tf.search) || 
+                     e.Exposure.Name.Contains(tf.search));
         }
         
         //order desc
         query = query.OrderByDescending(e => e.AttendanceId);
         
         var attendances = await query
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
+            .Skip((tf.pageNumber - 1) * tf.pageSize)
+            .Take(tf.pageSize)
             .ToListAsync();
         
         var totalItems = await query.CountAsync();
         
-        return PaginatedResult<Attendance>.Create(attendances, totalItems, pageNumber, pageSize);
+        return PaginatedResult<Attendance>.Create(attendances, totalItems, tf.pageNumber, tf.pageSize);
     }
 
     public async Task<Attendance> GetByAttendeeIdAndExposureIdAsync(int attendeeId, int exposureId)

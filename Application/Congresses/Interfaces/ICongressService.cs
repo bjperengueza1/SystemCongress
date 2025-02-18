@@ -1,12 +1,12 @@
 using Application.Common;
 using Application.Congresses.DTOs;
 using Domain.Dtos;
-using Domain.Entities;
+using Domain.Filter;
 
 namespace Application.Congresses.Interfaces;
 
 
-public interface ICongressService : ICommonService<CongressDto, CongressInsertDto, CongressUpdateDto>
+public interface ICongressService : ICommonService<CongressDto, CongressInsertDto, CongressUpdateDto, CongressFilter>
 {
     Task<CongressDto> GetByGuidAsync(string guid);
     

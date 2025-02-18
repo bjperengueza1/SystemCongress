@@ -8,6 +8,7 @@ using Application.Users.DTOs;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using FluentValidation;
 using Infrastructure.Settings;
 using Microsoft.AspNetCore.Authorization;
@@ -47,17 +48,14 @@ namespace Web.Api.Controllers
         
         //get all
         [HttpGet]
-        public async Task<ActionResult<PaginatedResult<ExposureWitchAuthorsDto>>> GetExposures(
-            [FromQuery] int pageNumber = 1,
-            [FromQuery] int pageSize = 10,
-            [FromQuery] string search = "")
+        public async Task<ActionResult<PaginatedResult<ExposureWitchAuthorsDto>>> GetExposures([FromQuery] ExposureFilter filter)
         {
-            if (pageNumber <= 0 || pageSize <= 0)
+            if (filter.pageNumber <= 0 || filter.pageSize <= 0)
             {
                 return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
             }
             
-            var exposures = await _exposureService.GetPagedAsync(pageNumber, pageSize, search);
+            var exposures = await _exposureService.GetPagedAsync(filter);
             
             return exposures;
         }

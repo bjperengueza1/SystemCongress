@@ -15,7 +15,6 @@ public class CongressDto
     public bool Status { get; set; } = false;
     
     public int MinHours { get; set; }
-    
     public string Guid { get; set; }
     
     public string? fileFlayer { get; set; } = string.Empty;

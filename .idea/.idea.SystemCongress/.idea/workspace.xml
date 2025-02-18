@@ -11,11 +11,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/Utils/Filter/FilterDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Filter/AttendanceFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Filter/AttendeeFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Filter/AuthorFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Filter/CongressFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Filter/ExposureFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Filter/RoomFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Filter/UserFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Attendances/Interfaces/IAttendanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendances/Interfaces/IAttendanceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Attendees/Interfaces/IAttendeeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendees/Interfaces/IAttendeeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Attendees/Services/AttendeeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendees/Services/AttendeeService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/ICommonService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/ICommonService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Rooms/Interfaces/IRoomService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Rooms/Interfaces/IRoomService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Rooms/Services/RoomService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Rooms/Services/RoomService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAttendanceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendanceRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAuthorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IRoomRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IRoomRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AttendanceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendanceRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/RoomRespository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/RoomRespository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/AttendancesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/AttendancesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/AttendeesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/AttendeesController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +86,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9191eac31f284a10b284fabb9f96c4bcc2d600/23/bf8ad0b3/FileMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9a00b514f1a941dd9f060453de7f7c4043200/61/a6ad950d/IMapperBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bb59229c22174498bdc56342ea590e015000/a0/bbfdab77/CongressCertificate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb19493d9b5347789f42895f466c2d49cb28/95/b0c0d7f6/JwtBearerDefaults.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1b445ceb1c5ab1d07b7b55412b10a5e21169ec87228ca8ad8a18a6982f3278/ControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2a8a5156343c6853864d9956214644e750ec73ec2d90f1d3748e8a765eec/ActionResultOfT.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8056cd3f452fefb9834f05cdb275b762dd41f27b7766cd71174e78592dc495b/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9c9b30526ff8fe363be59b87459d62a356917d70568f2f95d96618c3bae909e/SmtpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df5e878c7ba32868868b7feaf47ebab09f84c77eb0b8252b7c467953ffc45/JsonSerializer.Read.Stream.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Web.Api/Controllers/ExposuresController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="HttpClientEndpointsTabState">
     <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;080c03c8a99c879bb983daa69079b8b320173770&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Attendances&quot; /&gt;&#10;  &lt;entry key=&quot;be4e7cbf2d43757f89dc5f988662515b5f4f2a01&quot; value=&quot;###&amp;#10;GET http://localhost:5196/api/Exposures/{{id}}/summary&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
@@ -77,6 +117,7 @@
     &quot;Docker.Web.Api/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;Docker.compose.yaml.systemcongress: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.compose.yaml.web.api: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.prod.yaml.mariadb: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.prod.yaml.webapi: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.prod.yaml: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -99,7 +140,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Docker.docker-compose.prod.yaml: Compose Deployment">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -182,6 +223,20 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.prod.yaml.mariadb: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mariadb" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.prod.yaml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.prod.yaml.webapi: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -201,12 +256,14 @@
       <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
       <item itemvalue="Docker.compose.yaml: Compose Deployment" />
       <item itemvalue="Docker.Web.Api/Dockerfile" />
+      <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
       <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
         <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
@@ -337,6 +394,11 @@
       <workItem from="1739823234358" duration="44000" />
       <workItem from="1739823860909" duration="19000" />
       <workItem from="1739874341412" duration="170000" />
+      <workItem from="1739877574388" duration="54000" />
+      <workItem from="1739885192329" duration="57000" />
+      <workItem from="1739888403521" duration="476000" />
+      <workItem from="1739891727074" duration="15756000" />
+      <workItem from="1739913702137" duration="344000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -658,7 +720,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739804051955</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="multiples emails">
+      <option name="closed" value="true" />
+      <created>1739877611367</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1739877611367</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +749,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="update pagination" />
     <MESSAGE value="init crud exposiciones" />
     <MESSAGE value="fix send email" />
     <MESSAGE value="dowload files" />
@@ -704,6 +773,7 @@
     <MESSAGE value="init sql" />
     <MESSAGE value="fix" />
     <MESSAGE value="cors" />
-    <option name="LAST_COMMIT_MESSAGE" value="cors" />
+    <MESSAGE value="multiples emails" />
+    <option name="LAST_COMMIT_MESSAGE" value="multiples emails" />
   </component>
 </project>

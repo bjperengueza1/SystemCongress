@@ -1,10 +1,11 @@
 using Application.Common;
 using Application.Exposures.DTOs;
 using Domain.Common.Pagination;
+using Domain.Filter;
 
 namespace Application.Exposures.Interfaces;
 
-public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, ExposureInsertDto, ExposureUpdateDto>
+public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, ExposureInsertDto, ExposureUpdateDto, ExposureFilter>
 {
     Task<ExposureWitchAuthorsDto> ChangeStatusAsync(int id, ExposureUpdateStatusDto exposureUpdateStatusDto);
     

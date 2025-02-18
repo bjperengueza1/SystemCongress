@@ -1,5 +1,6 @@
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +46,11 @@ public class UserRepository : IUserRepository
     }
 
     public Task<PaginatedResult<User>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<PaginatedResult<User>> GetPagedAsync(UserFilter tf)
     {
         throw new NotImplementedException();
     }

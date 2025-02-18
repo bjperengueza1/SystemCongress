@@ -3,6 +3,7 @@ using Application.Rooms.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Filter;
 using Domain.Interfaces;
 
 namespace Application.Rooms.Services;
@@ -68,12 +69,12 @@ public class RoomService : IRoomService
         
         return _mapper.Map<RoomDto>(room);
     }
-
-    public async Task<PaginatedResult<RoomDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
+    
+    public async Task<PaginatedResult<RoomDto>> GetPagedAsync(RoomFilter tf)
     {
-        var pagedData = await _roomRepository.GetPagedAsync(pageNumber, pageSize, search);
+        var paginatedData = await _roomRepository.GetPagedAsync(tf);
         
-        return pagedData.Map(c => _mapper.Map<RoomDto>(c));
+        return paginatedData.Map(c => _mapper.Map<RoomDto>(c));
     }
 
     public async Task<PaginatedResult<RoomDto>> GetRoomsByCongressPagedAsync(int congressId, int pageNumber, int pageSize)
