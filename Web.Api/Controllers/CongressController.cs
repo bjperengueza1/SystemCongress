@@ -42,7 +42,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult<PaginatedResult<CongressDto>>> GetCongresses([FromQuery] CongressFilter filter)
         {
             if (filter.pageNumber <= 0 || filter.pageSize <= 0)
@@ -221,7 +221,7 @@ namespace Web.Api.Controllers
         
         //upload template certificate attendance
         [HttpPost("{id:int}/upload-template-certificate-attendance")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> UploadTemplateCertificateAttendance(int id, IFormFile file)
         {
             if (file == null || file.Length == 0)
@@ -263,7 +263,7 @@ namespace Web.Api.Controllers
         
         //upload template certificate exposure
         [HttpPost("{id:int}/upload-template-certificate-exposure")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> UploadTemplateCertificateExposure(int id, IFormFile file)
         {
             if (file == null || file.Length == 0)
@@ -305,7 +305,7 @@ namespace Web.Api.Controllers
         
         //upload template certificate conference
         [HttpPost("{id:int}/upload-template-certificate-conference")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> UploadTemplateCertificateConference(int id, IFormFile file)
         {
             if (file == null || file.Length == 0)
@@ -347,7 +347,7 @@ namespace Web.Api.Controllers
         
         //upload flayer congress
         [HttpPost("{id:int}/upload-flayer")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> UploadFlayer(int id, IFormFile file)
         {
             if (file == null || file.Length == 0)
@@ -388,7 +388,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpPost("{id:int}/send-invitacion-conference")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> SendNotification(int id, [FromBody] string[] emails)
         {
             var congress = await _congressService.GetByIdAsync(id);
@@ -402,7 +402,6 @@ namespace Web.Api.Controllers
             
             return result ? Ok() : BadRequest("No se ha podido enviar la notificación.");
         }
-
         
     }
 }

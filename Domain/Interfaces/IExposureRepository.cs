@@ -9,4 +9,6 @@ public interface IExposureRepository : IRepository<Exposure, ExposureFilter>
     Task<PaginatedResult<Exposure>> GetExposuresByRoomPagedAsync(int roomId, int pageNumber, int pageSize);
     Task<PaginatedResult<Exposure>> GetExposuresByCongressPagedAsync(int congressId, int pageNumber, int pageSize);
     Task<Exposure> GetByGuidAsync(string guid);
+    
+    Task<IEnumerable<Exposure>> GetAllEAsync(ExposureFilter filter);
 }

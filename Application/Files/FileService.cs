@@ -66,4 +66,9 @@ public class FileService : IFileService
     {
         return _fileStorageService.ConvertToPdf(fileName, outputFilePath);
     }
+
+    public async Task<Stream> CreateExcelStream(List<string> headers, List<List<string>> data)
+    {
+        return await _fileStorageService.CreateExcelStream(headers, data);
+    }
 }

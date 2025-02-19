@@ -14,5 +14,6 @@ public interface IFileService
 
     void ReplaceTextInWord(string fileName, string[] directory, Dictionary<string, string> replacements);
     string ConvertToPdf(string fileName, string[] outputFilePath);
+    Task<Stream> CreateExcelStream( List<string> headers, List<List<string>> data);
 
 }

@@ -259,5 +259,20 @@ namespace Web.Api.Controllers
             
             return Ok();
         }
+        
+        //download report of exposures
+        [HttpGet("report")]
+        public async Task<IActionResult> DownloadReport([FromQuery] ExposureFilter filter)
+        {
+            var exposures = await _exposureService.GetReportExcelAsync(filter);
+            
+            if (exposures == null)
+            {
+                return NotFound();
+            }
+            
+            //return excel
+            return File(exposures, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "exposures.xlsx");
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Domain.Interfaces.Files;
@@ -101,7 +102,37 @@ public class LocalFileStorageService : IFileStorageService
         }
         doc.MainDocumentPart.Document.Save();
     }
-    
+
+    public async Task<Stream> CreateExcelStream(List<string> headers, List<List<string>> data)
+    {
+        var workbook = new XLWorkbook();
+        var worksheet = workbook.Worksheets.Add("Sheet1");
+        var currentRow = 1;
+        var currentColumn = 1;
+        foreach (var header in headers)
+        {
+            worksheet.Cell(currentRow, currentColumn).Value = header;
+            currentColumn++;
+        }
+        
+        currentRow++;
+        foreach (var row in data)
+        {
+            currentColumn = 1;
+            foreach (var cell in row)
+            {
+                worksheet.Cell(currentRow, currentColumn).Value = cell;
+                currentColumn++;
+            }
+            currentRow++;
+        }
+        
+        var stream = new MemoryStream();
+        workbook.SaveAs(stream);
+        stream.Position = 0;
+        return await Task.FromResult(stream);
+    }
+
     public string ConvertToPdf(string fileName, string[] directory)
     {
         var path = Path.Combine(directory);

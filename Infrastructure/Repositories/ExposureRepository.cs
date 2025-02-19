@@ -141,4 +141,29 @@ public class ExposureRepository : IExposureRepository
         
         return await query.FirstOrDefaultAsync();
     }
+
+    public async Task<IEnumerable<Exposure>> GetAllEAsync(ExposureFilter tf)
+    {
+        IQueryable<Exposure> query = _context.Exposures
+            .Include(e => e.Congress)
+            .Include(e => e.ExposureAuthor)
+            .ThenInclude(ea => ea.Author);
+
+        if(!string.IsNullOrWhiteSpace(tf.search))
+        {
+            query = query.Where(e => e.Name.Contains(tf.search));
+        }
+
+        if(tf.congressId.HasValue && tf.congressId != 0)
+        {
+            query = query.Where(e => e.CongressId == tf.congressId);
+        }
+        
+        //order desc
+        query = query.OrderByDescending(e => e.ExposureId);
+        
+        var exposures = await query.ToListAsync();
+        
+        return exposures;
+    }
 }

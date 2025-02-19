@@ -18,4 +18,6 @@ public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, Expo
     Task<PaginatedResult<ExposureWitchAuthorsDto>> GetByCongressAsync(int id, int page, int size);
     
     Task<bool> RegisterPreviousAsync(int id, string email);
+    
+    Task<Stream> GetReportExcelAsync(ExposureFilter filter);
 }

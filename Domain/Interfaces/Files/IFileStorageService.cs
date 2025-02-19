@@ -8,4 +8,6 @@ public interface IFileStorageService
     Task<string> CopyFileAsync(string sourceFileName, string targetFileName, string[] paths);
     string ConvertToPdf(string fileName, string[] outputFilePath);
     void ReplaceTextInWord(string fileName, string[] directory,  Dictionary<string, string> replacements);
+    
+    Task<Stream> CreateExcelStream( List<string> headers, List<List<string>> data);
 }

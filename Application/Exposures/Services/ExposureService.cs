@@ -1,6 +1,7 @@
 using Application.Common;
 using Application.Exposures.DTOs;
 using Application.Exposures.Interfaces;
+using Application.Files.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
@@ -14,16 +15,19 @@ public class ExposureService : IExposureService
     private readonly IExposureRepository _exposureRepository;
     private readonly IAuthorRepository _authorRepository;
     private readonly IEmailService _emailService;
+    private readonly IFileService _fileService;
     private readonly IMapper _mapper;
     
     public ExposureService(
         IExposureRepository exposureRepository,
         IAuthorRepository authorRepository,
+        IFileService fileService,
         IEmailService emailService,
         IMapper mapper)
     {
         _exposureRepository = exposureRepository;
         _authorRepository = authorRepository;
+        _fileService = fileService;
         _emailService = emailService;
         _mapper = mapper;
     }
@@ -385,5 +389,55 @@ public class ExposureService : IExposureService
         
         return emailSent;
 
+    }
+
+    public async Task<Stream> GetReportExcelAsync(ExposureFilter filter)
+    {
+        var data = await _exposureRepository.GetAllEAsync(filter);
+        
+        // Transformar los datos para que los autores estén en columnas separadas
+        var dataTransformed = data.Select(e => 
+        {
+            var authors = e.ExposureAuthor
+                .OrderBy(ea => ea.Position) // Ordenamos los autores por "position"
+                .Select(ea => ea.Author) // Obtenemos el nombre del autor
+                .ToList();
+            
+            //return list strings
+            return new List<string>
+            {
+                e.Name,
+                e.StatusExposure.ToString(),
+                e.ResearchLine.ToString(),
+                e.Type.ToString(),
+                e.DateStart.ToString(),
+                e.DateEnd.ToString(),
+                e.Observation,
+                e.Congress.Name,
+                authors.Count > 0 ? authors[0].Name : "",
+                authors.Count > 1 ? authors[1].Name : "",
+                authors.Count > 2 ? authors[2].Name : ""
+            };
+        }).ToList();
+        
+        var headers = new List<string>
+        {
+            "Nombre",
+            "Estado",
+            "Línea de Investigación",
+            "Tipo",
+            "Fecha Inicio",
+            "Fecha Fin",
+            "Observación",
+            "Congreso",
+            "Autor 1",
+            "Autor 2",
+            "Autor 3"
+        };
+        
+        var excel = await _fileService.CreateExcelStream(headers, dataTransformed);
+
+        return excel;
+        
     }
 }

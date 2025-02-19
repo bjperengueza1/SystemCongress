@@ -18,12 +18,12 @@ namespace Web.Api.Controllers
             _userService = userService;
         }
         
-        [HttpGet]
+        /*[HttpGet]
         [AllowAnonymous]
         public async Task<IEnumerable<UserDto>> GetUsers()
         {
             return await _userService.GetAllAsync();
-        }
+        }*/
         
         [HttpGet("{id}")]
         [Authorize]
