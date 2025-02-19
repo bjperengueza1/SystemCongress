@@ -61,6 +61,11 @@ public class ExposureRepository : IExposureRepository
         {
             query = query.Where(e => e.Name.Contains(tf.search));
         }
+
+        if(tf.congressId.HasValue && tf.congressId != 0)
+        {
+            query = query.Where(e => e.CongressId == tf.congressId);
+        }
         
         //order desc
         query = query.OrderByDescending(e => e.ExposureId);

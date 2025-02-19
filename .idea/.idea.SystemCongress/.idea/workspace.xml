@@ -11,50 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Utils/Filter/FilterDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Filter/AttendanceFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Filter/AttendeeFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Filter/AuthorFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Filter/CongressFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Filter/ExposureFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Filter/RoomFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Filter/UserFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Attendances/Interfaces/IAttendanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendances/Interfaces/IAttendanceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Attendees/Interfaces/IAttendeeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendees/Interfaces/IAttendeeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Attendees/Services/AttendeeService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendees/Services/AttendeeService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Common/ICommonService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/ICommonService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Rooms/Interfaces/IRoomService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Rooms/Interfaces/IRoomService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Rooms/Services/RoomService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Rooms/Services/RoomService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Users/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Interfaces/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAttendanceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendanceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAuthorRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IRoomRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IRoomRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AttendanceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendanceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AuthorRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/RoomRespository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/RoomRespository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/AttendancesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/AttendancesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/AttendeesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/AttendeesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/RoomsController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +97,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: https">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -253,13 +210,13 @@
     </configuration>
     <list>
       <item itemvalue=".NET Launch Settings Profile.Web.Api: https" />
-      <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
       <item itemvalue="Docker.compose.yaml: Compose Deployment" />
       <item itemvalue="Docker.Web.Api/Dockerfile" />
       <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
       <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
+      <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
     </list>
     <recent_temporary>
       <list>
@@ -398,7 +355,8 @@
       <workItem from="1739885192329" duration="57000" />
       <workItem from="1739888403521" duration="476000" />
       <workItem from="1739891727074" duration="15756000" />
-      <workItem from="1739913702137" duration="344000" />
+      <workItem from="1739913702137" duration="465000" />
+      <workItem from="1739925322598" duration="87000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -728,7 +686,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739877611367</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="init filter">
+      <option name="closed" value="true" />
+      <created>1739914160563</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1739914160563</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -749,7 +715,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="init crud exposiciones" />
     <MESSAGE value="fix send email" />
     <MESSAGE value="dowload files" />
     <MESSAGE value="guardar asistencias" />
@@ -774,6 +739,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="cors" />
     <MESSAGE value="multiples emails" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiples emails" />
+    <MESSAGE value="init filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="init filter" />
   </component>
 </project>
