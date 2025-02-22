@@ -44,7 +44,7 @@ builder.Services.AddCors(options =>
                     "http://34.173.148.212:4200",
                     "http://34.173.148.212",
                     "http://localhost",
-                    "https://cilai.istla-sigala.edu.ec/")
+                    "https://cilai.istla-sigala.edu.ec")
                   .AllowAnyMethod() // Permite cualquier método (GET, POST, PUT, DELETE)
                   .AllowAnyHeader() // Permite cualquier header
                   .AllowCredentials(); // Permite cookies o autenticación con credenciales
