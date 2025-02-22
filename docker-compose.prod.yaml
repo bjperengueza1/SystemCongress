@@ -9,7 +9,7 @@
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:8080
     ports:
-      - "5196:8080"
+      - "5197:8080"
     networks:
       mynetwork:
         ipv4_address: 192.168.10.2
