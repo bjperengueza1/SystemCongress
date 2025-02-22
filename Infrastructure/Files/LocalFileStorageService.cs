@@ -127,6 +127,9 @@ public class LocalFileStorageService : IFileStorageService
             currentRow++;
         }
         
+        //autoajustar columnas
+        worksheet.Columns().AdjustToContents();
+        
         var stream = new MemoryStream();
         workbook.SaveAs(stream);
         stream.Position = 0;

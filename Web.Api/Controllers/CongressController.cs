@@ -107,7 +107,6 @@ namespace Web.Api.Controllers
 
         //get by guid
         [HttpGet("guid/{guid}")]
-        [Authorize]
         public async Task<ActionResult<CongressDto>> GetCongressByGuid(string guid)
         {
             var congressDto = await _congressService.GetByGuidAsync(guid);

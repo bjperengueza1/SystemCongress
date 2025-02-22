@@ -12,7 +12,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Filter/ExposureFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Filter/ExposureFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Files/LocalFileStorageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Files/LocalFileStorageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemCongress.sln" beforeDir="false" afterPath="$PROJECT_DIR$/SystemCongress.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +83,7 @@
     &quot;Docker.docker-compose.prod.yaml.mariadb: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.prod.yaml.webapi: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.prod.yaml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
@@ -98,7 +104,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -181,12 +187,14 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.prod.yaml.mariadb: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
+          <option name="envFilePath" value="" />
           <option name="services">
             <list>
               <option value="mariadb" />
+              <option value="webapi" />
             </list>
           </option>
           <option name="sourceFilePath" value="docker-compose.prod.yaml" />
@@ -214,14 +222,14 @@
       <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
       <item itemvalue="Docker.compose.yaml: Compose Deployment" />
       <item itemvalue="Docker.Web.Api/Dockerfile" />
-      <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
       <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
         <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
@@ -360,7 +368,12 @@
       <workItem from="1739925322598" duration="87000" />
       <workItem from="1739966181954" duration="61000" />
       <workItem from="1739985032479" duration="10370000" />
-      <workItem from="1739998533013" duration="1325000" />
+      <workItem from="1739998533013" duration="1381000" />
+      <workItem from="1740014980956" duration="861000" />
+      <workItem from="1740060174852" duration="367000" />
+      <workItem from="1740084216036" duration="40000" />
+      <workItem from="1740109568701" duration="6399000" />
+      <workItem from="1740151119703" duration="682000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -714,7 +727,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739998086612</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="url">
+      <option name="closed" value="true" />
+      <created>1739999905150</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1739999905151</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -735,7 +756,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="guardar asistencias" />
     <MESSAGE value="update" />
     <MESSAGE value="list attendees" />
     <MESSAGE value="update email settings" />
@@ -760,6 +780,7 @@
     <MESSAGE value="init filter" />
     <MESSAGE value="filter congress" />
     <MESSAGE value="report" />
-    <option name="LAST_COMMIT_MESSAGE" value="report" />
+    <MESSAGE value="url" />
+    <option name="LAST_COMMIT_MESSAGE" value="url" />
   </component>
 </project>
