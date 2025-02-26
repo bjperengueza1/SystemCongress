@@ -10,7 +10,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Application/Token/ITokenProviderService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Token/TokenProviderService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Token/ITokenProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Token/TokenProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web.Api/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/appsettings.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +52,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/001692eebc4943a8bb6b74aede820489c600/f5/da7d935d/02000005.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/92882234073d4247bed32de2e6cbb4154a00/de/d44003f7/02000006pdb2.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/001692eebc4943a8bb6b74aede820489c600/ca/b639f203/IFormFile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/649f9a5315084d038b64e29ea11b1fb56d20/c2/4404a1b4/IConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9191eac31f284a10b284fabb9f96c4bcc2d600/23/bf8ad0b3/FileMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9a00b514f1a941dd9f060453de7f7c4043200/61/a6ad950d/IMapperBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bb59229c22174498bdc56342ea590e015000/a0/bbfdab77/CongressCertificate.cs" root0="FORCE_HIGHLIGHTING" />
@@ -48,8 +63,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9c9b30526ff8fe363be59b87459d62a356917d70568f2f95d96618c3bae909e/SmtpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df5e878c7ba32868868b7feaf47ebab09f84c77eb0b8252b7c467953ffc45/JsonSerializer.Read.Stream.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Web.Api/Controllers/CongressController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Web.Api/Controllers/CongressController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="HttpClientEndpointsTabState">
     <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;080c03c8a99c879bb983daa69079b8b320173770&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Attendances&quot; /&gt;&#10;  &lt;entry key=&quot;be4e7cbf2d43757f89dc5f988662515b5f4f2a01&quot; value=&quot;###&amp;#10;GET http://localhost:5196/api/Exposures/{{id}}/summary&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
@@ -98,7 +111,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -181,6 +194,20 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.prod.yaml.mariadb: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mariadb" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.prod.yaml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -216,6 +243,7 @@
       <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
       <item itemvalue="Docker.compose.yaml: Compose Deployment" />
       <item itemvalue="Docker.Web.Api/Dockerfile" />
+      <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
@@ -223,6 +251,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
@@ -369,6 +398,11 @@
       <workItem from="1740109568701" duration="6399000" />
       <workItem from="1740151119703" duration="682000" />
       <workItem from="1740183359184" duration="131000" />
+      <workItem from="1740184595460" duration="886000" />
+      <workItem from="1740432485866" duration="58000" />
+      <workItem from="1740432559270" duration="2008000" />
+      <workItem from="1740579248958" duration="9656000" />
+      <workItem from="1740590351652" duration="946000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -738,7 +772,23 @@
       <option name="project" value="LOCAL" />
       <updated>1740183420616</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="test">
+      <option name="closed" value="true" />
+      <created>1740184662283</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1740184662283</updated>
+    </task>
+    <task id="LOCAL-00048" summary="change port">
+      <option name="closed" value="true" />
+      <created>1740184957851</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1740184957851</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -759,8 +809,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="list attendees" />
-    <MESSAGE value="update email settings" />
     <MESSAGE value="FIX GUID EXPOSURE" />
     <MESSAGE value="validations dto congress" />
     <MESSAGE value="exposure validation" />
@@ -784,6 +832,8 @@
     <MESSAGE value="report" />
     <MESSAGE value="url" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="test" />
+    <MESSAGE value="change port" />
+    <option name="LAST_COMMIT_MESSAGE" value="change port" />
   </component>
 </project>

@@ -1,6 +1,7 @@
 using Application.Token;
 using Application.Users.DTOs;
 using Application.Users.Interfaces;
+using Domain.Filter;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,7 @@ namespace Web.Api.Controllers
     {
         private readonly IUserService _userService;
         
-        public AccountController(IUserService userService, ITokenService tokenService)
+        public AccountController(IUserService userService)
         {
             _userService = userService;
         }
@@ -24,6 +25,19 @@ namespace Web.Api.Controllers
         {
             return await _userService.GetAllAsync();
         }*/
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers([FromQuery] UserFilter filter)
+        {
+            if (filter.pageNumber <= 0 || filter.pageSize <= 0)
+            {
+                return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
+            }
+            
+            var users = await _userService.GetPagedAsync(filter);
+            
+            return Ok(users);
+        }
         
         [HttpGet("{id}")]
         [Authorize]

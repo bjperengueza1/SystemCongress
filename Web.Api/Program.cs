@@ -1,3 +1,4 @@
+using System.Text;
 using Application.Attendances.Interfaces;
 using Application.Attendances.Services;
 using Application.Attendees.Interfaces;
@@ -22,15 +23,18 @@ using Application.Users.Interfaces;
 using Application.Users.Services;
 using Domain.Interfaces;
 using Domain.Interfaces.Files;
+using Domain.Interfaces.Token;
 using FluentValidation;
 using Infrastructure.Data;
 using Infrastructure.Email;
 using Infrastructure.Files;
 using Infrastructure.Repositories;
 using Infrastructure.Settings;
+using Infrastructure.Token;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Web.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,7 +70,10 @@ builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 builder.Services.AddSingleton<ITokenSettings, TokenSettings>();
 
-builder.Services.AddScoped<ITokenService, TokenService>();
+//builder.Services.AddScoped<ITokenService, TokenService>();
+
+builder.Services.AddSingleton<ITokenProvider, TokenProvider>();
+builder.Services.AddSingleton<ITokenProviderService, TokenProviderService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>(); // Asegúrate de que CongresoRepository implemente ICongresoRepository
 builder.Services.AddScoped<IUserService, UserService>();
@@ -107,9 +114,9 @@ builder.Services.AddScoped<IValidator<ExposureInsertDto>, ExposureInsertValidato
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGenWithAuth();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+/*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -120,6 +127,20 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(
                 System.Text.Encoding.UTF8.GetBytes(builder.Configuration["TokenKey"]))
+        };
+    });*/
+
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(o =>
+    {
+        o.RequireHttpsMetadata = false;
+        o.TokenValidationParameters = new TokenValidationParameters
+        {
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"]!)),
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            ClockSkew = TimeSpan.Zero
         };
     });
 

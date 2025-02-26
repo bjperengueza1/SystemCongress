@@ -50,9 +50,26 @@ public class UserRepository : IUserRepository
         throw new NotImplementedException();
     }
 
-    public Task<PaginatedResult<User>> GetPagedAsync(UserFilter tf)
+    public async Task<PaginatedResult<User>> GetPagedAsync(UserFilter tf)
     {
-        throw new NotImplementedException();
+        IQueryable<User> query = _context.Users;
+        
+        if(!string.IsNullOrWhiteSpace(tf.search))
+        {
+            query = query.Where(c => c.Name.Contains(tf.search) || c.Email.Contains(tf.search));
+        }
+        
+        //var queryResult = query.AsNoTracking();
+        query = query.OrderByDescending(c => c.UserId);
+        
+        var users = await query
+            .Skip((tf.pageNumber - 1) * tf.pageSize)
+            .Take(tf.pageSize)
+            .ToListAsync();
+        
+        var totalItems = await query.CountAsync();
+        
+        return PaginatedResult<User>.Create(users, totalItems, tf.pageNumber, tf.pageSize);
     }
 
     public async Task<User?> GetByEmail(string email)

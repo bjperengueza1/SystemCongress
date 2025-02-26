@@ -7,6 +7,7 @@ using Domain.Common.Pagination;
 using Domain.Entities;
 using Domain.Filter;
 using Domain.Interfaces;
+using Domain.Interfaces.Token;
 
 namespace Application.Users.Services;
 
@@ -16,13 +17,14 @@ public class UserService : IUserService
     private readonly IMapper _mapper;
     private readonly IPasswordHasher _passwordHasher;
     private readonly ITokenService _tokenService;
+    private readonly ITokenProviderService _tokenProvider;
     
-    public UserService(IUserRepository userRepository, IMapper mapper, IPasswordHasher passwordHasher,ITokenService tokenService)
+    public UserService(IUserRepository userRepository, IMapper mapper, IPasswordHasher passwordHasher, ITokenProviderService tokenProvider)
     {
         _userRepository = userRepository;
         _mapper = mapper;
         _passwordHasher = passwordHasher;
-        _tokenService = tokenService;
+        _tokenProvider = tokenProvider;
     }
     
     public async Task<IEnumerable<UserDto>> GetAllAsync()
@@ -60,9 +62,10 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public Task<PaginatedResult<UserDto>> GetPagedAsync(UserFilter tf)
+    public async Task<PaginatedResult<UserDto>> GetPagedAsync(UserFilter tf)
     {
-        throw new NotImplementedException();
+        var pagedData = await _userRepository.GetPagedAsync(tf);
+        return pagedData.Map(u => _mapper.Map<UserDto>(u));
     }
 
     public async Task<UserDto?> GetByEmail(string email)
@@ -89,7 +92,10 @@ public class UserService : IUserService
         
         var userLoggedDto = _mapper.Map<UserLoggedDto>(user);
         
-        userLoggedDto.Token = _tokenService.CreateToken(userLoggedDto);
+        userLoggedDto.Token = _tokenProvider.Create(user);
+        
+        
+        //userLoggedDto.Token = _tokenService.CreateToken(userLoggedDto);
 
         return userLoggedDto;
     }
