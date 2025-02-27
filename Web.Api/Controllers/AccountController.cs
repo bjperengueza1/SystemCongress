@@ -57,7 +57,8 @@ namespace Web.Api.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = userDto.UserId}, null);
         }
         
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
+        [Authorize]
         public async Task<ActionResult> UpdateUser(int id, [FromBody] UserUpdateDto updateDto)
         {
             var userDto = await _userService.UpdateAsync(id, updateDto);
@@ -80,5 +81,23 @@ namespace Web.Api.Controllers
            
         }
         
+        //change password by admin
+        [HttpPut("change-password-by-admin/{id:int}")]
+        [Authorize]
+        public async Task<ActionResult> ChangePassword(int id, [FromBody] UserChangePasswordByAdminDto changePasswordByAdminDto)
+        {
+            var userDto = await _userService.ChangePasswordByAdminAsync(id, changePasswordByAdminDto);
+            
+            return userDto == false ? NotFound() : Ok();
+        }
+        
+        [HttpPut("change-password/{id:int}")]
+        [Authorize]
+        public async Task<ActionResult> ChangePassword(int id, [FromBody] UserChangePasswordDto changePasswordDto)
+        {
+            var userDto = await _userService.ChangePasswordAsync(id, changePasswordDto);
+            
+            return userDto == false ? NotFound() : Ok();
+        }
     }
 }

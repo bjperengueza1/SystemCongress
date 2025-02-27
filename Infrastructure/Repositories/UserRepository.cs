@@ -32,7 +32,8 @@ public class UserRepository : IUserRepository
 
     public void UpdateAsync(User entity)
     {
-        throw new NotImplementedException();
+        _context.Users.Attach(entity);
+        _context.Entry(entity).State = EntityState.Modified;
     }
 
     public void DeleteAsync(User entity)

@@ -10,21 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Token/ITokenProviderService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Application/Token/TokenProviderService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Interfaces/Token/ITokenProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Token/TokenProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web.Api/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Users/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SystemCongress.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -402,7 +388,7 @@
       <workItem from="1740432485866" duration="58000" />
       <workItem from="1740432559270" duration="2008000" />
       <workItem from="1740579248958" duration="9656000" />
-      <workItem from="1740590351652" duration="946000" />
+      <workItem from="1740590351652" duration="1186000" />
     </task>
     <task id="LOCAL-00001" summary="init respository">
       <option name="closed" value="true" />
@@ -788,7 +774,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740184957851</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="swagger">
+      <option name="closed" value="true" />
+      <created>1740591524856</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1740591524856</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,7 +803,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="FIX GUID EXPOSURE" />
     <MESSAGE value="validations dto congress" />
     <MESSAGE value="exposure validation" />
     <MESSAGE value="multiple authors to many exposures" />
@@ -834,6 +827,7 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="test" />
     <MESSAGE value="change port" />
-    <option name="LAST_COMMIT_MESSAGE" value="change port" />
+    <MESSAGE value="swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="swagger" />
   </component>
 </project>

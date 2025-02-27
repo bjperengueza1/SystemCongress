@@ -99,5 +99,45 @@ public class UserService : IUserService
 
         return userLoggedDto;
     }
-    
+
+    public async Task<bool> ChangePasswordByAdminAsync(int userId, UserChangePasswordByAdminDto changePasswordByAdminDto)
+    {
+        
+        if (changePasswordByAdminDto.NewPassword != changePasswordByAdminDto.ConfirmPassword) return false;
+        
+        var user = await _userRepository.GetByIdAsync(userId);
+        
+        if (user == null) return false;
+        
+        var (passwordHash, passwordSalt) = _passwordHasher.CreatePasswordHash(changePasswordByAdminDto.NewPassword);
+        
+        user.PasswordHash = passwordHash;
+        user.PasswordSalt = passwordSalt;
+        
+        _userRepository.UpdateAsync(user);
+        await _userRepository.SaveAsync();
+        
+        return true;
+    }
+
+    public async Task<bool> ChangePasswordAsync(int userId, UserChangePasswordDto changePasswordDto)
+    {
+        if(changePasswordDto.NewPassword != changePasswordDto.ConfirmPassword) return false;
+        
+        var user = await _userRepository.GetByIdAsync(userId);
+        
+        if (user == null) return false;
+        
+        if (!_passwordHasher.VerifyPassword(changePasswordDto.CurrentPassword, user.PasswordHash, user.PasswordSalt)) return false;
+        
+        var (passwordHash, passwordSalt) = _passwordHasher.CreatePasswordHash(changePasswordDto.NewPassword);
+        
+        user.PasswordHash = passwordHash;
+        user.PasswordSalt = passwordSalt;
+        
+        _userRepository.UpdateAsync(user);
+        await _userRepository.SaveAsync();
+        
+        return true;
+    }
 }

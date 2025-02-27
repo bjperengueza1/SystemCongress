@@ -43,5 +43,7 @@ public interface IUserService : ICommonService<UserDto, UserInsertDto, UserUpdat
     Task<UserDto?> GetByEmail(string email);
     Task<bool> UserExists(string email);
     Task<UserLoggedDto?> Authenticate(UserLoginDto loginDto);
+    Task<bool> ChangePasswordByAdminAsync(int userId, UserChangePasswordByAdminDto changePasswordByAdminDto);
+    Task<bool> ChangePasswordAsync(int userId, UserChangePasswordDto changePasswordDto);
     
 }
