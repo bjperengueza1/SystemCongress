@@ -16,6 +16,7 @@ public class MappingProfile : Profile
     {
         //Users
         CreateMap<UserInsertDto, User>();
+        CreateMap<UserUpdateDto, User>();
         CreateMap<User, UserDto>();
         CreateMap<User,UserLoggedDto>()
             .ForMember(dest => dest.Token, opt => opt.Ignore());

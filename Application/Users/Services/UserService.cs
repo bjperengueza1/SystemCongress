@@ -52,14 +52,18 @@ public class UserService : IUserService
         return _mapper.Map<UserDto>(user);
     }
 
-    public Task<UserDto> UpdateAsync(int id, UserUpdateDto tu)
+    public async Task<UserDto> UpdateAsync(int id, UserUpdateDto tu)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<PaginatedResult<UserDto>> GetPagedAsync(int pageNumber, int pageSize, string search)
-    {
-        throw new NotImplementedException();
+        var user = await _userRepository.GetByIdAsync(id);
+        
+        if (user == null) return null;
+        
+        _mapper.Map(tu, user);
+        
+        _userRepository.UpdateAsync(user);
+        await _userRepository.SaveAsync();
+        
+        return _mapper.Map<UserDto>(user);
     }
 
     public async Task<PaginatedResult<UserDto>> GetPagedAsync(UserFilter tf)

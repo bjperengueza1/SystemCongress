@@ -19,12 +19,6 @@ namespace Web.Api.Controllers
             _userService = userService;
         }
         
-        /*[HttpGet]
-        [AllowAnonymous]
-        public async Task<IEnumerable<UserDto>> GetUsers()
-        {
-            return await _userService.GetAllAsync();
-        }*/
         [HttpGet]
         [Authorize]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers([FromQuery] UserFilter filter)
