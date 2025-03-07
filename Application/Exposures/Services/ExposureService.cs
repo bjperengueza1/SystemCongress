@@ -5,6 +5,7 @@ using Application.Files.Interfaces;
 using AutoMapper;
 using Domain.Common.Pagination;
 using Domain.Entities;
+using Domain.Entities.Enums;
 using Domain.Filter;
 using Domain.Interfaces;
 
@@ -76,9 +77,18 @@ public class ExposureService : IExposureService
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
 
-    public Task<ExposureWitchAuthorsDto> UpdateAsync(int id, ExposureUpdateDto tu)
+    public async Task<ExposureWitchAuthorsDto> UpdateAsync(int id, ExposureUpdateDto tu)
     {
-        throw new NotImplementedException();
+        var exposure = await _exposureRepository.GetByIdAsync(id);
+        
+        if (exposure == null) return null;
+        
+        exposure = _mapper.Map(tu, exposure);
+        
+        _exposureRepository.UpdateAsync(exposure);
+        await _exposureRepository.SaveAsync();
+        
+        return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
 
     public async Task<PaginatedResult<ExposureWitchAuthorsDto>> GetPagedAsync(ExposureFilter tf)
@@ -296,6 +306,21 @@ public class ExposureService : IExposureService
                          """;
         
         var emailSent = await _emailService.SendEmailAsync(email, subject, bodyHTML);
+        
+        return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
+    }
+    
+    public async Task<ExposureWitchAuthorsDto> ReviewAsync(int id)
+    {
+        var exposure = await _exposureRepository.GetByIdAsync(id);
+        
+        if (exposure == null) return null;
+
+        exposure.StatusExposure = StatusExposure.InReview;
+        
+        _exposureRepository.UpdateAsync(exposure);
+        
+        await _exposureRepository.SaveAsync();
         
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }

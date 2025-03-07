@@ -10,7 +10,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -389,22 +392,11 @@
       <workItem from="1740432559270" duration="2008000" />
       <workItem from="1740579248958" duration="9656000" />
       <workItem from="1740590351652" duration="1186000" />
-    </task>
-    <task id="LOCAL-00001" summary="init respository">
-      <option name="closed" value="true" />
-      <created>1733166049326</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1733166049326</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add migration ef">
-      <option name="closed" value="true" />
-      <created>1733296542290</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1733296542290</updated>
+      <workItem from="1740685705345" duration="11655000" />
+      <workItem from="1741164179520" duration="7000" />
+      <workItem from="1741280382490" duration="2400000" />
+      <workItem from="1741289003667" duration="2697000" />
+      <workItem from="1741298649761" duration="633000" />
     </task>
     <task id="LOCAL-00003" summary="as">
       <option name="closed" value="true" />
@@ -782,7 +774,23 @@
       <option name="project" value="LOCAL" />
       <updated>1740591524856</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="change password">
+      <option name="closed" value="true" />
+      <created>1740688651432</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1740688651432</updated>
+    </task>
+    <task id="LOCAL-00051" summary="users">
+      <option name="closed" value="true" />
+      <created>1740761260117</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1740761260117</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -803,8 +811,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="validations dto congress" />
-    <MESSAGE value="exposure validation" />
     <MESSAGE value="multiple authors to many exposures" />
     <MESSAGE value="file service" />
     <MESSAGE value="FIX CLASS FILES" />
@@ -828,6 +834,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="change port" />
     <MESSAGE value="swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="swagger" />
+    <MESSAGE value="change password" />
+    <MESSAGE value="users" />
+    <option name="LAST_COMMIT_MESSAGE" value="users" />
   </component>
 </project>

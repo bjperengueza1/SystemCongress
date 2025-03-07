@@ -55,6 +55,8 @@ public class MappingProfile : Profile
                 Position = ea.Position
             }).OrderBy(a => a.Position).ToList()));
 
+        CreateMap<ExposureUpdateDto, Exposure>();
+        
         CreateMap<Exposure, ExposureUpdateStatusDto>();
         CreateMap<ExposureUpdateStatusDto, Exposure>();
         

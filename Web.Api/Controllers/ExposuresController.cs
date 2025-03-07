@@ -216,6 +216,20 @@ namespace Web.Api.Controllers
 
             return Ok();
         }
+        
+        //review exposure
+        [HttpPut("{id:int}/review")]
+        public async Task<ActionResult> ReviewExposure(int id)
+        {
+            var exposureDto = await _exposureService.ReviewAsync(id);
+
+            if (exposureDto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
 
         //dowload file summary
         [HttpGet("{id:int}/summary")]

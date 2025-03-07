@@ -4,5 +4,6 @@ public enum StatusExposure
 {
     Pending,
     Approved,
-    Rejected
+    Rejected,
+    InReview
 }
