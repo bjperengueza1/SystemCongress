@@ -10,6 +10,8 @@ public class ExposureWitchAuthorsDto
     public string Name { get; set; }
     public StatusExposure StatusExposure { get; set; }
     public ResearchLine ResearchLine { get; set; }
+    
+    public TypeExposure Type { get; set; }
     public string SummaryFilePath { get; set; }
     
     public int CongressId { get; set; }

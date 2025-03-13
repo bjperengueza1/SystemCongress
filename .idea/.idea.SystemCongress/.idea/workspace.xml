@@ -10,9 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="exposures actives by congress">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -401,14 +399,7 @@
       <workItem from="1741571038404" duration="10692000" />
       <workItem from="1741875452008" duration="1435000" />
       <workItem from="1741879991102" duration="814000" />
-    </task>
-    <task id="LOCAL-00005" summary="faltaantes">
-      <option name="closed" value="true" />
-      <created>1733838722590</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1733838722590</updated>
+      <workItem from="1741885853119" duration="188000" />
     </task>
     <task id="LOCAL-00006" summary="update models">
       <option name="closed" value="true" />
@@ -794,7 +785,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741880149461</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="updates">
+      <option name="closed" value="true" />
+      <created>1741886034145</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1741886034145</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -815,7 +814,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="FIX CLASS FILES" />
     <MESSAGE value="validatino plataform for libreoffice" />
     <MESSAGE value="download certificartes" />
     <MESSAGE value="varios" />
@@ -840,6 +838,7 @@
     <MESSAGE value="users" />
     <MESSAGE value="edit exposure" />
     <MESSAGE value="exposures actives by congress" />
-    <option name="LAST_COMMIT_MESSAGE" value="exposures actives by congress" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
 </project>
