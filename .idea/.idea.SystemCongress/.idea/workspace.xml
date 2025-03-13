@@ -10,12 +10,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="exposures actives by congress">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,6 +228,7 @@
     </configuration>
     <list>
       <item itemvalue=".NET Launch Settings Profile.Web.Api: https" />
+      <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
       <item itemvalue="Docker.compose.yaml: Compose Deployment" />
       <item itemvalue="Docker.Web.Api/Dockerfile" />
       <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
@@ -239,7 +236,6 @@
       <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
       <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
-      <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
     </list>
     <recent_temporary>
       <list>
@@ -404,14 +400,7 @@
       <workItem from="1741460658571" duration="3621000" />
       <workItem from="1741571038404" duration="10692000" />
       <workItem from="1741875452008" duration="1435000" />
-    </task>
-    <task id="LOCAL-00004" summary="expsures">
-      <option name="closed" value="true" />
-      <created>1733838702955</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1733838702955</updated>
+      <workItem from="1741879991102" duration="814000" />
     </task>
     <task id="LOCAL-00005" summary="faltaantes">
       <option name="closed" value="true" />
@@ -797,7 +786,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741362696721</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="exposures actives by congress">
+      <option name="closed" value="true" />
+      <created>1741880149460</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1741880149461</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -818,7 +815,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="file service" />
     <MESSAGE value="FIX CLASS FILES" />
     <MESSAGE value="validatino plataform for libreoffice" />
     <MESSAGE value="download certificartes" />
@@ -843,6 +839,7 @@
     <MESSAGE value="change password" />
     <MESSAGE value="users" />
     <MESSAGE value="edit exposure" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit exposure" />
+    <MESSAGE value="exposures actives by congress" />
+    <option name="LAST_COMMIT_MESSAGE" value="exposures actives by congress" />
   </component>
 </project>

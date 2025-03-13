@@ -226,7 +226,7 @@ namespace Web.Api.Controllers
             [FromQuery] int pageSize = 10
         )
         {
-            var exposures = await _exposureService.GetByCongressAsync(id, pageNumber, pageSize);
+            var exposures = await _exposureService.GetExposuresApprovedByCongress(id, pageNumber, pageSize);
             
             return Ok(exposures);
         }

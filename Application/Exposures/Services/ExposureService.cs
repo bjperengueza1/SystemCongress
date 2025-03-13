@@ -334,7 +334,7 @@ public class ExposureService : IExposureService
     
     public async Task<PaginatedResult<ExposureWitchAuthorsDto>> GetExposuresApprovedByCongress(int id, int pageNumber, int pageSize )
     {
-        var pagedData = await _exposureRepository.GetExposuresByCongressPagedAsync(id, pageNumber, pageSize);
+        var pagedData = await _exposureRepository.GetExposuresApprovedByCongressPagedAsync(id, pageNumber, pageSize);
         
         return pagedData.Map(p => _mapper.Map<ExposureWitchAuthorsDto>(p));
     }
