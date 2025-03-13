@@ -205,6 +205,7 @@ namespace Web.Api.Controllers
         
         //reject exposure
         [HttpPut("{id:int}/reject")]
+        [Authorize]
         public async Task<ActionResult> RejectExposure(int id, [FromBody] ExposureRejectDto rejectDto)
         {
             var exposureDto = await _exposureService.RejectAsync(id, rejectDto);
@@ -219,6 +220,7 @@ namespace Web.Api.Controllers
         
         //review exposure
         [HttpPut("{id:int}/review")]
+        [Authorize]
         public async Task<ActionResult> ReviewExposure(int id)
         {
             var exposureDto = await _exposureService.ReviewAsync(id);

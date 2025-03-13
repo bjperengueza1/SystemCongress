@@ -331,6 +331,13 @@ public class ExposureService : IExposureService
         
         return pagedData.Map(p => _mapper.Map<ExposureWitchAuthorsDto>(p));
     }
+    
+    public async Task<PaginatedResult<ExposureWitchAuthorsDto>> GetExposuresApprovedByCongress(int id, int pageNumber, int pageSize )
+    {
+        var pagedData = await _exposureRepository.GetExposuresByCongressPagedAsync(id, pageNumber, pageSize);
+        
+        return pagedData.Map(p => _mapper.Map<ExposureWitchAuthorsDto>(p));
+    }
 
     public async Task<bool> RegisterPreviousAsync(int id, string email)
     {

@@ -135,6 +135,26 @@ public class ExposureRepository : IExposureRepository
         
         return PaginatedResult<Exposure>.Create(exposures, totalExposures, pageNumber, pageSize);
     }
+    
+    public async Task<PaginatedResult<Exposure>> GetExposuresApprovedByCongressPagedAsync(int congressId, int pageNumber, int pageSize)
+    {
+        IQueryable<Exposure> query = _context.Exposures
+            .Include(e => e.Room)
+            .Include(e => e.Congress)
+            .Include(e => e.ExposureAuthor)
+            .ThenInclude(ea => ea.Author);
+        
+        query = query.Where(e => e.CongressId == congressId && e.StatusExposure == StatusExposure.Approved);
+        
+        var exposures = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
+        var totalExposures = await query.CountAsync();
+        
+        return PaginatedResult<Exposure>.Create(exposures, totalExposures, pageNumber, pageSize);
+    }
 
     public async Task<Exposure> GetByGuidAsync(string guid)
     {

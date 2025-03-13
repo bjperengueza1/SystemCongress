@@ -11,8 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +103,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: https">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -229,7 +232,6 @@
     </configuration>
     <list>
       <item itemvalue=".NET Launch Settings Profile.Web.Api: https" />
-      <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
       <item itemvalue="Docker.compose.yaml: Compose Deployment" />
       <item itemvalue="Docker.Web.Api/Dockerfile" />
       <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
@@ -237,11 +239,12 @@
       <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
       <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
+      <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
         <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
@@ -396,15 +399,11 @@
       <workItem from="1741164179520" duration="7000" />
       <workItem from="1741280382490" duration="2400000" />
       <workItem from="1741289003667" duration="2697000" />
-      <workItem from="1741298649761" duration="633000" />
-    </task>
-    <task id="LOCAL-00003" summary="as">
-      <option name="closed" value="true" />
-      <created>1733296630653</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1733296630653</updated>
+      <workItem from="1741298649761" duration="16424000" />
+      <workItem from="1741364830299" duration="24000" />
+      <workItem from="1741460658571" duration="3621000" />
+      <workItem from="1741571038404" duration="10692000" />
+      <workItem from="1741875452008" duration="1435000" />
     </task>
     <task id="LOCAL-00004" summary="expsures">
       <option name="closed" value="true" />
@@ -790,7 +789,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740761260117</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="edit exposure">
+      <option name="closed" value="true" />
+      <created>1741362696721</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1741362696721</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -811,7 +818,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="multiple authors to many exposures" />
     <MESSAGE value="file service" />
     <MESSAGE value="FIX CLASS FILES" />
     <MESSAGE value="validatino plataform for libreoffice" />
@@ -836,6 +842,7 @@
     <MESSAGE value="swagger" />
     <MESSAGE value="change password" />
     <MESSAGE value="users" />
-    <option name="LAST_COMMIT_MESSAGE" value="users" />
+    <MESSAGE value="edit exposure" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit exposure" />
   </component>
 </project>

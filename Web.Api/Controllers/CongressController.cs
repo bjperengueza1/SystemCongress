@@ -207,11 +207,24 @@ namespace Web.Api.Controllers
 
         //get exposures by congress
         [HttpGet("{id:int}/exposures")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ExposureWitchAuthorsDto>>> GetExposuresByCongress(
             int id,
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 10
             )
+        {
+            var exposures = await _exposureService.GetByCongressAsync(id, pageNumber, pageSize);
+            
+            return Ok(exposures);
+        }
+        
+        [HttpGet("{id:int}/exposures-approved")]
+        public async Task<ActionResult<IEnumerable<ExposureWitchAuthorsDto>>> GetExposuresApprovedByCongress(
+            int id,
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10
+        )
         {
             var exposures = await _exposureService.GetByCongressAsync(id, pageNumber, pageSize);
             
