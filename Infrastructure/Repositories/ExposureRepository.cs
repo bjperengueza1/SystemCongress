@@ -71,6 +71,11 @@ public class ExposureRepository : IExposureRepository
         {
             query = query.Where(e => e.ResearchLine == (ResearchLine)tf.ResearchLine);
         }
+
+        if (tf.Type.HasValue && tf.Type != 0)
+        {
+            query = query.Where(e => e.Type == (TypeExposure)tf.Type);
+        }
         
         //order desc
         query = query.OrderByDescending(e => e.ExposureId);
@@ -187,6 +192,11 @@ public class ExposureRepository : IExposureRepository
         if(tf.ResearchLine.HasValue && tf.ResearchLine != 0)
         {
             query = query.Where(e => e.ResearchLine == (ResearchLine)tf.ResearchLine);
+        }
+        
+        if (tf.Type.HasValue && tf.Type != 0)
+        {
+            query = query.Where(e => e.Type == (TypeExposure)tf.Type);
         }
         
         //order desc

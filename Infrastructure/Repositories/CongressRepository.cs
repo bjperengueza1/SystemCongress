@@ -123,7 +123,7 @@ public class CongressRepository : ICongressRepository
                 .ToListAsync();
 
             //si hay 4 asistencias
-            if (attendances.Count >= 1)
+            if (attendances.Count >= congress.MinHours)
             {
                 congressCertificate.CertificateAttendance = true;
             }

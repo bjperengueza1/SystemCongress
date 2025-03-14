@@ -10,16 +10,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" afterDir="false" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="databse">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.run/Web.Api_ http.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.run/Web.Api_ http.run.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressInsertDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressInsertDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressUpdateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressUpdateDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Congress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Congress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -412,23 +405,7 @@
       <workItem from="1741885853119" duration="188000" />
       <workItem from="1741886526719" duration="250000" />
       <workItem from="1741891618100" duration="5793000" />
-      <workItem from="1741976725519" duration="6291000" />
-    </task>
-    <task id="LOCAL-00007" summary="updaate models databse">
-      <option name="closed" value="true" />
-      <created>1733840897054</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1733840897054</updated>
-    </task>
-    <task id="LOCAL-00008" summary="todo">
-      <option name="closed" value="true" />
-      <created>1734107245151</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1734107245151</updated>
+      <workItem from="1741976725519" duration="9580000" />
     </task>
     <task id="LOCAL-00009" summary="rooms">
       <option name="closed" value="true" />
@@ -806,7 +783,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741886695632</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="dates in congress">
+      <option name="closed" value="true" />
+      <created>1741985421222</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1741985421222</updated>
+    </task>
+    <task id="LOCAL-00057" summary="databse">
+      <option name="closed" value="true" />
+      <created>1741985457763</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1741985457763</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -827,8 +820,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="validatino plataform for libreoffice" />
-    <MESSAGE value="download certificartes" />
     <MESSAGE value="varios" />
     <MESSAGE value="todo" />
     <MESSAGE value="relation room" />
@@ -852,6 +843,8 @@
     <MESSAGE value="edit exposure" />
     <MESSAGE value="exposures actives by congress" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="dates in congress" />
+    <MESSAGE value="databse" />
+    <option name="LAST_COMMIT_MESSAGE" value="databse" />
   </component>
 </project>
