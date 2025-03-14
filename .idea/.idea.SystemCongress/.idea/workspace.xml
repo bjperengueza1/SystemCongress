@@ -10,7 +10,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run/Web.Api_ http.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.run/Web.Api_ http.run.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressInsertDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressInsertDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressUpdateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CongressUpdateDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Congress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Congress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +61,7 @@
     <setting file="file://$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="HttpClientEndpointsTabState">
-    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;080c03c8a99c879bb983daa69079b8b320173770&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Attendances&quot; /&gt;&#10;  &lt;entry key=&quot;be4e7cbf2d43757f89dc5f988662515b5f4f2a01&quot; value=&quot;###&amp;#10;GET http://localhost:5196/api/Exposures/{{id}}/summary&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;8f8be73f968cb5dd80e7dda12893e03d0358fc5b&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Account/login&quot; /&gt;&#10;  &lt;entry key=&quot;080c03c8a99c879bb983daa69079b8b320173770&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Attendances&quot; /&gt;&#10;  &lt;entry key=&quot;be4e7cbf2d43757f89dc5f988662515b5f4f2a01&quot; value=&quot;###&amp;#10;GET http://localhost:5196/api/Exposures/{{id}}/summary&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -97,7 +107,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -237,10 +247,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment" />
         <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -400,14 +410,9 @@
       <workItem from="1741875452008" duration="1435000" />
       <workItem from="1741879991102" duration="814000" />
       <workItem from="1741885853119" duration="188000" />
-    </task>
-    <task id="LOCAL-00006" summary="update models">
-      <option name="closed" value="true" />
-      <created>1733840872177</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1733840872177</updated>
+      <workItem from="1741886526719" duration="250000" />
+      <workItem from="1741891618100" duration="5793000" />
+      <workItem from="1741976725519" duration="6291000" />
     </task>
     <task id="LOCAL-00007" summary="updaate models databse">
       <option name="closed" value="true" />
@@ -793,7 +798,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741886034145</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="updates">
+      <option name="closed" value="true" />
+      <created>1741886695632</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1741886695632</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

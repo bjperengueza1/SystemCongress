@@ -136,6 +136,15 @@ namespace Infrastructure.Data.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime>("EndDateNotificationApprove")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("EndDateRegistrationAttendee")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("EndDateRegistrationExposure")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Guid")
                         .HasColumnType("longtext");
 

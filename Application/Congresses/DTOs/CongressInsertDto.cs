@@ -8,6 +8,11 @@ public class CongressInsertDto
     
     public DateTime EndDate { get; set; }
     
+    public DateTime EndDateRegistrationExposure { get; set; }
+    
+    public DateTime EndDateNotificationApprove { get; set; }
+    
+    public DateTime EndDateRegistrationAttendee { get; set; }
     public string Location { get; set; }
     public int MinHours { get; set; }
 }

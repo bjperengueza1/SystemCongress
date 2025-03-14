@@ -1091,7 +1091,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="328" parent="1" name="V1">
-      <LastIntrospectionLocalTimestamp>2025-02-19.19:44:22</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-03-13.19:15:14</LastIntrospectionLocalTimestamp>
       <CollationName>latin1_swedish_ci</CollationName>
     </schema>
     <user id="329" parent="1" name="mariadb.sys">
@@ -1112,35 +1112,35 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
     </user>
     <table id="335" parent="328" name="Attendances">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="336" parent="328" name="Attendees">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="337" parent="328" name="Authors">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="338" parent="328" name="Congresses">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="339" parent="328" name="ExposureAuthors">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="340" parent="328" name="Exposures">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="341" parent="328" name="Rooms">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="342" parent="328" name="Users">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="343" parent="328" name="__EFMigrationsHistory">
       <Engine>InnoDB</Engine>
@@ -1239,7 +1239,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="362" parent="337" name="AuthorId">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1295,7 +1295,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="373" parent="338" name="CongressId">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1352,257 +1352,281 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <Position>12</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <index id="385" parent="338" name="PRIMARY">
-      <ColNames>CongressId</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="386" parent="338" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="387" parent="339" name="ExposureAuthorId">
-      <AutoIncrement>2</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="388" parent="339" name="Position">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="389" parent="339" name="ExposureId">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="390" parent="339" name="AuthorId">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <foreign-key id="391" parent="339" name="FK_ExposureAuthors_Exposures_ExposureId">
-      <ColNames>ExposureId</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>ExposureId</RefColNames>
-      <RefTableName>Exposures</RefTableName>
-    </foreign-key>
-    <foreign-key id="392" parent="339" name="FK_ExposureAuthors_Authors_AuthorId">
-      <ColNames>AuthorId</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>AuthorId</RefColNames>
-      <RefTableName>Authors</RefTableName>
-    </foreign-key>
-    <index id="393" parent="339" name="PRIMARY">
-      <ColNames>ExposureAuthorId</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="394" parent="339" name="IX_ExposureAuthors_ExposureId">
-      <ColNames>ExposureId</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="395" parent="339" name="IX_ExposureAuthors_AuthorId">
-      <ColNames>AuthorId</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="396" parent="339" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="397" parent="340" name="ExposureId">
-      <AutoIncrement>2</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="398" parent="340" name="Name">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>longtext|0s</StoredType>
-    </column>
-    <column id="399" parent="340" name="StatusExposure">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="400" parent="340" name="ResearchLine">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="401" parent="340" name="RoomId">
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="402" parent="340" name="SummaryFilePath">
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-      <StoredType>longtext|0s</StoredType>
-    </column>
-    <column id="403" parent="340" name="CongressId">
-      <DefaultExpression>0</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="404" parent="340" name="Guid">
-      <Position>8</Position>
-      <StoredType>longtext|0s</StoredType>
-    </column>
-    <column id="405" parent="340" name="DateStart">
-      <NotNull>1</NotNull>
-      <Position>9</Position>
-      <StoredType>datetime(6)|0s</StoredType>
-    </column>
-    <column id="406" parent="340" name="Type">
-      <DefaultExpression>0</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>10</Position>
-      <StoredType>int(11)|0s</StoredType>
-    </column>
-    <column id="407" parent="340" name="DateEnd">
+    <column id="385" parent="338" name="EndDateNotificationApprove">
       <DefaultExpression>&apos;0001-01-01 00:00:00.000000&apos;</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>11</Position>
+      <Position>13</Position>
       <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <column id="408" parent="340" name="Observation">
+    <column id="386" parent="338" name="EndDateRegistrationAttendee">
+      <DefaultExpression>&apos;0001-01-01 00:00:00.000000&apos;</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>12</Position>
-      <StoredType>longtext|0s</StoredType>
+      <Position>14</Position>
+      <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <foreign-key id="409" parent="340" name="FK_Exposures_Congresses_CongressId">
+    <column id="387" parent="338" name="EndDateRegistrationExposure">
+      <DefaultExpression>&apos;0001-01-01 00:00:00.000000&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <index id="388" parent="338" name="PRIMARY">
       <ColNames>CongressId</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>CongressId</RefColNames>
-      <RefTableName>Congresses</RefTableName>
-    </foreign-key>
-    <index id="410" parent="340" name="PRIMARY">
-      <ColNames>ExposureId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="411" parent="340" name="IX_Exposures_RoomId">
-      <ColNames>RoomId</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="412" parent="340" name="IX_Exposures_CongressId">
-      <ColNames>CongressId</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="413" parent="340" name="PRIMARY">
+    <key id="389" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="414" parent="341" name="RoomId">
+    <column id="390" parent="339" name="ExposureAuthorId">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="415" parent="341" name="Name">
+    <column id="391" parent="339" name="Position">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>longtext|0s</StoredType>
+      <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="416" parent="341" name="Capacity">
+    <column id="392" parent="339" name="ExposureId">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="417" parent="341" name="Location">
+    <column id="393" parent="339" name="AuthorId">
       <NotNull>1</NotNull>
       <Position>4</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="394" parent="339" name="FK_ExposureAuthors_Exposures_ExposureId">
+      <ColNames>ExposureId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>ExposureId</RefColNames>
+      <RefTableName>Exposures</RefTableName>
+    </foreign-key>
+    <foreign-key id="395" parent="339" name="FK_ExposureAuthors_Authors_AuthorId">
+      <ColNames>AuthorId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>AuthorId</RefColNames>
+      <RefTableName>Authors</RefTableName>
+    </foreign-key>
+    <index id="396" parent="339" name="PRIMARY">
+      <ColNames>ExposureAuthorId</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="397" parent="339" name="IX_ExposureAuthors_ExposureId">
+      <ColNames>ExposureId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="398" parent="339" name="IX_ExposureAuthors_AuthorId">
+      <ColNames>AuthorId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="399" parent="339" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="400" parent="340" name="ExposureId">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="401" parent="340" name="Name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="418" parent="341" name="CongressId">
+    <column id="402" parent="340" name="StatusExposure">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="403" parent="340" name="ResearchLine">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="404" parent="340" name="RoomId">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <foreign-key id="419" parent="341" name="FK_Rooms_Congresses_CongressId">
+    <column id="405" parent="340" name="SummaryFilePath">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="406" parent="340" name="CongressId">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="407" parent="340" name="Guid">
+      <Position>8</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="408" parent="340" name="DateStart">
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <column id="409" parent="340" name="Type">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="410" parent="340" name="DateEnd">
+      <DefaultExpression>&apos;0001-01-01 00:00:00.000000&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <column id="411" parent="340" name="Observation">
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <foreign-key id="412" parent="340" name="FK_Exposures_Rooms_RoomId">
+      <ColNames>RoomId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>RoomId</RefColNames>
+      <RefTableName>Rooms</RefTableName>
+    </foreign-key>
+    <foreign-key id="413" parent="340" name="FK_Exposures_Congresses_CongressId">
       <ColNames>CongressId</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>CongressId</RefColNames>
       <RefTableName>Congresses</RefTableName>
     </foreign-key>
-    <index id="420" parent="341" name="PRIMARY">
+    <index id="414" parent="340" name="PRIMARY">
+      <ColNames>ExposureId</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="415" parent="340" name="IX_Exposures_RoomId">
+      <ColNames>RoomId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="416" parent="340" name="IX_Exposures_CongressId">
+      <ColNames>CongressId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="417" parent="340" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="418" parent="341" name="RoomId">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="419" parent="341" name="Name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="420" parent="341" name="Capacity">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="421" parent="341" name="Location">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <column id="422" parent="341" name="CongressId">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <foreign-key id="423" parent="341" name="FK_Rooms_Congresses_CongressId">
+      <ColNames>CongressId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>CongressId</RefColNames>
+      <RefTableName>Congresses</RefTableName>
+    </foreign-key>
+    <index id="424" parent="341" name="PRIMARY">
       <ColNames>RoomId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="421" parent="341" name="IX_Rooms_CongressId">
+    <index id="425" parent="341" name="IX_Rooms_CongressId">
       <ColNames>CongressId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="422" parent="341" name="PRIMARY">
+    <key id="426" parent="341" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="423" parent="342" name="UserId">
-      <AutoIncrement>2</AutoIncrement>
+    <column id="427" parent="342" name="UserId">
+      <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="424" parent="342" name="Name">
+    <column id="428" parent="342" name="Name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="425" parent="342" name="Email">
+    <column id="429" parent="342" name="Email">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="426" parent="342" name="PasswordHash">
+    <column id="430" parent="342" name="PasswordHash">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>longblob|0s</StoredType>
     </column>
-    <column id="427" parent="342" name="PasswordSalt">
+    <column id="431" parent="342" name="PasswordSalt">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>longblob|0s</StoredType>
     </column>
-    <column id="428" parent="342" name="Role">
+    <column id="432" parent="342" name="Role">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <index id="429" parent="342" name="PRIMARY">
+    <index id="433" parent="342" name="PRIMARY">
       <ColNames>UserId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="430" parent="342" name="PRIMARY">
+    <key id="434" parent="342" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="431" parent="343" name="MigrationId">
+    <column id="435" parent="343" name="MigrationId">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(150)|0s</StoredType>
     </column>
-    <column id="432" parent="343" name="ProductVersion">
+    <column id="436" parent="343" name="ProductVersion">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(32)|0s</StoredType>
     </column>
-    <index id="433" parent="343" name="PRIMARY">
+    <index id="437" parent="343" name="PRIMARY">
       <ColNames>MigrationId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="434" parent="343" name="PRIMARY">
+    <key id="438" parent="343" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
