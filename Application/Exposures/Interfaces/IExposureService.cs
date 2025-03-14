@@ -15,6 +15,8 @@ public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, Expo
     
     Task<ExposureWitchAuthorsDto> RejectAsync(int id, ExposureRejectDto exposureRejectDto);
     
+    Task<ExposureWitchAuthorsDto> PresentedAsync(int id);
+    
     Task<ExposureWitchAuthorsDto> ReviewAsync(int id);
     
     Task<PaginatedResult<ExposureWitchAuthorsDto>> GetByCongressAsync(int id, int page, int size);

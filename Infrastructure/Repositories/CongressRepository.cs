@@ -101,7 +101,8 @@ public class CongressRepository : ICongressRepository
             //Traer solo la tabla de exposiciones sin incluir las tablas relacionadas
             IEnumerable<ExposureWithOutRelationsDto> expos = await _context.Exposures
                 .Where(e => e.CongressId == congress.CongressId
-                && e.ExposureAuthor.Any(ea => ea.Author.IDNumber == dni))
+                && e.ExposureAuthor.Any(ea => ea.Author.IDNumber == dni
+                && e.Presented == "SI"))
                 .Select(e => new ExposureWithOutRelationsDto
                 {
                     ExposureId = e.ExposureId,

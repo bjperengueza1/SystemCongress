@@ -309,7 +309,22 @@ public class ExposureService : IExposureService
         
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
-    
+
+    public async Task<ExposureWitchAuthorsDto> PresentedAsync(int id)
+    {
+        var exposure = await _exposureRepository.GetByIdAsync(id);
+        
+        if (exposure == null) return null;
+
+        exposure.Presented = "SI";
+        
+        _exposureRepository.UpdateAsync(exposure);
+        
+        await _exposureRepository.SaveAsync();
+        
+        return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
+    }
+
     public async Task<ExposureWitchAuthorsDto> ReviewAsync(int id)
     {
         var exposure = await _exposureRepository.GetByIdAsync(id);

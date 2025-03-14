@@ -13,9 +13,9 @@ public class Exposure
     public string Name { get; set; }
     
     public StatusExposure StatusExposure { get; set; }
-    
     public ResearchLine ResearchLine { get; set; }
     public TypeExposure Type { get; set; }
+    public string Presented { get; set; } = "NO";
     public DateTime DateStart { get; set; }
     public DateTime DateEnd { get; set; }
     public string Observation { get; set; } = string.Empty;

@@ -218,6 +218,21 @@ namespace Web.Api.Controllers
             return Ok();
         }
         
+        //presented
+        [HttpPut("{id:int}/presented")]
+        [Authorize]
+        public async Task<ActionResult> PresentedExposure(int id)
+        {
+            var exposureDto = await _exposureService.PresentedAsync(id);
+
+            if (exposureDto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
+        
         //review exposure
         [HttpPut("{id:int}/review")]
         [Authorize]
