@@ -50,13 +50,19 @@ public class AttendanceRepository : IAttendanceRepository
     {
         IQueryable<Attendance> query = _context.Attendances
             .Include(e => e.Attendee)
-            .Include(e => e.Exposure);
+            .Include(e => e.Exposure)
+            .ThenInclude(e => e.Congress);
         
         if (!string.IsNullOrEmpty(tf.search))
         {
             query = query.Where(
                 e => e.Attendee.Name.Contains(tf.search) || 
                      e.Exposure.Name.Contains(tf.search));
+        }
+        
+        if(tf.congressId is > 0)
+        {
+            query = query.Where(e => e.Exposure.CongressId == tf.congressId.Value);
         }
         
         //order desc
@@ -76,5 +82,31 @@ public class AttendanceRepository : IAttendanceRepository
     {
         return await _context.Attendances
             .FirstOrDefaultAsync(e => e.AttendeeId == attendeeId && e.ExposureId == exposureId);
+    }
+
+    public async Task<IEnumerable<Attendance>> GetAllEAsync(AttendanceFilter tf)
+    {
+        IQueryable<Attendance> query = _context.Attendances
+            .Include(e => e.Attendee)
+            .Include(e => e.Exposure)
+            .ThenInclude(e => e.Congress);
+        if (!string.IsNullOrEmpty(tf.search))
+        {
+            query = query.Where(
+                e => e.Attendee.Name.Contains(tf.search) || 
+                     e.Exposure.Name.Contains(tf.search));
+        }
+        
+        if(tf.congressId is > 0)
+        {
+            query = query.Where(e => e.Exposure.CongressId == tf.congressId.Value);
+        }
+        
+        //order desc
+        query = query.OrderByDescending(e => e.AttendanceId);
+        
+        var attendances = await query.ToListAsync();
+        
+        return attendances;
     }
 }

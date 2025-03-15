@@ -117,5 +117,20 @@ namespace Web.Api.Controllers
             return Ok(new { mensaje = "Asistencia registrada correctamente." });
         }
         
+        [HttpGet("reportsxls")]
+        [Authorize]
+        public async Task<IActionResult> DownloadReport([FromQuery] AttendanceFilter filter)
+        {
+            var exposures = await _attendanceService.GetReportExcelAsync(filter);
+            
+            if (exposures == null)
+            {
+                return NotFound();
+            }
+            
+            //return excel
+            return File(exposures, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "exposures.xlsx");
+        }
+        
     }
 }

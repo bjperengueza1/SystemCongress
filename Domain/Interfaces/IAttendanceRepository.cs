@@ -6,4 +6,5 @@ namespace Domain.Interfaces;
 public interface IAttendanceRepository : IRepository<Attendance, AttendanceFilter>
 {
     Task<Attendance> GetByAttendeeIdAndExposureIdAsync(int attendeeId, int exposureId);
+    Task<IEnumerable<Attendance>> GetAllEAsync(AttendanceFilter filter);
 }

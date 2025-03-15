@@ -293,6 +293,7 @@ namespace Web.Api.Controllers
         
         //download report of exposures
         [HttpGet("reportsxls")]
+        [Authorize]
         public async Task<IActionResult> DownloadReport([FromQuery] ExposureFilter filter)
         {
             var exposures = await _exposureService.GetReportExcelAsync(filter);

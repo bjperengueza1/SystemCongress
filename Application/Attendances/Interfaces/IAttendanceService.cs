@@ -8,4 +8,5 @@ namespace Application.Attendances.Interfaces;
 public interface IAttendanceService : ICommonService<AttendanceDto, AttendanceInsertDto, AttendanceUpdateDto, AttendanceFilter>
 {
     Task<AttendanceDto> GetByAttendeeIdAndExposureIdAsync(int attendeeId, int exposureId);
+    Task<Stream> GetReportExcelAsync(AttendanceFilter filter);
 }
