@@ -20,7 +20,7 @@ public class Exposure
     public DateTime DateEnd { get; set; }
     public string Observation { get; set; } = string.Empty;
     public string? Guid { get; set; }
-    
+    public string? GuidCert { get; set; }
     // Foreign Key for Room
     public int? RoomId { get; set; }
     //set name of the foreign key is RoomId

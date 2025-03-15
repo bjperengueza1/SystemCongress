@@ -10,15 +10,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="filters and relations">
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Attendances/Interfaces/IAttendanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendances/Interfaces/IAttendanceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Attendances/Services/AttendanceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Filter/AttendanceFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Filter/AttendanceFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAttendanceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendanceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AttendanceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendanceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/AttendancesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/AttendancesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/RegistrationUrlService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -413,15 +411,8 @@
       <workItem from="1741886526719" duration="250000" />
       <workItem from="1741891618100" duration="5793000" />
       <workItem from="1741976725519" duration="11906000" />
-      <workItem from="1742055172277" duration="4270000" />
-    </task>
-    <task id="LOCAL-00012" summary="login witchout jwt">
-      <option name="closed" value="true" />
-      <created>1734530913525</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1734530913525</updated>
+      <workItem from="1742055172277" duration="4499000" />
+      <workItem from="1742071404619" duration="3348000" />
     </task>
     <task id="LOCAL-00013" summary="antes de agregar referencia">
       <option name="closed" value="true" />
@@ -807,7 +798,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742055249445</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="filter and report in attendantes">
+      <option name="closed" value="true" />
+      <created>1742060304590</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1742060304590</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -828,7 +827,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="upload templace certificate" />
     <MESSAGE value="templates" />
     <MESSAGE value="comint" />
     <MESSAGE value="init sql" />
@@ -853,6 +851,7 @@
     <MESSAGE value="filter type exposure" />
     <MESSAGE value="exposure prented" />
     <MESSAGE value="filters and relations" />
-    <option name="LAST_COMMIT_MESSAGE" value="filters and relations" />
+    <MESSAGE value="filter and report in attendantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="filter and report in attendantes" />
   </component>
 </project>

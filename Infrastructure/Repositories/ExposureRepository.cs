@@ -32,6 +32,7 @@ public class ExposureRepository : IExposureRepository
     public async Task AddAsync(Exposure entity)
     {
         entity.Guid = GuidHelper.GenerateGuid();
+        entity.GuidCert = Guid.NewGuid().ToString();
         await _context.Exposures.AddAsync(entity);
     }
 

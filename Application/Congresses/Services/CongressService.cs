@@ -156,7 +156,8 @@ public class CongressService : ICongressService
         var fields = new Dictionary<string, string>
         {
             {"PERSONA", author.Name.ToUpper()},
-            {"TEMA", exposure.Name.ToUpper()}
+            {"TEMA", exposure.Name.ToUpper()},
+            {"UUID", exposure.GuidCert}
         };
         
         //Reemplaza el texto en el archivo
