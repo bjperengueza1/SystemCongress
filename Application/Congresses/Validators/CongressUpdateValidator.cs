@@ -13,6 +13,6 @@ public class CongressUpdateValidator : AbstractValidator<CongressUpdateDto>
         RuleFor(x => x.EndDate).NotEmpty().WithMessage("La fecha de finalización no puede estar vacía");
         RuleFor(x => x.StartDate).LessThan(x => x.EndDate).WithMessage("La fecha de inicio debe ser menor que la fecha de finalización");
         RuleFor(x => x.Location).NotEmpty().WithMessage("La ubicación no puede estar vacía");
-        RuleFor(x => x.MinHours).GreaterThan(1).WithMessage("Las horas mínimas deben ser mayores que 0");
+        RuleFor(x => x.MinHours).GreaterThan(0).WithMessage("Las horas mínimas deben ser mayores que 0");
     }
 }

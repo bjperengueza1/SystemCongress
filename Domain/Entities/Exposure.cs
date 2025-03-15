@@ -22,7 +22,7 @@ public class Exposure
     public string? Guid { get; set; }
     
     // Foreign Key for Room
-    public int RoomId { get; set; }
+    public int? RoomId { get; set; }
     //set name of the foreign key is RoomId
     [ForeignKey("RoomId")]
     public Room? Room { get; set; }

@@ -10,14 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="filter type exposure">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +49,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9c9b30526ff8fe363be59b87459d62a356917d70568f2f95d96618c3bae909e/SmtpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df5e878c7ba32868868b7feaf47ebab09f84c77eb0b8252b7c467953ffc45/JsonSerializer.Read.Stream.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Infrastructure/Repositories/CongressRepository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Infrastructure/Repositories/CongressRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="HttpClientEndpointsTabState">
@@ -105,7 +100,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: https">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -234,7 +229,6 @@
     </configuration>
     <list>
       <item itemvalue=".NET Launch Settings Profile.Web.Api: https" />
-      <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
       <item itemvalue="Docker.compose.yaml: Compose Deployment" />
       <item itemvalue="Docker.Web.Api/Dockerfile" />
       <item itemvalue="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment" />
@@ -242,6 +236,7 @@
       <item itemvalue="Docker.docker-compose.prod.yaml.webapi: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.prod.yaml: Compose Deployment" />
       <item itemvalue="Docker.compose.yaml.web.api: Compose Deployment" />
+      <item itemvalue=".NET Launch Settings Profile.Web.Api: http" />
     </list>
     <recent_temporary>
       <list>
@@ -410,15 +405,7 @@
       <workItem from="1741885853119" duration="188000" />
       <workItem from="1741886526719" duration="250000" />
       <workItem from="1741891618100" duration="5793000" />
-      <workItem from="1741976725519" duration="11718000" />
-    </task>
-    <task id="LOCAL-00010" summary="rooms logic">
-      <option name="closed" value="true" />
-      <created>1734363760773</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1734363760773</updated>
+      <workItem from="1741976725519" duration="11906000" />
     </task>
     <task id="LOCAL-00011" summary="cors">
       <option name="closed" value="true" />
@@ -804,7 +791,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741989061573</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="exposure prented">
+      <option name="closed" value="true" />
+      <created>1741990859779</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1741990859779</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -825,7 +820,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="todo" />
     <MESSAGE value="relation room" />
     <MESSAGE value="upload templace certificate" />
     <MESSAGE value="templates" />
@@ -850,6 +844,7 @@
     <MESSAGE value="dates in congress" />
     <MESSAGE value="databse" />
     <MESSAGE value="filter type exposure" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter type exposure" />
+    <MESSAGE value="exposure prented" />
+    <option name="LAST_COMMIT_MESSAGE" value="exposure prented" />
   </component>
 </project>

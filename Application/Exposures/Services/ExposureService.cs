@@ -310,13 +310,13 @@ public class ExposureService : IExposureService
         return _mapper.Map<ExposureWitchAuthorsDto>(exposure);
     }
 
-    public async Task<ExposureWitchAuthorsDto> PresentedAsync(int id)
+    public async Task<ExposureWitchAuthorsDto> PresentedAsync(int id, string presented)
     {
         var exposure = await _exposureRepository.GetByIdAsync(id);
         
         if (exposure == null) return null;
 
-        exposure.Presented = "SI";
+        exposure.Presented = presented;
         
         _exposureRepository.UpdateAsync(exposure);
         

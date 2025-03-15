@@ -221,9 +221,9 @@ namespace Web.Api.Controllers
         //presented
         [HttpPut("{id:int}/presented")]
         [Authorize]
-        public async Task<ActionResult> PresentedExposure(int id)
+        public async Task<ActionResult> PresentedExposure(int id, [FromBody] ExposurePresentedDto presented)
         {
-            var exposureDto = await _exposureService.PresentedAsync(id);
+            var exposureDto = await _exposureService.PresentedAsync(id, presented.Presented);
 
             if (exposureDto == null)
             {

@@ -10,4 +10,5 @@ public enum ResearchLine
     SportsPhysicalActivity = 6,
     ServicesProtectionSecurityTransportation = 7,
     IndustrialEngineeringConstruction = 8,
+    LegalPoliticalSocialSciences = 9,
 }

@@ -12,6 +12,7 @@ public class ExposureWitchAuthorsDto
     public ResearchLine ResearchLine { get; set; }
     
     public TypeExposure Type { get; set; }
+    public string Presented { get; set; }
     public string SummaryFilePath { get; set; }
     
     public int CongressId { get; set; }
