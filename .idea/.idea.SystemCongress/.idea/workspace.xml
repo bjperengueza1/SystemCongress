@@ -10,20 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="UIID CERTIFICATE EXPOSURE">
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250317105248_ulr access.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250317105248_ulr access.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureUpdateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureUpdateDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entities/Exposure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,37 +69,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Web.Api: http.executor": "Run",
-    ".NET Launch Settings Profile.Web.Api: https.executor": "Run",
-    "Docker.Web.Api/Dockerfile.executor": "Run",
-    "Docker.compose.yaml.systemcongress: Compose Deployment.executor": "Run",
-    "Docker.compose.yaml.web.api: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.prod.yaml.mariadb: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.prod.yaml.webapi: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.prod.yaml: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "database.data.extractors.current.export.id": "SQL Inserts",
-    "database.data.extractors.current.id": "SQL Inserts",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pathVariables",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Web.Api: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Web.Api: https.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Web.Api/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.compose.yaml.systemcongress: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.compose.yaml.web.api: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.prod.yaml.mariadb: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.prod.yaml.webapi: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.prod.yaml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.prod.yaml[mariadb, webapi]: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/wdg/RiderProjects/SystemCongress/Infrastructure/Data/Migrations&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
@@ -422,15 +409,7 @@
       <workItem from="1742055172277" duration="4499000" />
       <workItem from="1742071404619" duration="5419000" />
       <workItem from="1742139107854" duration="1389000" />
-      <workItem from="1742205747302" duration="4292000" />
-    </task>
-    <task id="LOCAL-00014" summary="pagination">
-      <option name="closed" value="true" />
-      <created>1735020566142</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1735020566142</updated>
+      <workItem from="1742205747302" duration="4381000" />
     </task>
     <task id="LOCAL-00015" summary="update pagination">
       <option name="closed" value="true" />
@@ -816,7 +795,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742076422425</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="updates">
+      <option name="closed" value="true" />
+      <created>1742210366432</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1742210366432</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,7 +841,6 @@
     <MESSAGE value="users" />
     <MESSAGE value="edit exposure" />
     <MESSAGE value="exposures actives by congress" />
-    <MESSAGE value="updates" />
     <MESSAGE value="dates in congress" />
     <MESSAGE value="databse" />
     <MESSAGE value="filter type exposure" />
@@ -862,6 +848,7 @@
     <MESSAGE value="filters and relations" />
     <MESSAGE value="filter and report in attendantes" />
     <MESSAGE value="UIID CERTIFICATE EXPOSURE" />
-    <option name="LAST_COMMIT_MESSAGE" value="UIID CERTIFICATE EXPOSURE" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
 </project>

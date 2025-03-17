@@ -7,7 +7,8 @@ create or replace table Attendees
     Phone       longtext not null,
     Institution longtext not null,
     IDNumber    longtext not null
-);
+)
+    charset = utf8mb4;
 
 create or replace table Authors
 (
@@ -21,24 +22,43 @@ create or replace table Authors
     Country           longtext not null,
     City              longtext not null,
     AcademicDegree    int      not null
-);
+)
+    charset = utf8mb4;
 
 create or replace table Congresses
 (
-    CongressId                int auto_increment
+    CongressId                  int auto_increment
         primary key,
-    Name                      longtext             not null,
-    StartDate                 datetime(6)          not null,
-    EndDate                   datetime(6)          not null,
-    Location                  longtext             not null,
-    Guid                      longtext             null,
-    MinHours                  int        default 0 not null,
-    Status                    tinyint(1) default 0 not null,
-    fileCertificateConference longtext             null,
-    fileCertificateAttendance longtext             null,
-    fileCertificateExposure   longtext             null,
-    fileFlayer                longtext             null
-);
+    Name                        longtext                                         not null,
+    StartDate                   datetime(6)                                      not null,
+    EndDate                     datetime(6)                                      not null,
+    Location                    longtext                                         not null,
+    Guid                        longtext                                         null,
+    MinHours                    int         default 0                            not null,
+    Status                      tinyint(1)  default 0                            not null,
+    fileCertificateConference   longtext                                         null,
+    fileCertificateAttendance   longtext                                         null,
+    fileCertificateExposure     longtext                                         null,
+    fileFlayer                  longtext                                         null,
+    EndDateNotificationApprove  datetime(6) default '0001-01-01 00:00:00.000000' not null,
+    EndDateRegistrationAttendee datetime(6) default '0001-01-01 00:00:00.000000' not null,
+    EndDateRegistrationExposure datetime(6) default '0001-01-01 00:00:00.000000' not null
+)
+    charset = utf8mb4;
+
+create or replace table Rooms
+(
+    RoomId     int auto_increment
+        primary key,
+    Name       longtext not null,
+    Capacity   int      not null,
+    Location   longtext not null,
+    CongressId int      not null,
+    constraint FK_Rooms_Congresses_CongressId
+        foreign key (CongressId) references Congresses (CongressId)
+            on delete cascade
+)
+    charset = utf8mb4;
 
 create or replace table Exposures
 (
@@ -47,7 +67,7 @@ create or replace table Exposures
     Name            longtext                                         not null,
     StatusExposure  int                                              not null,
     ResearchLine    int                                              not null,
-    RoomId          int                                              not null,
+    RoomId          int                                              null,
     SummaryFilePath longtext                                         not null,
     CongressId      int         default 0                            not null,
     Guid            longtext                                         null,
@@ -55,10 +75,16 @@ create or replace table Exposures
     Type            int         default 0                            not null,
     DateEnd         datetime(6) default '0001-01-01 00:00:00.000000' not null,
     Observation     longtext                                         not null,
+    Presented       longtext                                         not null,
+    GuidCert        longtext                                         null,
+    UrlAccess       longtext                                         not null,
     constraint FK_Exposures_Congresses_CongressId
         foreign key (CongressId) references Congresses (CongressId)
-            on delete cascade
-);
+            on delete cascade,
+    constraint FK_Exposures_Rooms_RoomId
+        foreign key (RoomId) references Rooms (RoomId)
+)
+    charset = utf8mb4;
 
 create or replace table Attendances
 (
@@ -73,7 +99,8 @@ create or replace table Attendances
     constraint FK_Attendances_Exposures_ExposureId
         foreign key (ExposureId) references Exposures (ExposureId)
             on delete cascade
-);
+)
+    charset = utf8mb4;
 
 create or replace index IX_Attendances_AttendeeId
     on Attendances (AttendeeId);
@@ -94,7 +121,8 @@ create or replace table ExposureAuthors
     constraint FK_ExposureAuthors_Exposures_ExposureId
         foreign key (ExposureId) references Exposures (ExposureId)
             on delete cascade
-);
+)
+    charset = utf8mb4;
 
 create or replace index IX_ExposureAuthors_AuthorId
     on ExposureAuthors (AuthorId);
@@ -108,19 +136,6 @@ create or replace index IX_Exposures_CongressId
 create or replace index IX_Exposures_RoomId
     on Exposures (RoomId);
 
-create or replace table Rooms
-(
-    RoomId     int auto_increment
-        primary key,
-    Name       longtext not null,
-    Capacity   int      not null,
-    Location   longtext not null,
-    CongressId int      not null,
-    constraint FK_Rooms_Congresses_CongressId
-        foreign key (CongressId) references Congresses (CongressId)
-            on delete cascade
-);
-
 create or replace index IX_Rooms_CongressId
     on Rooms (CongressId);
 
@@ -133,7 +148,8 @@ create or replace table Users
     PasswordHash longblob not null,
     PasswordSalt longblob not null,
     Role         int      not null
-);
+)
+    charset = utf8mb4;
 
 create or replace table __EFMigrationsHistory
 (
