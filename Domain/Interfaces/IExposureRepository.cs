@@ -14,4 +14,6 @@ public interface IExposureRepository : IRepository<Exposure, ExposureFilter>
     Task<Exposure> GetByGuidAsync(string guid);
     
     Task<IEnumerable<Exposure>> GetAllEAsync(ExposureFilter filter);
+    
+    Task<bool> CheckDisponibleHoursAsync(int roomId, DateTime dateStart, DateTime dateEnd);
 }

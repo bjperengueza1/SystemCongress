@@ -494,4 +494,9 @@ public class ExposureService : IExposureService
         return excel;
         
     }
+
+    public async Task<bool> CheckDisponibleHoursAsync(int roomId, DateTime dateStart, DateTime dateEnd)
+    {
+        return await _exposureRepository.CheckDisponibleHoursAsync(roomId, dateStart, dateEnd);
+    }
 }

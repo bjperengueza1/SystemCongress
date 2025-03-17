@@ -192,6 +192,13 @@ namespace Web.Api.Controllers
         [Authorize]
         public async Task<ActionResult> UpdateStatusExposure(int id, [FromBody] ExposureApproveDto approveDto)
         {
+            var disponibleHours = await _exposureService.CheckDisponibleHoursAsync(approveDto.RoomId, approveDto.DateStart, approveDto.DateEnd);
+            
+            if (disponibleHours)
+            {
+                return BadRequest("Choca con otra exposición.");
+            }
+            
             //print as json
             var exposureDto = await _exposureService.ApproveAsync(id, approveDto);
 

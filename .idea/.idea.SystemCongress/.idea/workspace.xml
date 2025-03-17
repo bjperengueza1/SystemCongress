@@ -12,7 +12,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -414,15 +418,8 @@
       <workItem from="1742139107854" duration="1389000" />
       <workItem from="1742205747302" duration="4381000" />
       <workItem from="1742210603574" duration="185000" />
-      <workItem from="1742221915495" duration="1778000" />
-    </task>
-    <task id="LOCAL-00016" summary="init crud exposiciones">
-      <option name="closed" value="true" />
-      <created>1736146746925</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1736146746925</updated>
+      <workItem from="1742221915495" duration="1838000" />
+      <workItem from="1742228941938" duration="3377000" />
     </task>
     <task id="LOCAL-00017" summary="varios">
       <option name="closed" value="true" />
@@ -808,7 +805,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742210773735</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="fds">
+      <option name="closed" value="true" />
+      <created>1742223869751</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1742223869751</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -829,7 +834,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="comint" />
     <MESSAGE value="fix" />
     <MESSAGE value="cors" />
     <MESSAGE value="multiples emails" />
@@ -854,6 +858,7 @@
     <MESSAGE value="UIID CERTIFICATE EXPOSURE" />
     <MESSAGE value="updates" />
     <MESSAGE value="init sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="init sql" />
+    <MESSAGE value="fds" />
+    <option name="LAST_COMMIT_MESSAGE" value="fds" />
   </component>
 </project>

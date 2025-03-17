@@ -207,4 +207,13 @@ public class ExposureRepository : IExposureRepository
         
         return exposures;
     }
+
+    public async Task<bool> CheckDisponibleHoursAsync(int roomId, DateTime dateStart, DateTime dateEnd)
+    {
+        IQueryable<Exposure> query = _context.Exposures;
+        
+        query = query.Where(e => e.RoomId == roomId && e.DateStart <= dateEnd && e.DateEnd >= dateStart);
+        
+        return await query.AnyAsync();
+    }
 }

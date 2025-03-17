@@ -26,4 +26,6 @@ public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, Expo
     Task<bool> RegisterPreviousAsync(int id, string email);
     
     Task<Stream> GetReportExcelAsync(ExposureFilter filter);
+    
+    Task<bool> CheckDisponibleHoursAsync(int roomId, DateTime dateStart, DateTime dateEnd);
 }
