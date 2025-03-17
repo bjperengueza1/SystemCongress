@@ -14,6 +14,7 @@ namespace Application.Exposures.Services;
 public class ExposureService : IExposureService
 {
     private readonly IExposureRepository _exposureRepository;
+    private readonly ICongressRepository _congressRepository;
     private readonly IAuthorRepository _authorRepository;
     private readonly IEmailService _emailService;
     private readonly IFileService _fileService;
@@ -21,12 +22,14 @@ public class ExposureService : IExposureService
     
     public ExposureService(
         IExposureRepository exposureRepository,
+        ICongressRepository congressRepository,
         IAuthorRepository authorRepository,
         IFileService fileService,
         IEmailService emailService,
         IMapper mapper)
     {
         _exposureRepository = exposureRepository;
+        _congressRepository = congressRepository;
         _authorRepository = authorRepository;
         _fileService = fileService;
         _emailService = emailService;
@@ -498,5 +501,14 @@ public class ExposureService : IExposureService
     public async Task<bool> CheckDisponibleHoursAsync(int roomId, DateTime dateStart, DateTime dateEnd)
     {
         return await _exposureRepository.CheckDisponibleHoursAsync(roomId, dateStart, dateEnd);
+    }
+
+    public async Task<bool> ValidateDatesCongressAsync(DateTime dateStart, DateTime dateEnd, int id)
+    {
+        var congress = await _congressRepository.GetByIdAsync(id);
+
+        if (congress == null) return false;
+        
+        return dateStart >= congress.StartDate && dateEnd <= congress.EndDate;
     }
 }

@@ -28,4 +28,6 @@ public interface IExposureService : ICommonService<ExposureWitchAuthorsDto, Expo
     Task<Stream> GetReportExcelAsync(ExposureFilter filter);
     
     Task<bool> CheckDisponibleHoursAsync(int roomId, DateTime dateStart, DateTime dateEnd);
+
+    Task<bool> ValidateDatesCongressAsync(DateTime dateStart, DateTime dateEnd, int id);
 }

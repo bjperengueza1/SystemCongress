@@ -192,6 +192,16 @@ namespace Web.Api.Controllers
         [Authorize]
         public async Task<ActionResult> UpdateStatusExposure(int id, [FromBody] ExposureApproveDto approveDto)
         {
+            var exposure = await _exposureService.GetByIdAsync(id);
+            
+            var validationDatesCongress = await _exposureService.ValidateDatesCongressAsync(approveDto.DateStart, approveDto.DateEnd, exposure.CongressId);
+            
+            if (!validationDatesCongress)
+            {
+                return BadRequest(new { Errors = (string[])["Las fechas deben pertenecer al congreso"] });
+            }
+            
+            
             var disponibleHours = await _exposureService.CheckDisponibleHoursAsync(approveDto.RoomId, approveDto.DateStart, approveDto.DateEnd);
             
             if (disponibleHours)

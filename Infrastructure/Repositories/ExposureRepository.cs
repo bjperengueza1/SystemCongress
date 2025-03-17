@@ -212,7 +212,7 @@ public class ExposureRepository : IExposureRepository
     {
         IQueryable<Exposure> query = _context.Exposures;
         
-        query = query.Where(e => e.RoomId == roomId && e.DateStart <= dateEnd && e.DateEnd >= dateStart);
+        query = query.Where(e => e.RoomId == roomId && e.DateStart < dateEnd && e.DateEnd > dateStart);
         
         return await query.AnyAsync();
     }
