@@ -367,6 +367,8 @@ public class ExposureService : IExposureService
         var subject = "Registro de Previa Participación";
         var nombreDestinatario = exposure.Name.ToUpper();
         var tituloPonencia = exposure.Name.ToUpper();
+        var fechaPonencia = exposure.DateStart;
+        var tipoPonencia = exposure.Type;
         var nombreEvento = exposure.Congress.Name.ToUpper();
         var nombreOrganizacion = "Instituto Los Andes";
         var urlEvento = "https://cilai.istla-sigala.edu.ec";
@@ -374,8 +376,7 @@ public class ExposureService : IExposureService
         var observacion = exposure.Observation;
         var urlAccess = exposure.UrlAccess;
         
-        
-        var bodyHTML = $$"""
+                var bodyHTML = $$"""
                          
                          <!DOCTYPE html>
                          <html lang='es'>
@@ -417,18 +418,18 @@ public class ExposureService : IExposureService
                          <body>
                              <div class='container'>
                                  <h2>¡Felicidades! </h2>
-                                 <p>Nos complace informarte que tu preregistro a ponencia titulada <strong>{{tituloPonencia}}</strong> ha sido aprobada en nuestro evento {{nombreEvento}}.</p>
-                                 <p>Te agradecemos por tu participación y por compartir tu conocimiento con la comunidad. Próximamente, te enviaremos más detalles sobre el evento, la fecha y el horario en el que presentarás tu ponencia.</p>
+                                 <p>Nos complace informarte que tu preregistro a ponencia titulada <strong>{{tituloPonencia}}</strong> ha sido exitosamente procesado en nuestro evento {{nombreEvento}}.</p>
+                                 <p>Agradecemos tu interés en participar en este evento y por ser parte de nuestra comunidad. Por favor ten en cuenta la siguiente información:</p>
+                                 <p>Fecha y hora: {{fechaPonencia}}</p>
+                                 <p>Tipo: {{tipoPonencia}}</p>
                                  <p>Si tienes alguna duda o necesitas más información, no dudes en contactarnos.</p>
                                  <p>¡Enhorabuena nuevamente y nos vemos pronto!</p>
                                  <p><strong>Url de Acceso:</strong></p>
                                  <a href='{{urlAccess}}'>{{urlAccess}}</a>
-                                 <p><strong>Observación:</strong></p>
-                                 <p>{{observacion}}</p>
                                  <p>Atentamente,</p>
                                  <p><strong>
                                  {{nombreOrganizacion}}</p>
-                         
+                                 
                                  <div class='footer'>
                                      <p>Si tienes alguna pregunta, puedes visitar nuestro sitio web <a href='{{urlEvento}}'>aquí</a> o escribirnos a {{correoContacto}}.</p>
                                  </div>
