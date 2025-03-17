@@ -196,7 +196,7 @@ namespace Web.Api.Controllers
             
             if (disponibleHours)
             {
-                return BadRequest("Choca con otra exposición.");
+                return BadRequest(new { Errors = (string[])["Choca con otra exposición en esa sala y horario"] });
             }
             
             //print as json
