@@ -19,6 +19,7 @@ public class Exposure
     public DateTime DateStart { get; set; }
     public DateTime DateEnd { get; set; }
     public string Observation { get; set; } = string.Empty;
+    public string UrlAccess { get; set; } = string.Empty;
     public string? Guid { get; set; }
     public string? GuidCert { get; set; }
     // Foreign Key for Room

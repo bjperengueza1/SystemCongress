@@ -60,7 +60,7 @@ public class ExposureRepository : IExposureRepository
 
         if(!string.IsNullOrWhiteSpace(tf.search))
         {
-            query = query.Where(e => e.Name.Contains(tf.search));
+            query = query.Where(e => e.Name.Contains(tf.search) || e.GuidCert.Contains(tf.search));
         }
 
         if(tf.congressId.HasValue && tf.congressId != 0)

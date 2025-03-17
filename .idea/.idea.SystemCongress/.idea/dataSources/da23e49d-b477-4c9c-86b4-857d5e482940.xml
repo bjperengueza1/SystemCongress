@@ -1091,7 +1091,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="328" parent="1" name="V1">
-      <LastIntrospectionLocalTimestamp>2025-03-15.02:02:33</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-03-17.10:56:15</LastIntrospectionLocalTimestamp>
       <CollationName>latin1_swedish_ci</CollationName>
     </schema>
     <user id="329" parent="1" name="mariadb.sys">
@@ -1147,7 +1147,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <CollationName>latin1_swedish_ci</CollationName>
     </table>
     <column id="344" parent="335" name="AttendanceId">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1198,7 +1198,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="354" parent="336" name="AttendeeId">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1239,7 +1239,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="362" parent="337" name="AuthorId">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1295,7 +1295,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="373" parent="338" name="CongressId">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1381,7 +1381,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="390" parent="339" name="ExposureAuthorId">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1432,7 +1432,7 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="400" parent="340" name="ExposureId">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1498,138 +1498,142 @@ global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
       <Position>13</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <foreign-key id="413" parent="340" name="FK_Exposures_Rooms_RoomId">
+    <column id="413" parent="340" name="GuidCert">
+      <Position>14</Position>
+      <StoredType>longtext|0s</StoredType>
+    </column>
+    <foreign-key id="414" parent="340" name="FK_Exposures_Rooms_RoomId">
       <ColNames>RoomId</ColNames>
       <RefColNames>RoomId</RefColNames>
       <RefTableName>Rooms</RefTableName>
     </foreign-key>
-    <foreign-key id="414" parent="340" name="FK_Exposures_Congresses_CongressId">
+    <foreign-key id="415" parent="340" name="FK_Exposures_Congresses_CongressId">
       <ColNames>CongressId</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>CongressId</RefColNames>
       <RefTableName>Congresses</RefTableName>
     </foreign-key>
-    <index id="415" parent="340" name="PRIMARY">
+    <index id="416" parent="340" name="PRIMARY">
       <ColNames>ExposureId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="416" parent="340" name="IX_Exposures_RoomId">
+    <index id="417" parent="340" name="IX_Exposures_RoomId">
       <ColNames>RoomId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="417" parent="340" name="IX_Exposures_CongressId">
+    <index id="418" parent="340" name="IX_Exposures_CongressId">
       <ColNames>CongressId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="418" parent="340" name="PRIMARY">
+    <key id="419" parent="340" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="419" parent="341" name="RoomId">
+    <column id="420" parent="341" name="RoomId">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="420" parent="341" name="Name">
+    <column id="421" parent="341" name="Name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="421" parent="341" name="Capacity">
+    <column id="422" parent="341" name="Capacity">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="422" parent="341" name="Location">
+    <column id="423" parent="341" name="Location">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="423" parent="341" name="CongressId">
+    <column id="424" parent="341" name="CongressId">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <foreign-key id="424" parent="341" name="FK_Rooms_Congresses_CongressId">
+    <foreign-key id="425" parent="341" name="FK_Rooms_Congresses_CongressId">
       <ColNames>CongressId</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>CongressId</RefColNames>
       <RefTableName>Congresses</RefTableName>
     </foreign-key>
-    <index id="425" parent="341" name="PRIMARY">
+    <index id="426" parent="341" name="PRIMARY">
       <ColNames>RoomId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="426" parent="341" name="IX_Rooms_CongressId">
+    <index id="427" parent="341" name="IX_Rooms_CongressId">
       <ColNames>CongressId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="427" parent="341" name="PRIMARY">
+    <key id="428" parent="341" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="428" parent="342" name="UserId">
+    <column id="429" parent="342" name="UserId">
       <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="429" parent="342" name="Name">
+    <column id="430" parent="342" name="Name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="430" parent="342" name="Email">
+    <column id="431" parent="342" name="Email">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="431" parent="342" name="PasswordHash">
+    <column id="432" parent="342" name="PasswordHash">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>longblob|0s</StoredType>
     </column>
-    <column id="432" parent="342" name="PasswordSalt">
+    <column id="433" parent="342" name="PasswordSalt">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>longblob|0s</StoredType>
     </column>
-    <column id="433" parent="342" name="Role">
+    <column id="434" parent="342" name="Role">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <index id="434" parent="342" name="PRIMARY">
+    <index id="435" parent="342" name="PRIMARY">
       <ColNames>UserId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="435" parent="342" name="PRIMARY">
+    <key id="436" parent="342" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="436" parent="343" name="MigrationId">
+    <column id="437" parent="343" name="MigrationId">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(150)|0s</StoredType>
     </column>
-    <column id="437" parent="343" name="ProductVersion">
+    <column id="438" parent="343" name="ProductVersion">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(32)|0s</StoredType>
     </column>
-    <index id="438" parent="343" name="PRIMARY">
+    <index id="439" parent="343" name="PRIMARY">
       <ColNames>MigrationId</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="439" parent="343" name="PRIMARY">
+    <key id="440" parent="343" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

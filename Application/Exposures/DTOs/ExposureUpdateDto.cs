@@ -7,4 +7,5 @@ public class ExposureUpdateDto
     //private StatusExposure Status { get; set; }
     public ResearchLine ResearchLine { get; set; }
     public string Observation { get; set; }
+    public string UrlAccess { get; set; } = string.Empty;
 }

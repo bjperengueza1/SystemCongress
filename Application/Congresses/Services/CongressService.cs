@@ -363,7 +363,7 @@ public class CongressService : ICongressService
                          <p><strong>Fecha:</strong> Del {{congress.StartDate:yyyy-MM-dd}} al {{congress.EndDate:yyyy-MM-dd}}</p>
                          <p>En este congreso, tendrás la oportunidad de asistir a conferencias magistrales, mesas redondas y talleres prácticos impartidos por líderes en la materia. También podrás conectar con colegas y expandir tu red de contactos.</p>
                          <p>No pierdas esta oportunidad de actualizarte y ser parte de una comunidad vibrante e innovadora. ¡Tu presencia será fundamental para el éxito del evento!</p>
-                         <a href="http://34.173.148.212/registro-conferencia/{{congress.Guid}}" class="button">Regístrate aquí</a>
+                         <a href="https://cilai.istla-sigala.edu.ec/registro-conferencia/{{congress.Guid}}" class="button">Regístrate aquí</a>
                  
                          <div class='footer'>
                              <p>Si tienes alguna pregunta, puedes visitar nuestro sitio web <a href='{{urlEvento}}'>aquí</a> o escribirnos a {{correoContacto}}.</p>
@@ -372,8 +372,6 @@ public class CongressService : ICongressService
                  </body>
                  </html>
                  """;
-
-
 
         return await _emailService.SendEmailAsync(emails, "Invitación a Congreso", bodyHTML);
     }

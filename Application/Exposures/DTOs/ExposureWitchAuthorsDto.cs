@@ -21,6 +21,8 @@ public class ExposureWitchAuthorsDto
     public DateTime DateEnd { get; set; }
     public string Observation { get; set; }
     public string Guid { get; set; }
+    public string GuidCert { get; set; }
+    public string UrlAccess { get; set; }
     public ICollection<AuthorDto> Authors { get; set; } = [];
     public RoomDto Room { get; set; }
 

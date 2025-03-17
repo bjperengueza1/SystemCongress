@@ -95,7 +95,7 @@ namespace Web.Api.Controllers
             try
             {
                 //envio el nombre solo para validar con la extension
-                fileUploaded = await _fileService.SaveFileAsync(pdfFile.FileName, fileStream, [".pdf"], _fileStorageSettings.PresentationsPath);
+                fileUploaded = await _fileService.SaveFileAsync(pdfFile.FileName, fileStream, [".pdf",".doc",".docx"], _fileStorageSettings.PresentationsPath);
             } catch (ArgumentException e)
             {
                 return BadRequest(e.Message);

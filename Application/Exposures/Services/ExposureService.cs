@@ -146,9 +146,10 @@ public class ExposureService : IExposureService
         var tituloPonencia = exposure.Name.ToUpper();
         var nombreEvento = exposure.Congress.Name.ToUpper();
         var nombreOrganizacion = "Instituto Los Andes";
-        var urlEvento = "https://www.tech2025.com";
-        var correoContacto = "contacto@tech2025.com";
+        var urlEvento = "https://cilai.istla-sigala.edu.ec";
+        var correoContacto = "secretaria@istla.edu.ec";
         var observacion = exposureApproveDto.Observation;
+        var urlAccess = exposure.UrlAccess;
 
         var bodyHTML = $$"""
 
@@ -197,6 +198,8 @@ public class ExposureService : IExposureService
                          <p>Te agradecemos por tu participación y por compartir tu conocimiento con la comunidad. Próximamente, te enviaremos más detalles sobre el evento, la fecha y el horario en el que presentarás tu ponencia.</p>
                          <p>Si tienes alguna duda o necesitas más información, no dudes en contactarnos.</p>
                          <p>¡Enhorabuena nuevamente y nos vemos pronto!</p>
+                         <p><strong>Url de Acceso:</strong></p>
+                         <a href='{{urlAccess}}'>{{urlAccess}}</a>
                          <p><strong>Observación:</strong></p>
                          <p>{{observacion}}</p>
                          <p>Atentamente,</p>
@@ -239,8 +242,8 @@ public class ExposureService : IExposureService
         var tituloPonencia = exposure.Name.ToUpper();
         var nombreEvento = exposure.Congress.Name.ToUpper();
         var nombreOrganizacion = "Instituto Los Andes";
-        var urlEvento = "https://www.tech2025.com";
-        var correoContacto = "contacto@tech2025.com";
+        var urlEvento = "https://cilai.istla-sigala.edu.ec/";
+        var correoContacto = "secretaria@istla.edu.ec";
         var observacion = exposureRejectDto.Observation;
         
         var bodyHTML = $$"""
@@ -366,9 +369,10 @@ public class ExposureService : IExposureService
         var tituloPonencia = exposure.Name.ToUpper();
         var nombreEvento = exposure.Congress.Name.ToUpper();
         var nombreOrganizacion = "Instituto Los Andes";
-        var urlEvento = "https://www.tech2025.com";
-        var correoContacto = "contacto@tech2025.com";
+        var urlEvento = "https://cilai.istla-sigala.edu.ec";
+        var correoContacto = "secretaria@istla.edu.ec";
         var observacion = exposure.Observation;
+        var urlAccess = exposure.UrlAccess;
         
         
         var bodyHTML = $$"""
@@ -417,6 +421,8 @@ public class ExposureService : IExposureService
                                  <p>Te agradecemos por tu participación y por compartir tu conocimiento con la comunidad. Próximamente, te enviaremos más detalles sobre el evento, la fecha y el horario en el que presentarás tu ponencia.</p>
                                  <p>Si tienes alguna duda o necesitas más información, no dudes en contactarnos.</p>
                                  <p>¡Enhorabuena nuevamente y nos vemos pronto!</p>
+                                 <p><strong>Url de Acceso:</strong></p>
+                                 <a href='{{urlAccess}}'>{{urlAccess}}</a>
                                  <p><strong>Observación:</strong></p>
                                  <p>{{observacion}}</p>
                                  <p>Atentamente,</p>
