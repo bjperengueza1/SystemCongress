@@ -16,4 +16,5 @@ public class CongressContext : DbContext
     public DbSet<Attendee> Attendees { get; set; }
     public DbSet<Attendance> Attendances { get; set; }
     public DbSet<User?> Users { get; set; }
+    public DbSet<CertificatesAttendance> CertificatesAttendances { get; set; }
 }

@@ -119,10 +119,13 @@ public class CongressService : ICongressService
 
         await _fileService.CopyFileAsync(congress.fileCertificateAttendance, nameTemp, pathTemplate);
         
+        var guidCertificate = await _attendeeRepository.GetGuidCertificateAttendanceAsync(congressId, attendee.AttendeeId);
+        
         //lista de campos a reemplazar
         var fields = new Dictionary<string, string>
         {
-            {"PERSONA", attendee.Name.ToUpper()}
+            {"PERSONA", attendee.Name.ToUpper()},
+            {"UUID", guidCertificate}
         };
         
         //Reemplaza el texto en el archivo
@@ -191,7 +194,8 @@ public class CongressService : ICongressService
         var fields = new Dictionary<string, string>
         {
             {"PERSONA", author.Name.ToUpper()},
-            {"TEMA", exposure.Name.ToUpper()}
+            {"TEMA", exposure.Name.ToUpper()},
+            {"UUID", exposure.GuidCert}
         };
         
         //Reemplaza el texto en el archivo

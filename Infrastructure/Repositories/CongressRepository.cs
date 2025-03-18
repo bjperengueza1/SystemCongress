@@ -127,6 +127,22 @@ public class CongressRepository : ICongressRepository
             if (attendances.Count >= congress.MinHours)
             {
                 congressCertificate.CertificateAttendance = true;
+                //validar si existe el certificado
+                var certificateAttendance = await _context.CertificatesAttendances
+                    .FirstOrDefaultAsync(ca =>
+                        ca.CongressId == congress.CongressId && ca.AttendeeId == attendances.First().AttendeeId);
+                if (certificateAttendance == null)
+                {
+                    //si no existe crear
+                    await _context.CertificatesAttendances.AddAsync(new CertificatesAttendance()
+                    {
+                        CongressId = congress.CongressId,
+                        AttendeeId = attendances.First().AttendeeId,
+                        Guid = Guid.NewGuid().ToString()
+                    });
+                    
+                    await _context.SaveChangesAsync();
+                }
             }
 
             certificates.Add(congressCertificate);

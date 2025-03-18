@@ -75,4 +75,10 @@ public class AttendeeRepository : IAttendeeRepository
     {
         return await _context.Attendees.FirstOrDefaultAsync(a => a.IDNumber == idNumber);
     }
+
+    public async Task<string> GetGuidCertificateAttendanceAsync(int congressId, int attendeeId)
+    {
+        var c = await _context.CertificatesAttendances.FirstAsync(c => c.CongressId == congressId && c.AttendeeId == attendeeId);
+        return c.Guid;
+    }
 }

@@ -11,8 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Domain/Entities/CertificatesAttendance.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250318202256_certificates.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250318202256_certificates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +62,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9c9b30526ff8fe363be59b87459d62a356917d70568f2f95d96618c3bae909e/SmtpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df5e878c7ba32868868b7feaf47ebab09f84c77eb0b8252b7c467953ffc45/JsonSerializer.Read.Stream.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Infrastructure/Repositories/ExposureRepository.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Infrastructure/Repositories/ExposureRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Application/Exposures/DTOs/ExposureApproveDto.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Web.Api/Controllers/ExposuresController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="HttpClientEndpointsTabState">
     <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;8f8be73f968cb5dd80e7dda12893e03d0358fc5b&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Account/login&quot; /&gt;&#10;  &lt;entry key=&quot;080c03c8a99c879bb983daa69079b8b320173770&quot; value=&quot;###&amp;#10;POST http://localhost:5196/api/Attendances&quot; /&gt;&#10;  &lt;entry key=&quot;be4e7cbf2d43757f89dc5f988662515b5f4f2a01&quot; value=&quot;###&amp;#10;GET http://localhost:5196/api/Exposures/{{id}}/summary&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
@@ -418,15 +428,9 @@
       <workItem from="1742234731899" duration="1728000" />
       <workItem from="1742262322415" duration="3469000" />
       <workItem from="1742305842543" duration="120000" />
-      <workItem from="1742313708300" duration="1309000" />
-    </task>
-    <task id="LOCAL-00020" summary="guardar asistencias">
-      <option name="closed" value="true" />
-      <created>1737445367626</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1737445367626</updated>
+      <workItem from="1742313708300" duration="1733000" />
+      <workItem from="1742328426413" duration="1059000" />
+      <workItem from="1742329944131" duration="1468000" />
     </task>
     <task id="LOCAL-00021" summary="update">
       <option name="closed" value="true" />
@@ -812,7 +816,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742236454933</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="url aprove">
+      <option name="closed" value="true" />
+      <created>1742315701291</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1742315701291</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -833,7 +845,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="init filter" />
     <MESSAGE value="filter congress" />
     <MESSAGE value="report" />
     <MESSAGE value="url" />
@@ -858,6 +869,7 @@
     <MESSAGE value="validate disponibility" />
     <MESSAGE value="validarions" />
     <MESSAGE value="more validations" />
-    <option name="LAST_COMMIT_MESSAGE" value="more validations" />
+    <MESSAGE value="url aprove" />
+    <option name="LAST_COMMIT_MESSAGE" value="url aprove" />
   </component>
 </project>
