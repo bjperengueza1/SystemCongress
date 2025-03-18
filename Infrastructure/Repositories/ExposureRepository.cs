@@ -54,6 +54,7 @@ public class ExposureRepository : IExposureRepository
     public async Task<PaginatedResult<Exposure>> GetPagedAsync(ExposureFilter tf)
     {
         IQueryable<Exposure> query = _context.Exposures
+            .Include(e => e.Room)
             .Include(e => e.Congress)
             .Include(e => e.ExposureAuthor)
             .ThenInclude(ea => ea.Author);

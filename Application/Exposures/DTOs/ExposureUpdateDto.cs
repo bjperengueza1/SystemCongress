@@ -8,4 +8,5 @@ public class ExposureUpdateDto
     public ResearchLine ResearchLine { get; set; }
     public string Observation { get; set; }
     public string UrlAccess { get; set; } = string.Empty;
+    public int RoomId { get; set; }
 }

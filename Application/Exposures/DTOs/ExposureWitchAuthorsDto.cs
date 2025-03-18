@@ -25,6 +25,4 @@ public class ExposureWitchAuthorsDto
     public string UrlAccess { get; set; }
     public ICollection<AuthorDto> Authors { get; set; } = [];
     public RoomDto Room { get; set; }
-
-
 }

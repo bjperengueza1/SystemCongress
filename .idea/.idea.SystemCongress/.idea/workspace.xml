@@ -10,19 +10,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Domain/Entities/CertificatesAttendance.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250318202256_certificates.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/20250318202256_certificates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/dataSources/da23e49d-b477-4c9c-86b4-857d5e482940.xml" afterDir="false" />
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="id certificates attendeee">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/IAttendeeRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/CongressContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Data/Migrations/CongressContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/AttendeeRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureUpdateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureUpdateDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -430,15 +422,7 @@
       <workItem from="1742305842543" duration="120000" />
       <workItem from="1742313708300" duration="1733000" />
       <workItem from="1742328426413" duration="1059000" />
-      <workItem from="1742329944131" duration="1468000" />
-    </task>
-    <task id="LOCAL-00021" summary="update">
-      <option name="closed" value="true" />
-      <created>1737471934813</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1737471934813</updated>
+      <workItem from="1742329944131" duration="4426000" />
     </task>
     <task id="LOCAL-00022" summary="list attendees">
       <option name="closed" value="true" />
@@ -824,7 +808,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742315701291</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="id certificates attendeee">
+      <option name="closed" value="true" />
+      <created>1742331515269</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1742331515270</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -845,7 +837,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="filter congress" />
     <MESSAGE value="report" />
     <MESSAGE value="url" />
     <MESSAGE value="fixes" />
@@ -870,6 +861,7 @@
     <MESSAGE value="validarions" />
     <MESSAGE value="more validations" />
     <MESSAGE value="url aprove" />
-    <option name="LAST_COMMIT_MESSAGE" value="url aprove" />
+    <MESSAGE value="id certificates attendeee" />
+    <option name="LAST_COMMIT_MESSAGE" value="id certificates attendeee" />
   </component>
 </project>
