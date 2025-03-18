@@ -192,6 +192,10 @@ namespace Web.Api.Controllers
         [Authorize]
         public async Task<ActionResult> UpdateStatusExposure(int id, [FromBody] ExposureApproveDto approveDto)
         {
+            if (approveDto.UrlAccess.Trim() == "")
+            {
+                return BadRequest(new { Errors = (string[])["Url de acceso obligatoria"] });
+            }
             var exposure = await _exposureService.GetByIdAsync(id);
             
             var validationDatesCongress = await _exposureService.ValidateDatesCongressAsync(approveDto.DateStart, approveDto.DateEnd, exposure.CongressId);

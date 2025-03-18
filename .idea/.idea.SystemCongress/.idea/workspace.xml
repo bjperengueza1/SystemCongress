@@ -12,9 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Interfaces/IExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/Services/ExposureService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/ExposuresController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +52,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9c9b30526ff8fe363be59b87459d62a356917d70568f2f95d96618c3bae909e/SmtpClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df5e878c7ba32868868b7feaf47ebab09f84c77eb0b8252b7c467953ffc45/JsonSerializer.Read.Stream.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Infrastructure/Repositories/ExposureRepository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/wdg/RiderProjects/SystemCongress/Infrastructure/Repositories/ExposureRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="HttpClientEndpointsTabState">
@@ -417,15 +415,10 @@
       <workItem from="1742210603574" duration="185000" />
       <workItem from="1742221915495" duration="1838000" />
       <workItem from="1742228941938" duration="4459000" />
-      <workItem from="1742234731899" duration="1694000" />
-    </task>
-    <task id="LOCAL-00019" summary="dowload files">
-      <option name="closed" value="true" />
-      <created>1737322402019</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1737322402019</updated>
+      <workItem from="1742234731899" duration="1728000" />
+      <workItem from="1742262322415" duration="3469000" />
+      <workItem from="1742305842543" duration="120000" />
+      <workItem from="1742313708300" duration="1309000" />
     </task>
     <task id="LOCAL-00020" summary="guardar asistencias">
       <option name="closed" value="true" />
@@ -811,7 +804,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742234502506</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="more validations">
+      <option name="closed" value="true" />
+      <created>1742236454933</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1742236454933</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -832,7 +833,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="multiples emails" />
     <MESSAGE value="init filter" />
     <MESSAGE value="filter congress" />
     <MESSAGE value="report" />
@@ -857,6 +857,7 @@
     <MESSAGE value="fds" />
     <MESSAGE value="validate disponibility" />
     <MESSAGE value="validarions" />
-    <option name="LAST_COMMIT_MESSAGE" value="validarions" />
+    <MESSAGE value="more validations" />
+    <option name="LAST_COMMIT_MESSAGE" value="more validations" />
   </component>
 </project>
