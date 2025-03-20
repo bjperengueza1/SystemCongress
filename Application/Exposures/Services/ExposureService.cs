@@ -148,7 +148,7 @@ public class ExposureService : IExposureService
         var nombreDestinatario = firstAuthor.Name.ToUpper();
         var tituloPonencia = exposure.Name.ToUpper();
         var nombreEvento = exposure.Congress.Name.ToUpper();
-        var nombreOrganizacion = "Instituto Los Andes";
+        var nombreOrganizacion = "Instituto Superior Tecnológico Los Andes";
         var urlEvento = "https://cilai.istla-sigala.edu.ec";
         var correoContacto = "secretaria@istla.edu.ec";
         var observacion = exposureApproveDto.Observation;
@@ -244,7 +244,7 @@ public class ExposureService : IExposureService
         var nombreDestinatario = firstAuthor.Name.ToUpper();
         var tituloPonencia = exposure.Name.ToUpper();
         var nombreEvento = exposure.Congress.Name.ToUpper();
-        var nombreOrganizacion = "Instituto Los Andes";
+        var nombreOrganizacion = "Instituto Superior Tecnológico Los Andes";
         var urlEvento = "https://cilai.istla-sigala.edu.ec/";
         var correoContacto = "secretaria@istla.edu.ec";
         var observacion = exposureRejectDto.Observation;
@@ -373,7 +373,7 @@ public class ExposureService : IExposureService
         var fechaPonencia = exposure.DateStart;
         var tipoPonencia = exposure.Type;
         var nombreEvento = exposure.Congress.Name.ToUpper();
-        var nombreOrganizacion = "Instituto Los Andes";
+        var nombreOrganizacion = "Instituto Superior Tecnológico Los Andes";
         var urlEvento = "https://cilai.istla-sigala.edu.ec";
         var correoContacto = "secretaria@istla.edu.ec";
         var observacion = exposure.Observation;

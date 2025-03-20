@@ -10,11 +10,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="id certificates attendeee">
+    <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureUpdateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureUpdateDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Exposures/DTOs/ExposureWitchAuthorsDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/ExposureRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -422,15 +419,9 @@
       <workItem from="1742305842543" duration="120000" />
       <workItem from="1742313708300" duration="1733000" />
       <workItem from="1742328426413" duration="1059000" />
-      <workItem from="1742329944131" duration="4426000" />
-    </task>
-    <task id="LOCAL-00022" summary="list attendees">
-      <option name="closed" value="true" />
-      <created>1737534713052</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1737534713052</updated>
+      <workItem from="1742329944131" duration="4476000" />
+      <workItem from="1742364358570" duration="101000" />
+      <workItem from="1742420121378" duration="476000" />
     </task>
     <task id="LOCAL-00023" summary="update email settings">
       <option name="closed" value="true" />
@@ -816,7 +807,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742331515270</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="edit room exposure">
+      <option name="closed" value="true" />
+      <created>1742335457696</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1742335457696</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -837,7 +836,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="report" />
     <MESSAGE value="url" />
     <MESSAGE value="fixes" />
     <MESSAGE value="test" />
@@ -862,6 +860,7 @@
     <MESSAGE value="more validations" />
     <MESSAGE value="url aprove" />
     <MESSAGE value="id certificates attendeee" />
-    <option name="LAST_COMMIT_MESSAGE" value="id certificates attendeee" />
+    <MESSAGE value="edit room exposure" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit room exposure" />
   </component>
 </project>

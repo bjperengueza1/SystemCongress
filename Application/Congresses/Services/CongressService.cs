@@ -316,8 +316,8 @@ public class CongressService : ICongressService
 
     public async Task<bool> SendInvitationConferenceAsync(CongressDto congress, string[] emails)
     {
-        var urlEvento = "https://www.tech2025.com";
-        var correoContacto = "contacto@tech2025.com";
+        var urlEvento = "https://cilai.istla-sigala.edu.ec";
+        var correoContacto = "secretaria@istla.edu.ec";
 
         var bodyHTML = $$"""
 
@@ -365,7 +365,7 @@ public class CongressService : ICongressService
                          <p><strong>{{congress.Name}}</strong>.</p>
                          <p><strong>Ubicación:</strong> {{congress.Location}}</p>
                          <p><strong>Fecha:</strong> Del {{congress.StartDate:yyyy-MM-dd}} al {{congress.EndDate:yyyy-MM-dd}}</p>
-                         <p>En este congreso, tendrás la oportunidad de asistir a conferencias magistrales, mesas redondas y talleres prácticos impartidos por líderes en la materia. También podrás conectar con colegas y expandir tu red de contactos.</p>
+                         <p>En este congreso, tendrás la oportunidad de asistir a conferencias magistrales impartidas por líderes en la materia. También podrás conectar con colegas y expandir tu red de contactos.</p>
                          <p>No pierdas esta oportunidad de actualizarte y ser parte de una comunidad vibrante e innovadora. ¡Tu presencia será fundamental para el éxito del evento!</p>
                          <a href="https://cilai.istla-sigala.edu.ec/registro-conferencia/{{congress.Guid}}" class="button">Regístrate aquí</a>
                  
