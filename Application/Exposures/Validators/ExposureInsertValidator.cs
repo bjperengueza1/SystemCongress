@@ -11,7 +11,7 @@ public class ExposureInsertValidator : AbstractValidator<ExposureInsertDto>
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("El nombre de exposición es requerido.")
             .MinimumLength(3).WithMessage("El nombre de exposición debe tener al menos 3 caracteres.")
-            .MaximumLength(100).WithMessage("El nombre de exposición no debe exceder los 100 caracteres.");
+            .MaximumLength(300).WithMessage("El nombre de exposición no debe exceder los 300 caracteres.");
         
         RuleFor(x => x.ResearchLine)
             .NotEmpty().WithMessage("La línea de investigación es requerida.");

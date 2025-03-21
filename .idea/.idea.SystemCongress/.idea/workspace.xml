@@ -11,15 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8edbaf24-018c-49cb-abed-c055d3aaf20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Application/Congresses/DTOs/CertificateAttendanceDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Filter/CertificateAttendancesFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SystemCongress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Interfaces/ICongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Congresses/Services/CongressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utils/Automappers/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Interfaces/ICongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repositories/CongressRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Web.Api/Controllers/CongressController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +71,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Web.Api: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Web.Api: http.executor&quot;: &quot;Debug&quot;,
     &quot;.NET Launch Settings Profile.Web.Api: https.executor&quot;: &quot;Run&quot;,
     &quot;Docker.Web.Api/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;Docker.compose.yaml.systemcongress: Compose Deployment.executor&quot;: &quot;Run&quot;,
@@ -108,7 +100,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Docker.docker-compose.prod.yaml.mariadb: Compose Deployment">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Web.Api: http">
     <configuration name="Web.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Web.Api/Web.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -432,15 +424,8 @@
       <workItem from="1742478847245" duration="958000" />
       <workItem from="1742506061016" duration="4925000" />
       <workItem from="1742563226382" duration="1045000" />
-      <workItem from="1742565847313" duration="1501000" />
-    </task>
-    <task id="LOCAL-00024" summary="FIX GUID EXPOSURE">
-      <option name="closed" value="true" />
-      <created>1737554897060</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1737554897060</updated>
+      <workItem from="1742565847313" duration="1623000" />
+      <workItem from="1742569012893" duration="657000" />
     </task>
     <task id="LOCAL-00025" summary="validations dto congress">
       <option name="closed" value="true" />
@@ -826,7 +811,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742479789694</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="certificates attendances">
+      <option name="closed" value="true" />
+      <created>1742567457226</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1742567457226</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -847,7 +840,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fixes" />
     <MESSAGE value="test" />
     <MESSAGE value="change port" />
     <MESSAGE value="swagger" />
@@ -872,6 +864,7 @@
     <MESSAGE value="id certificates attendeee" />
     <MESSAGE value="edit room exposure" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="certificates attendances" />
+    <option name="LAST_COMMIT_MESSAGE" value="certificates attendances" />
   </component>
 </project>
