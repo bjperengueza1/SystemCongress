@@ -1,5 +1,6 @@
 using Application.Common;
 using Application.Congresses.DTOs;
+using Domain.Common.Pagination;
 using Domain.Dtos;
 using Domain.Filter;
 
@@ -31,5 +32,7 @@ public interface ICongressService : ICommonService<CongressDto, CongressInsertDt
     Task<Stream> GetFlayerActiveCongressAsync(string directorio);
 
     Task<bool> SendInvitationConferenceAsync(CongressDto congress, string[] emails);
+    
+    Task<PaginatedResult<CertificateAttendanceDto>> GetCertificatesAttendanceAsync(CertificateAttendancesFilter filter);
 
 }

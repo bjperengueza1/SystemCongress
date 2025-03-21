@@ -79,5 +79,15 @@ public class MappingProfile : Profile
         CreateMap<Attendance, AttendanceDto>();
         
         CreateMap<Author, AuthorDto>();
+
+        CreateMap<CertificatesAttendance,CertificateAttendanceDto>()
+            .ForMember(dest => dest.CertificatesAttendanceId, opt => opt.MapFrom(src => src.CertificatesAttendanceId))
+            .ForMember(dest => dest.Guid, opt => opt.MapFrom(src => src.Guid))
+            .ForMember(dest => dest.AttendeeName, opt => opt.MapFrom(src => src.Attendee.Name))
+            .ForMember(dest => dest.AttendeeEmail, opt => opt.MapFrom(src => src.Attendee.Email))
+            .ForMember(dest => dest.AttendeeIDNumber, opt => opt.MapFrom(src => src.Attendee.IDNumber))
+            .ForMember(dest => dest.CongressName, opt => opt.MapFrom(src => src.Congress.Name))
+            .ForMember(dest => dest.CongressStartDate, opt => opt.MapFrom(src => src.Congress.StartDate))
+            .ForMember(dest => dest.CongressEndDate, opt => opt.MapFrom(src => src.Congress.EndDate));
     }
 }

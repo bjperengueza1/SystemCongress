@@ -415,5 +415,18 @@ namespace Web.Api.Controllers
             return result ? Ok() : BadRequest("No se ha podido enviar la notificación.");
         }
         
+        [HttpGet("list-certificates-attendance")]
+        [Authorize]
+        public async Task<ActionResult<PaginatedResult<CertificateAttendanceDto>>> GetCertificatesAttendance([FromQuery] CertificateAttendancesFilter filter)
+        {
+            if (filter.pageNumber <= 0 || filter.pageSize <= 0)
+            {
+                return BadRequest("El número de página y el tamaño deben ser mayores a 0.");
+            }
+            var congresses = await _congressService.GetCertificatesAttendanceAsync(filter);
+
+            return Ok(congresses);
+        }
+        
     }
 }

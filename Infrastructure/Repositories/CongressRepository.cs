@@ -155,4 +155,29 @@ public class CongressRepository : ICongressRepository
     {
         return await _context.Congresses.FirstOrDefaultAsync(c => c.Status);
     }
+
+    public async Task<PaginatedResult<CertificatesAttendance>> GetCertificatesAttendanceAsync(CertificateAttendancesFilter tf)
+    {
+        var query = _context.CertificatesAttendances
+            .Include(ca => ca.Congress)
+            .Include(ca => ca.Attendee)
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(tf.search))
+        {
+            query = query.Where(ca => ca.Attendee.Name.Contains(tf.search) || ca.Attendee.IDNumber.Contains(tf.search)
+            || ca.Guid.Contains(tf.search));
+        }
+        
+        query = query.OrderByDescending(ca => ca.CertificatesAttendanceId);
+        
+        var certificatesAttendance = await query
+            .Skip((tf.pageNumber - 1) * tf.pageSize)
+            .Take(tf.pageSize)
+            .ToListAsync();
+        
+        var totalCertificatesAttendance = await query.CountAsync();
+        
+        return PaginatedResult<CertificatesAttendance>.Create(certificatesAttendance, totalCertificatesAttendance, tf.pageNumber, tf.pageSize);
+    }
 }

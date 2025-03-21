@@ -379,4 +379,10 @@ public class CongressService : ICongressService
 
         return await _emailService.SendEmailAsync(emails, "Invitación a Congreso", bodyHTML);
     }
+
+    public async Task<PaginatedResult<CertificateAttendanceDto>> GetCertificatesAttendanceAsync(CertificateAttendancesFilter filter)
+    {
+        var pagedData = await _congressRepository.GetCertificatesAttendanceAsync(filter);
+        return pagedData.Map(p => _mapper.Map<CertificateAttendanceDto>(p));
+    }
 }
